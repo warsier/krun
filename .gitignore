@@ -1,4 +1,5 @@
 .coverage
+data_processing/*.pdf
 examples/*.log
 examples/*.json
 examples/*.bz2
