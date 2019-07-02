@@ -32,7 +32,7 @@ VARIANTS = {
     "default-lua": EntryPoint("bench.lua", subdir="lua"),
 }
 
-ITERATIONS_ALL_VMS = 5  # Small number for testing.
+ITERATIONS_ALL_VMS = 1000  # Small number for testing.
 
 VMS = {
     'C': {
@@ -62,7 +62,7 @@ BENCHMARKS = {
 SKIP = [
     #"*:C:*",
     #"*:PyPy:*",
-    #"*:LuaJIT:*",
+    "*:LuaJIT:*",
 ]
 
 N_EXECUTIONS = 2  # Number of fresh processes.
@@ -70,7 +70,7 @@ N_EXECUTIONS = 2  # Number of fresh processes.
 # No. of seconds to wait before taking the initial temperature reading.
 # You should set this high enough for the system to cool down a bit.
 # The default (if omitted) is 60 seconds.
-TEMP_READ_PAUSE = 1
+#TEMP_READ_PAUSE = 1
 
 # Commands to run before and after each process execution
 #
