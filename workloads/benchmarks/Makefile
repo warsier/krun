@@ -1,56 +1,49 @@
-# GNU Make!
-.PHONY: java-benchmarks c-benchmarks clean-java-benchmarks \
-	clean-c-benchmarks clean clean-idle
+JAVAC ?=	javac
 
-PWD !=		pwd
+BENCHMARKS = 	binarytrees \
+				richards \
+				spectralnorm \
+				nbody \
+				fasta \
+				fannkuch_redux
 
-# We build the C benchmarks as a shared object, which we will then dlopen()
-BENCH_CFLAGS =	-shared -Wall -fPIC -m64
-
-BENCHMARKS = 		binarytrees \
-			richards \
-			spectralnorm \
-			nbody \
-			fasta \
-			fannkuch_redux
-
-# Extra linker flags for C benchmarks
-C_EXTRA_LDFLAGS_binarytrees = -lm
+BENCH_CFLAGS =    -shared -Wall -fPIC -m64
+BENCH_LDFLAGS =
 C_EXTRA_LDFLAGS_nbody = -lm
-C_EXTRA_LDFLAGS_spectralnorm = -lm
 
-all: java-benchmarks c-benchmarks idle/c/bench.so
+.PHONY: all c-bench java-bench clean clean-c clean-java
 
-java-benchmarks:
-	for i in ${BENCHMARKS}; do \
-		echo "Building java benchmark $${i}..."; \
-		cd ${PWD}/$${i}/java && \
-		CLASSPATH=../../../krun/iterations_runners/ ${JAVAC} `ls *.java | grep -v trace`; \
-		done
+all: c-bench
 
-c-benchmarks:
+c-bench:
 	$(foreach i, ${BENCHMARKS}, \
 		echo "Building C benchmark ${i}..."; \
-		cd ${PWD}/${i}/c && \
-		${CC} ${CFLAGS} ${CPPFLAGS} ${C_EXTRA_LDFLAGS_${i}} \
-		${BENCH_CFLAGS} -o bench.so bench.c || exit $?; \
-		)
+		cd ${i}/c && \
+		${CC} ${CFLAGS} ${CPPFLAGS} ${BENCH_CFLAGS} -o bench.so bench.c \
+		${LDFLAGS} ${BENCH_LDFLAGS} ${C_EXTRA_LDFLAGS_${i}} || exit $?; \
+		cd ../../; \
+	)
 
-clean: clean-c-benchmarks clean-java-benchmarks clean-idle
+java-bench:
+	$(foreach i, ${BENCHMARKS}, \
+		echo "Building java benchmark ${i}..."; \
+		cd ${i}/java && \
+		CLASSPATH=../../../../iterations_runners/ ${JAVAC} *.java; \
+		cd ../../; \
+	)
 
-clean-java-benchmarks:
-	for i in ${BENCHMARKS}; do \
-		cd ${PWD}/$${i}/java && rm -f *.class; \
-	done
+clean: clean-java clean-c
 
-clean-c-benchmarks:
-	for i in ${BENCHMARKS}; do \
-		cd ${PWD}/$${i}/c && rm -f bench.so; \
-	done
+clean-java:
+	$(foreach i, ${BENCHMARKS}, \
+		cd ${i}/java && \
+		rm -f *.class; \
+		cd ../../; \
+	)
 
-idle/c/bench.so: idle/c/bench.c
-	cd idle/c && ${CC} ${CFLAGS} ${CPPFLAGS} ${C_EXTRA_LDFLAGS_${i}} \
-		${BENCH_CFLAGS} -o bench.so bench.c || exit $?
-
-clean-idle:
-	-rm -f idle/c/bench.so
+clean-c:
+	$(foreach i, ${BENCHMARKS}, \
+		cd  ${i}/c && \
+		rm -f *.so; \
+		cd ../../; \
+	)

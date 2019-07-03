@@ -106,6 +106,7 @@ class Mailer(object):
             msg['From'] = "%s@%s" % (FROM_USER, self.hostname)
             msg['To'] = ", ".join(self.recipients)
             self._sendmail(msg)
+            print(msg)
 
             if not bypass_limiter:
                 manifest.update_num_mails_sent()

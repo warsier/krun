@@ -8,7 +8,7 @@ from distutils.spawn import find_executable
 MAIL_TO = ["t-yizwei@microsoft.com"]
 
 # Maximum number of error emails to send per-run
-#MAX_MAILS = 2
+MAX_MAILS = 2
 
 DIR = os.getcwd()
 JKRUNTIME_DIR = os.path.join(DIR, "krun", "libkruntime", "")
@@ -50,19 +50,23 @@ VMS = {
 
 
 BENCHMARKS = {
-    'fannkuch_redux': 200,
+    'binarytrees': 25,
+    'richards': 500,
+    'spectralnorm': 3,
     'nbody': 15,
+    'fasta': 100,
+    'fannkuch_redux': 200,
 }
 
 # list of "bench:vm:variant"
 SKIP = [
-    "*:C:*",
-    "*:PyPy:*",
+    #"*:C:*",
+    #"*:PyPy:*",
     #"*:Java:*",
-    "*:Graal:*",
+    #"*:Graal:*",
 ]
 
-N_EXECUTIONS = 30  # Number of fresh processes.
+N_EXECUTIONS = 2  # Number of fresh processes.
 
 # No. of seconds to wait before taking the initial temperature reading.
 # You should set this high enough for the system to cool down a bit.
