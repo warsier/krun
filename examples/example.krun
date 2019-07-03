@@ -32,7 +32,7 @@ VARIANTS = {
     "default-lua": EntryPoint("bench.lua", subdir="lua"),
 }
 
-ITERATIONS_ALL_VMS = 1000  # Small number for testing.
+ITERATIONS_ALL_VMS = 2000  # Small number for testing.
 
 VMS = {
     'C': {
@@ -54,7 +54,7 @@ VMS = {
 
 
 BENCHMARKS = {
-    'fannkuch_redux': 100,
+    'fannkuch_redux': 200,
     'nbody': 15,
 }
 

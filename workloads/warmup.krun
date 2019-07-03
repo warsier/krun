@@ -1,149 +1,85 @@
 import os
-import sys
-import platform
-from krun.vm_defs import (PythonVMDef, LuaVMDef, JavaVMDef, GraalVMDef,
-                          PHPVMDef, TruffleRubyVMDef, V8VMDef,
-                          NativeCodeVMDef, find_internal_jvmci_java_home,
-                          find_internal_jvmci_java_bin, PyPyVMDef)
+from krun.vm_defs import (PyPyVMDef, JavaVMDef, GraalVMDef, NativeCodeVMDef)
 from krun import EntryPoint
-from krun.util import run_shell_cmd
-
-# Change these two lines to vary the experiment length.
-ITERATIONS_ALL_VMS = 2000  # in-process iterations
-N_EXECUTIONS = 30          # process executions
+from krun.util import fatal
+from distutils.spawn import find_executable
 
 # Who to mail
-MAIL_TO = []
+MAIL_TO = ["t-yizwei@microsoft.com"]
+
+# Maximum number of error emails to send per-run
+#MAX_MAILS = 2
 
 DIR = os.getcwd()
 JKRUNTIME_DIR = os.path.join(DIR, "krun", "libkruntime", "")
 
-if sys.platform.startswith("linux"):
-    JDK8_HOME = os.path.join(DIR, "work/openjdk/build/linux-x86_64-normal-server-release/images/j2sdk-image/")
-elif sys.platform.startswith("openbsd"):
-    JDK8_HOME = os.path.join(DIR, "work/openjdk/build/bsd-x86_64-normal-server-release/images/j2sdk-image/")
-else:
-    raise NotImplementedError("unknown platform")
-
-JDK8_BIN = os.path.join(JDK8_HOME, "bin", "java")
-
-if sys.platform.startswith("linux"):
-    GCC_ENV = {"LD_LIBRARY_PATH": os.path.join(DIR, "work/gcc-inst/lib64")}
-elif sys.platform.startswith("openbsd"):
-    GCC_ENV = {"LD_LIBRARY_PATH": os.path.join(DIR, "work/gcc-inst/lib")}
-else:
-    raise NotImplementedError("unknown platform")
-
-HEAP_LIMIT = 2097152  # 2GiB
-STACK_LIMIT = 8192  # 8 MiB
+HEAP_LIMIT = 2097152  # KiB
+STACK_LIMIT = 8192  # KiB
 
 # Variant name -> EntryPoint
 VARIANTS = {
     "default-c": EntryPoint("bench.so", subdir="c"),
-    "default-java": EntryPoint("KrunEntry", subdir="java"),
-    "default-lua": EntryPoint("bench.lua", subdir="lua"),
     "default-python": EntryPoint("bench.py", subdir="python"),
-    "default-php": EntryPoint("bench.php", subdir="php"),
-    "default-ruby": EntryPoint("bench.rb", subdir="ruby"),
-    "default-javascript": EntryPoint("bench.js", subdir="javascript"),
+    "default-java": EntryPoint("KrunEntry", subdir="java"),
 }
+
+ITERATIONS_ALL_VMS = 2000  # Small number for testing.
 
 VMS = {
     'C': {
-        'vm_def': NativeCodeVMDef(env=GCC_ENV),
+        'vm_def': NativeCodeVMDef(),
         'variants': ['default-c'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
     'PyPy': {
-        'vm_def': PyPyVMDef('work/pypy/pypy/goal/pypy-c',
-                            env=GCC_ENV),
+        'vm_def': PyPyVMDef("/usr/bin/pypy"),
         'variants': ['default-python'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
-    'HotSpot': {
-        'vm_def': JavaVMDef(JDK8_BIN, env=GCC_ENV),
+    'Java': {
+        'vm_def': JavaVMDef("/usr/bin/java"),
         'variants': ['default-java'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
-    'LuaJIT': {
-        'vm_def': LuaVMDef('work/luajit/src/luajit', env=GCC_ENV),
-        'variants': ['default-lua'],
+    'Graal': {
+        'vm_def': JavaVMDef("/home/admin/Documents/graalvm-ce-19.0.2/bin/java"),
+        'variants': ['default-java'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
-    'V8': {
-        'vm_def': V8VMDef('work/v8/out/native/d8', env=GCC_ENV),
-        'variants': ['default-javascript'],
-        'n_iterations': ITERATIONS_ALL_VMS,
-    },
-    'CPython': {
-        'vm_def': PythonVMDef('work/cpython-inst/bin/python',
-                              env=GCC_ENV),
-        'variants': ['default-python'],
-        'n_iterations': ITERATIONS_ALL_VMS,
-    }
 }
-
-if not sys.platform.startswith("openbsd"):
-    JVMCI_JAVA_HOME = find_internal_jvmci_java_home('work/graal-jvmci-8/')
-
-    # The following VMs do not run on OpenBSD.
-    VMS.update({
-        'Graal': {
-            'vm_def': GraalVMDef('work/graal', 'work/mx/mx',
-                                 java_home=JVMCI_JAVA_HOME, env=GCC_ENV),
-            'variants': ['default-java'],
-            'n_iterations': ITERATIONS_ALL_VMS,
-        },
-        'HHVM': {
-            'vm_def': PHPVMDef('work/hhvm/hphp/hhvm/php', env=GCC_ENV),
-            'variants': ['default-php'],
-            'n_iterations': ITERATIONS_ALL_VMS,
-        },
-        'TruffleRuby': {
-            'vm_def': TruffleRubyVMDef(truffleruby_dir='work/truffleruby',
-                                       graal_home='work/graal',
-                                       mx_dir='work/mx',
-                                       jvmci_home=JVMCI_JAVA_HOME,
-                                       env=GCC_ENV),
-            'variants': ['default-ruby'],
-            'n_iterations': ITERATIONS_ALL_VMS,
-        },
-    })
 
 
 BENCHMARKS = {
-    'binarytrees': 25,
-    'richards': 500,
-    'spectralnorm': 3,
-    'nbody': 15,
-    'fasta': 100,
     'fannkuch_redux': 200,
+    'nbody': 15,
 }
 
 # list of "bench:vm:variant"
 SKIP = [
-    # Uncomment to skip whole VMs
-    #
-    #"*:PyPy:*",
-    #"*:CPython:*",
-    #"*:HotSpot:*",
-    #"*:Graal:*",
-    "*:LuaJIT:*",
-    "*:HHVM:*",
-    "*:TruffleRuby:*",
-    "*:V8:*",
-    #"*:C:*",
-
-    # Skipped due to being really slow.
-    "richards:HHVM:default-php",
-    "nbody:HHVM:default-php",
-    "fasta:TruffleRuby:default-ruby",
+    "*:C:*",
+    "*:PyPy:*",
+    #"*:Java:*",
+    "*:Graal:*",
 ]
 
-if sys.platform.startswith("linux"):
-    # Assumes systemd is used for init.
-    PING_HOST = "bencher2.soft-dev.org"
-    PRE_EXECUTION_CMDS = [
+N_EXECUTIONS = 30  # Number of fresh processes.
+
+# No. of seconds to wait before taking the initial temperature reading.
+# You should set this high enough for the system to cool down a bit.
+# The default (if omitted) is 60 seconds.
+#TEMP_READ_PAUSE = 1
+
+# Commands to run before and after each process execution
+#
+# Environment available for these commands:
+#   KRUN_RESULTS_FILE: path to results file.
+#   KRUN_LOG_FILE: path to log file.
+#   KRUN_ETA_DATUM: time the ETA was computed
+#   KRUN_ETA_VALUE: estimated time of completion
+#PRE_EXECUTION_CMDS = ["sudo service cron stop"]
+#POST_EXECUTION_CMDS = ["sudo service cron start"]
+
+PRE_EXECUTION_CMDS = [
         # Stop network first. If an interface accepts a DHCP lease during one
         # of the later commands below, it can cause the command to be
         # "cancelled" by systemd. Bringing the network itself down can fail in
@@ -151,54 +87,25 @@ if sys.platform.startswith("linux"):
         #"while true; do sudo systemctl stop networking; sleep 5; ping -q -c 10 %s || break; done" % PING_HOST,
         "sudo systemctl stop cron",
         "sudo systemctl stop atd",
-        "sudo systemctl stop postfix",
+        "sudo systemctl stop sendmail",
     ]
 
-    POST_EXECUTION_CMDS = [
-        # The network doesn't always come up properly on debian. We keep trying
-        # until we can ping a host on the network.
-        #"while true; do ping -c 3 -q %s && break; sudo systemctl stop networking; sleep 5; sudo systemctl start networking; done" % PING_HOST,
-        "sudo systemctl start cron || true",
-        "sudo systemctl start atd || true",
-        "sudo systemctl start postfix || true",
-    ]
-elif sys.platform.startswith("openbsd"):
-    PRE_EXECUTION_CMDS = [
-        "sudo /etc/rc.d/ntpd stop",
-        "sudo /etc/rc.d/cron stop",
-        "sudo /etc/rc.d/smtpd stop",
-        "sudo /etc/rc.d/pflogd stop",
-        #"for intf in `ifconfig  | grep -e '^[a-z]' | cut -f 1 -d ':' | grep -v '^lo0$'`; do sudo ifconfig $intf down; done",
-    ]
+POST_EXECUTION_CMDS = [
+    # The network doesn't always come up properly on debian. We keep trying
+    # until we can ping a host on the network.
+    #"while true; do ping -c 3 -q %s && break; sudo systemctl stop networking; sleep 5; sudo systemctl start networking; done" % PING_HOST,
+    "sudo systemctl start cron || true",
+    "sudo systemctl start atd || true",
+    "sudo systemctl start sendmail || true",
+]
 
-    POST_EXECUTION_CMDS = [
-        #"sudo sh /etc/netstart",
-        "sudo /etc/rc.d/ntpd start || true",
-        "sudo /etc/rc.d/cron start || true",
-        "sudo /etc/rc.d/smtpd start || true",
-        "sudo /etc/rc.d/pflogd start || true",
-    ]
-else:
-    assert False
+# CPU pinning (off by default)
+ENABLE_PINNING = False
 
+# Lower and upper bound for acceptable APERF/MPERF ratios
+AMPERF_RATIO_BOUNDS = 0.995, 1.005
 
-# Copy off results after each execution -- soft-dev specific!
-#
-# This assumes a no-password SSH key named 'id_rsa' is present in this
-# directory, and that the corresponding public key is installed on the correct
-# user on the remote machine.
-#
-# We allow failure, otherwise Krun will halt the experiment if (e.g.) the
-# SSH server hostname is temporarily unavailable.
-HOSTNAME = platform.node().split(".")[0]
-REMOTE_LOGIN = "vext01@bencher2.soft-dev.org"
-REMOTE_DIR = "research/krun_results/"
-
-#SSH_BATCH = "ssh -o 'BatchMode yes' -i id_rsa"
-#SCP_CMD = ("tar czf - ${KRUN_RESULTS_FILE} ${KRUN_LOG_FILE} ${KRUN_MANIFEST_FILE} | "
-#           "%s %s 'cat > %s/%s.tgz'" %
-#           (SSH_BATCH, REMOTE_LOGIN, REMOTE_DIR, HOSTNAME))
-#POST_EXECUTION_CMDS.append(
-#    "%s || ( sleep 2; %s ) || true " % (SCP_CMD, SCP_CMD))
-#POST_EXECUTION_CMDS.append("%s %s 'test ! -e %s/%s.stop'" %
-#                           (SSH_BATCH, REMOTE_LOGIN, REMOTE_DIR, HOSTNAME))
+# Rough rate of change in APERF per second above which a core is considered busy.
+# For many machines this is simply the base clock frequency, but generally
+# speaking, is undefined, so you need to check on a per-machine basis.
+AMPERF_BUSY_THRESHOLD = 3.4 * 1000 * 1000 * 1000 / 1000  # 3.4 GHz / 1000
