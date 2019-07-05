@@ -66,7 +66,7 @@ SKIP = [
     "*:Graal:*",
 ]
 
-N_EXECUTIONS = 30  # Number of fresh processes.
+N_EXECUTIONS = 20  # Number of fresh processes.
 
 # No. of seconds to wait before taking the initial temperature reading.
 # You should set this high enough for the system to cool down a bit.
@@ -84,32 +84,40 @@ N_EXECUTIONS = 30  # Number of fresh processes.
 #POST_EXECUTION_CMDS = ["sudo service cron start"]
 
 PRE_EXECUTION_CMDS = [
-        # Stop network first. If an interface accepts a DHCP lease during one
-        # of the later commands below, it can cause the command to be
-        # "cancelled" by systemd. Bringing the network itself down can fail in
-        # the same way, so keep trying (with sleeps between).
-        #"while true; do sudo systemctl stop networking; sleep 5; ping -q -c 10 %s || break; done" % PING_HOST,
-        "sudo systemctl stop cron",
-        "sudo systemctl stop atd",
-        "sudo systemctl stop sendmail",
-    ]
+    # Stop network first. If an interface accepts a DHCP lease during one
+    # of the later commands below, it can cause the command to be
+    # "cancelled" by systemd. Bringing the network itself down can fail in
+    # the same way, so keep trying (with sleeps between).
+    #"while true; do sudo systemctl stop networking; sleep 5; ping -q -c 10 %s || break; done" % PING_HOST,
+    "sudo service cron stop",
+    "sudo service atd stop",
+    "sudo service sendmail stop",
+    "sudo service lightdm stop",
+    "sudo service docker stop",
+    "sudo service containerd stop",
+    "sudo service mysql stop",
+]
 
 POST_EXECUTION_CMDS = [
     # The network doesn't always come up properly on debian. We keep trying
     # until we can ping a host on the network.
     #"while true; do ping -c 3 -q %s && break; sudo systemctl stop networking; sleep 5; sudo systemctl start networking; done" % PING_HOST,
-    "sudo systemctl start cron || true",
-    "sudo systemctl start atd || true",
-    "sudo systemctl start sendmail || true",
+    "sudo service cron start || true",
+    "sudo service atd start || true",
+    "sudo service sendmail start || true",
+    "sudo service lightdm start || true",
+    "sudo service docker start || true",
+    "sudo service containerd start || true",
+    "sudo service mysql start || true",
 ]
 
 # CPU pinning (off by default)
 ENABLE_PINNING = True
 
 # Lower and upper bound for acceptable APERF/MPERF ratios
-AMPERF_RATIO_BOUNDS = 0.995, 1.005
+AMPERF_RATIO_BOUNDS = 0.9, 1.1
 
 # Rough rate of change in APERF per second above which a core is considered busy.
 # For many machines this is simply the base clock frequency, but generally
 # speaking, is undefined, so you need to check on a per-machine basis.
-AMPERF_BUSY_THRESHOLD = 3.4 * 1000 * 1000 * 1000 / 1000  # 3.4 GHz / 1000
+AMPERF_BUSY_THRESHOLD = 3 * 1000 * 1000 * 1000 / 1000  # 3 GHz / 1000

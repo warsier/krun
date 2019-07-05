@@ -1,9 +1,9 @@
-YOUR_DATA_DIR=../examples
+YOUR_DATA_DIR=../workloads
 EXAMPLE_DATA_DIR=../example_data
 
-YOUR_WARMUP_DATA=${YOUR_DATA_DIR}/example_results.json.bz2
-YOUR_WARMUP_DATA_OUTLIERS=${YOUR_DATA_DIR}/example_results_outliers_w200.json.bz2
-YOUR_WARMUP_DATA_OUTLIERS_CHANGEPOINTS=${YOUR_DATA_DIR}/example_results_outliers_w200_changepoints.json.bz2
+YOUR_WARMUP_DATA=${YOUR_DATA_DIR}/warmup_results.json.bz2
+YOUR_WARMUP_DATA_OUTLIERS=${YOUR_DATA_DIR}/warmup_results_outliers_w200.json.bz2
+YOUR_WARMUP_DATA_OUTLIERS_CHANGEPOINTS=${YOUR_DATA_DIR}/warmup_results_outliers_w200_changepoints.json.bz2
 
 YOUR_STARTUP_DATA=${YOUR_DATA_DIR}/startup_results.json.bz2
 
