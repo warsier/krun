@@ -405,7 +405,7 @@ class JavaVMDef(BaseVMDef):
 
     def __init__(self, vm_path, env=None, instrument=False):
         self.vm_path = vm_path
-        self.extra_vm_args = ["-Xint"]
+        self.extra_vm_args = []
         BaseVMDef.__init__(self, "IterationsRunner", env=env,
                            instrument=instrument)
 
@@ -474,6 +474,33 @@ class JavaVMDef(BaseVMDef):
 
         return {"raw_vm_events": iter_data}
 
+class JavaIntVMDef(JavaVMDef):
+    def __init__(self, vm_path, env=None, instrument=False):
+        JavaVMDef.__init__(self, vm_path, env=env,
+                           instrument=instrument)
+        self.vm_path = vm_path
+        self.extra_vm_args = ["-Xint"]
+
+class JavaDelayedJitVMDef(JavaVMDef):
+    def __init__(self, vm_path, env=None, instrument=False):
+        JavaVMDef.__init__(self, vm_path, env=env,
+                           instrument=instrument)
+        self.vm_path = vm_path
+        self.extra_vm_args = ["-Xjit:count=20000"]
+
+class JavaNoJitVMDef(JavaVMDef):
+    def __init__(self, vm_path, env=None, instrument=False):
+        JavaVMDef.__init__(self, vm_path, env=env,
+                           instrument=instrument)
+        self.vm_path = vm_path
+        self.extra_vm_args = ["-Xnojit"]
+
+class JavaNoAotVMDef(JavaVMDef):
+    def __init__(self, vm_path, env=None, instrument=False):
+        JavaVMDef.__init__(self, vm_path, env=env,
+                           instrument=instrument)
+        self.vm_path = vm_path
+        self.extra_vm_args = ["-Xnoaot"]
 
 def find_internal_jvmci_java_home(base_dir):
     """

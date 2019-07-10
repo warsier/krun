@@ -1,5 +1,5 @@
 import os
-from krun.vm_defs import (PyPyVMDef, JavaVMDef, GraalVMDef, NativeCodeVMDef)
+from krun.vm_defs import *
 from krun import EntryPoint
 from krun.util import fatal
 from distutils.spawn import find_executable
@@ -41,6 +41,26 @@ VMS = {
         'variants': ['default-java'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
+    'JavaInt': {
+        'vm_def': JavaIntVMDef("/usr/bin/java"),
+        'variants': ['default-java'],
+        'n_iterations': ITERATIONS_ALL_VMS,
+    },
+    'JavaDelayedJit': {
+        'vm_def': JavaDelayedJitVMDef("/usr/bin/java"),
+        'variants': ['default-java'],
+        'n_iterations': ITERATIONS_ALL_VMS,
+    },
+    'JavaNoJit': {
+        'vm_def': JavaNoJitVMDef("/usr/bin/java"),
+        'variants': ['default-java'],
+        'n_iterations': ITERATIONS_ALL_VMS,
+    },
+    'JavaNoAot': {
+        'vm_def': JavaNoAotVMDef("/usr/bin/java"),
+        'variants': ['default-java'],
+        'n_iterations': ITERATIONS_ALL_VMS,
+    },
     'Graal': {
         'vm_def': JavaVMDef("/home/admin/Documents/graalvm-ce-19.0.2/bin/java"),
         'variants': ['default-java'],
@@ -51,7 +71,7 @@ VMS = {
 
 BENCHMARKS = {
 #    'binarytrees': 25,
-    'richards': 500,
+#    'richards': 500,
 #    'spectralnorm': 3,
 #    'nbody': 15,
 #    'fasta': 100,
@@ -63,6 +83,10 @@ SKIP = [
     "*:C:*",
     "*:PyPy:*",
     #"*:Java:*",
+    #"*:JavaInt:*",
+    #"*:JavaDelayedJit:*",
+    #"*:JavaNoJit:*",
+    #"*:JavaNoAot:*",
     "*:Graal:*",
 ]
 
