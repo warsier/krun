@@ -72,7 +72,7 @@ ${YOUR_WARMUP_DATA_OUTLIERS_CHANGEPOINTS}: ${YOUR_WARMUP_DATA_OUTLIERS}
 
 your_warmup_plots.pdf: ${YOUR_WARMUP_DATA_OUTLIERS_CHANGEPOINTS}
 	${WARMUP_BIN_DIR}/plot_krun_results --with-outliers \
-		--with-changepoint-means \
+		--with-changepoint-means -w 1\
 		-o $@ ${YOUR_WARMUP_DATA_OUTLIERS_CHANGEPOINTS}
 
 tex/your_warmup_table.tex: ${YOUR_WARMUP_DATA_OUTLIERS_CHANGEPOINTS}

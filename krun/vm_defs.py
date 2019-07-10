@@ -405,7 +405,7 @@ class JavaVMDef(BaseVMDef):
 
     def __init__(self, vm_path, env=None, instrument=False):
         self.vm_path = vm_path
-        self.extra_vm_args = []
+        self.extra_vm_args = ["-Xint"]
         BaseVMDef.__init__(self, "IterationsRunner", env=env,
                            instrument=instrument)
 

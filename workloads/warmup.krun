@@ -23,7 +23,7 @@ VARIANTS = {
     "default-java": EntryPoint("KrunEntry", subdir="java"),
 }
 
-ITERATIONS_ALL_VMS = 2000  # Small number for testing.
+ITERATIONS_ALL_VMS = 200
 
 VMS = {
     'C': {
@@ -50,11 +50,11 @@ VMS = {
 
 
 BENCHMARKS = {
-    'binarytrees': 25,
+#    'binarytrees': 25,
     'richards': 500,
-    'spectralnorm': 3,
-    'nbody': 15,
-    'fasta': 100,
+#    'spectralnorm': 3,
+#    'nbody': 15,
+#    'fasta': 100,
     'fannkuch_redux': 200,
 }
 
@@ -66,7 +66,7 @@ SKIP = [
     "*:Graal:*",
 ]
 
-N_EXECUTIONS = 20  # Number of fresh processes.
+N_EXECUTIONS = 1  # Number of fresh processes.
 
 # No. of seconds to wait before taking the initial temperature reading.
 # You should set this high enough for the system to cool down a bit.
