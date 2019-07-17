@@ -23,7 +23,7 @@ VARIANTS = {
     "default-java": EntryPoint("KrunEntry", subdir="java"),
 }
 
-ITERATIONS_ALL_VMS = 200
+ITERATIONS_ALL_VMS = 500
 
 VMS = {
     'C': {
@@ -46,18 +46,18 @@ VMS = {
         'variants': ['default-java'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
-    'JavaDelayedJit': {
-        'vm_def': JavaDelayedJitVMDef("/usr/bin/java"),
+    'JavaAot': {
+        'vm_def': JavaAotVMDef("/usr/bin/java"),
         'variants': ['default-java'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
-    'JavaNoJit': {
-        'vm_def': JavaNoJitVMDef("/usr/bin/java"),
+    'JavaC2Only': {
+        'vm_def': JavaC2OnlyVMDef("/usr/bin/java"),
         'variants': ['default-java'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
-    'JavaNoAot': {
-        'vm_def': JavaNoAotVMDef("/usr/bin/java"),
+    'JavaC1Only': {
+        'vm_def': JavaC1OnlyVMDef("/usr/bin/java"),
         'variants': ['default-java'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
@@ -66,29 +66,62 @@ VMS = {
         'variants': ['default-java'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
+    'JavaTest': {
+        'vm_def': JavaTestVMDef("/usr/bin/java"),
+        'variants': ['default-java'],
+        'n_iterations': ITERATIONS_ALL_VMS,
+    },
 }
 
+thresholds= [0, 50000, 100000, 200000, 400000, 800000, 1600000, 3200000, 12800000]
+
+for i in thresholds:
+    VMS.update( {
+        'JavaDelayedJit_'+str(i): {
+            'vm_def': JavaDelayedJitVMDef("/usr/bin/java", threshold=i),
+            'variants': ['default-java'],
+            'n_iterations': ITERATIONS_ALL_VMS,
+        },
+        'JavaC2OnlyDelayedJit_'+str(i): {
+            'vm_def': JavaC2OnlyDelayedJitVMDef("/usr/bin/java", threshold=i),
+            'variants': ['default-java'],
+            'n_iterations': ITERATIONS_ALL_VMS,
+        },
+        'JavaC1OnlyDelayedJit_'+str(i): {
+            'vm_def': JavaC1OnlyDelayedJitVMDef("/usr/bin/java", threshold=i),
+            'variants': ['default-java'],
+            'n_iterations': ITERATIONS_ALL_VMS,
+        },
+    } )
 
 BENCHMARKS = {
 #    'binarytrees': 25,
-#    'richards': 500,
+    'richards': 500,
 #    'spectralnorm': 3,
 #    'nbody': 15,
 #    'fasta': 100,
-    'fannkuch_redux': 200,
+#    'fannkuch_redux': 200,
 }
 
 # list of "bench:vm:variant"
 SKIP = [
     "*:C:*",
     "*:PyPy:*",
-    #"*:Java:*",
-    #"*:JavaInt:*",
-    #"*:JavaDelayedJit:*",
-    #"*:JavaNoJit:*",
-    #"*:JavaNoAot:*",
+    "*:Java:*",
+    "*:JavaInt:*",
+    "*:JavaAot:*",
+    "*:JavaC2Only:*",
+    "*:JavaC1Only:*",
     "*:Graal:*",
+    #"*:JavaTest:*",
 ]
+
+for i in thresholds:
+    SKIP += [
+        "*:JavaDelayedJit_"+str(i)+":*",
+        "*:JavaC2OnlyDelayedJit_"+str(i)+":*",
+        "*:JavaC1OnlyDelayedJit_"+str(i)+":*",
+    ]
 
 N_EXECUTIONS = 1  # Number of fresh processes.
 
@@ -136,7 +169,7 @@ POST_EXECUTION_CMDS = [
 ]
 
 # CPU pinning (off by default)
-ENABLE_PINNING = True
+# ENABLE_PINNING = True
 
 # Lower and upper bound for acceptable APERF/MPERF ratios
 AMPERF_RATIO_BOUNDS = 0.9, 1.1

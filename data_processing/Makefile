@@ -71,8 +71,8 @@ ${YOUR_WARMUP_DATA_OUTLIERS_CHANGEPOINTS}: ${YOUR_WARMUP_DATA_OUTLIERS}
 	LD_LIBRARY_PATH=${R_LIB_PATH} ${WARMUP_BIN_DIR}/mark_changepoints_in_json ${YOUR_WARMUP_DATA_OUTLIERS}
 
 your_warmup_plots.pdf: ${YOUR_WARMUP_DATA_OUTLIERS_CHANGEPOINTS}
-	${WARMUP_BIN_DIR}/plot_krun_results --with-outliers \
-		--with-changepoint-means -w 1\
+	${WARMUP_BIN_DIR}/plot_krun_results \
+		--with-outliers --with-changepoint-means \
 		-o $@ ${YOUR_WARMUP_DATA_OUTLIERS_CHANGEPOINTS}
 
 tex/your_warmup_table.tex: ${YOUR_WARMUP_DATA_OUTLIERS_CHANGEPOINTS}

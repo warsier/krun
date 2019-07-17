@@ -430,6 +430,7 @@ class JavaVMDef(BaseVMDef):
         args = [self.vm_path] + self.extra_vm_args
         args += [self.iterations_runner, entry_point.target,
                  str(iterations), str(param)]
+        print(args)
 
         return self._run_exec(args, heap_lim_k, stack_lim_k, key,
                               key_pexec_idx,
@@ -478,29 +479,88 @@ class JavaIntVMDef(JavaVMDef):
     def __init__(self, vm_path, env=None, instrument=False):
         JavaVMDef.__init__(self, vm_path, env=env,
                            instrument=instrument)
-        self.vm_path = vm_path
-        self.extra_vm_args = ["-Xint"]
+        self.extra_vm_args += ["-Xint"]
+
+class JavaAotVMDef(JavaVMDef):
+    def __init__(self, vm_path, env=None, instrument=False):
+        JavaVMDef.__init__(self, vm_path, env=env,
+                           instrument=instrument)
+        self.extra_vm_args += ["-Xcomp"]
 
 class JavaDelayedJitVMDef(JavaVMDef):
-    def __init__(self, vm_path, env=None, instrument=False):
+    def __init__(self, vm_path, env=None, instrument=False, threshold=50000):
         JavaVMDef.__init__(self, vm_path, env=env,
                            instrument=instrument)
-        self.vm_path = vm_path
-        self.extra_vm_args = ["-Xjit:count=20000"]
+        self.extra_vm_args += ["-XX:CompileThreshold="+str(threshold)]
 
-class JavaNoJitVMDef(JavaVMDef):
+class JavaC2OnlyVMDef(JavaVMDef):
     def __init__(self, vm_path, env=None, instrument=False):
         JavaVMDef.__init__(self, vm_path, env=env,
                            instrument=instrument)
-        self.vm_path = vm_path
-        self.extra_vm_args = ["-Xnojit"]
+        self.extra_vm_args += ["-XX:-TieredCompilation"]
 
-class JavaNoAotVMDef(JavaVMDef):
+class JavaC1OnlyVMDef(JavaVMDef):
     def __init__(self, vm_path, env=None, instrument=False):
         JavaVMDef.__init__(self, vm_path, env=env,
                            instrument=instrument)
+        self.extra_vm_args += ["-XX:TieredStopAtLevel=1"]
+
+class JavaC2OnlyDelayedJitVMDef(JavaDelayedJitVMDef):
+    def __init__(self, vm_path, env=None, instrument=False, threshold=50000):
+        JavaDelayedJitVMDef.__init__(self, vm_path, env=env,
+                           instrument=instrument, threshold=threshold)
+        self.extra_vm_args += ["-XX:-TieredCompilation"]
+
+class JavaC1OnlyDelayedJitVMDef(JavaDelayedJitVMDef):
+    def __init__(self, vm_path, env=None, instrument=False, threshold=50000):
+        JavaDelayedJitVMDef.__init__(self, vm_path, env=env,
+                           instrument=instrument, threshold=threshold)
+        self.extra_vm_args += ["-XX:TieredStopAtLevel=1"]
+
+class JavaTestVMDef(JavaVMDef):
+    def __init__(self, vm_path, env=None, instrument=False):
         self.vm_path = vm_path
-        self.extra_vm_args = ["-Xnoaot"]
+        self.extra_vm_args = ["-Xdebug"]
+        BaseVMDef.__init__(self, "IterationsRunner", env=env,
+                           instrument=instrument)
+
+    def run_exec(self, entry_point, iterations,
+                 param, heap_lim_k, stack_lim_k, key, key_pexec_idx,
+                 force_dir=None, sync_disks=True):
+        """Running Java experiments is different due to the way that the JVM
+        doesn't simply accept the path to a program to run. We have to set
+        the CLASSPATH and then provide a class name instead"""
+
+        benchmark = key.split(":")[0]
+        bench_dir = os.path.dirname(self._get_benchmark_path(
+            benchmark, entry_point, force_dir=force_dir))
+
+        # deal with CLASSPATH
+        # This has to be added here as it is benchmark specific
+        bench_env_changes = [
+            EnvChangeAppend("CLASSPATH", ITERATIONS_RUNNER_DIR),
+            EnvChangeAppend("CLASSPATH", bench_dir),
+        ]
+
+        args = [self.vm_path] + self.extra_vm_args
+        args += [self.iterations_runner, entry_point.target,
+                 str(iterations), str(param)]
+
+        amplxe = "/opt/intel/vtune_amplifier_2019.4.0.597835/bin64/amplxe-cl"
+        customized_cmd = "-collect-with runsa -knob enable-user-tasks=true -knob sampling-interval=0.1 -knob uncore-sampling-interval=1 -knob event-config=CYCLE_ACTIVITY.CYCLES_L1D_MISS:sa=2000003,CYCLE_ACTIVITY.CYCLES_L2_MISS:sa=2000003,CYCLE_ACTIVITY.CYCLES_MEM_ANY:sa=2000003"
+        data_dir = "/home/admin/Documents/WeiYizhou2019/vtunekrun/"
+        analysis_cnt = len(os.listdir(data_dir))
+        analysis_cmd = amplxe.split() + customized_cmd.split() + ["-no-summary", "-r", data_dir+str(analysis_cnt)+".customized", "--"]
+        #analysis_cmd = amplxe.split() + ["-collect", "hotspot", "-no-summary", "-r", data_dir+str(analysis_cnt)+".hotspot", "--"]
+
+        args = analysis_cmd + args
+        print(args)
+
+        return self._run_exec(args, heap_lim_k, stack_lim_k, key,
+                              key_pexec_idx,
+                              bench_env_changes=bench_env_changes,
+                              sync_disks=sync_disks)
+
 
 def find_internal_jvmci_java_home(base_dir):
     """
