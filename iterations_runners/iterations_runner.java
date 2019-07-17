@@ -168,6 +168,7 @@ interface BaseKrunEntry {
 class IterationsRunner {
     static {
         System.loadLibrary("kruntime");
+        System.loadLibrary("vtune");
     }
 
     public static native void JNI_krun_init();
@@ -179,6 +180,8 @@ class IterationsRunner {
     public static native long JNI_krun_get_aperf(int mindex, int core);
     public static native long JNI_krun_get_mperf(int mindex, int core);
     public static native int JNI_krun_get_num_cores();
+
+    public static native void JNI_vtune_measure(int mindex);
 
     /* Prints signed longs for the per-core measurements */
     private static void emitPerCoreResults(String name, int numCores, long[][] array) {
@@ -279,11 +282,18 @@ class IterationsRunner {
                 System.err.println("[iterations_runner.java] iteration: " + (i + 1) + "/" + iterations);
             }
 
+            // VTune measurement section:
+            IterationsRunner.JNI_vtune_measure(0);
+            
+
             // Start timed section
             IterationsRunner.JNI_krun_measure(0);
             ke.run_iter(param);
             IterationsRunner.JNI_krun_measure(1);
             // End timed section
+            
+
+            IterationsRunner.JNI_vtune_measure(1);
 
             // Instrumentation mode emits a JSON dict onto a marker line.
             if (instrument) {
