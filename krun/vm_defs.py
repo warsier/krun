@@ -547,10 +547,13 @@ class JavaTestVMDef(JavaVMDef):
                  str(iterations), str(param)]
 
         amplxe = "/opt/intel/vtune_amplifier_2019.4.0.597835/bin64/amplxe-cl"
-        customized_cmd = "-collect-with runsa -knob enable-stack-collection=true -knob enable-user-tasks=true -knob collectPreciseClockticks=true -knob sampling-interval=0.1 -knob uncore-sampling-interval=1 -knob event-config=CYCLE_ACTIVITY.CYCLES_L1D_MISS:sa=2000003,CYCLE_ACTIVITY.CYCLES_L2_MISS:sa=2000003,CYCLE_ACTIVITY.CYCLES_MEM_ANY:sa=2000003 -knob analyze-loops=true"
+
+        customized_cmd = "-collect-with runsa -knob stack-type=lbr -knob enable-user-tasks=true -knob sampling-interval=0.1 -knob uncore-sampling-interval=1 -knob event-config=DSB2MITE_SWITCHES.PENALTY_CYCLES:sa=2000003,IDQ.DSB_CYCLES:sa=2000003,DTLB_STORE_MISSES.MISS_CAUSES_A_WALK:sa=100003,IDQ.MITE_UOPS:sa=2000003 -knob enable-driverless-collection=true"
+
         data_dir = "/home/admin/Documents/WeiYizhou2019/vtunekrun/"
         analysis_cnt = len(os.listdir(data_dir))
-        analysis_cmd = amplxe.split() + customized_cmd.split() + ["-quiet", "-start-paused", "-no-summary", "-r", data_dir+str(analysis_cnt)+".customized", "--"]
+        analysis_cmd = amplxe.split() + customized_cmd.split() + ["-data-limit=5000", "-quiet", "-no-summary", "-r", data_dir+str(analysis_cnt)+".customized", "--"]
+        #analysis_cmd = amplxe.split() + customized_cmd.split() + ["-quiet", "-start-paused", "-no-summary", "-r", data_dir+str(analysis_cnt)+".customized", "--"]
         #analysis_cmd = amplxe.split() + ["-collect", "hotspot", "-no-summary", "-r", data_dir+str(analysis_cnt)+".hotspot", "--"]
 
         args = analysis_cmd + args

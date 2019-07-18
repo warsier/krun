@@ -282,7 +282,7 @@ class IterationsRunner {
             }
 
             // VTune measurement section:
-            IterationsRunner.JNI_vtune_measure(0);
+            // IterationsRunner.JNI_vtune_measure(0);
             
 
             // Start timed section
@@ -292,7 +292,7 @@ class IterationsRunner {
             // End timed section
             
 
-            IterationsRunner.JNI_vtune_measure(1);
+            // IterationsRunner.JNI_vtune_measure(1);
 
             // Instrumentation mode emits a JSON dict onto a marker line.
             if (instrument) {

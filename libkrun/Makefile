@@ -43,7 +43,7 @@ endif
 
 .PHONY: clean
 
-all: libkruntime.so libvtune.so test/test_prog
+all: libkruntime.so test/test_prog
 
 libkruntime.so: libkruntime.c libkruntime.h
 	${CC} ${JAVA_CPPFLAGS} ${JAVA_CFLAGS} ${LIBKRUNTIME_CFLAGS} ${CFLAGS} \
@@ -52,16 +52,9 @@ libkruntime.so: libkruntime.c libkruntime.h
 		-L${VTUNE_PATH}/lib64/ -littnotify \
 		${JAVA_LDFLAGS} ${LDFLAGS} ${LIBKRUNTIME_LDFLAGS}
 
-libvtune.so: libvtune.c libvtune.h
-	${CC} ${JAVA_CPPFLAGS} ${JAVA_CFLAGS} ${LIBKRUNTIME_CFLAGS} ${CFLAGS} \
-		-I${VTUNE_PATH}/include \
-		${CPPFLAGS} ${COMMON_CFLAGS} libvtune.c -o libvtune.so \
-		${JAVA_LDFLAGS} ${LDFLAGS} ${LIBKRUNTIME_LDFLAGS} \
-		-L${VTUNE_PATH}/lib64/ -littnotify
-
 test/test_prog: test/test_prog.c libkruntime.so
 	${CC} ${CFLAGS} ${CPPFLAGS} ${COMMON_CFLAGS} test/test_prog.c \
 		-o test/test_prog ${LDFLAGS} -L. -lkruntime -Wl,-rpath=$(shell pwd)
 
 clean:
-	rm -f libkruntime.so libvtune.so test/test_prog
+	rm -f libkruntime.so test/test_prog
