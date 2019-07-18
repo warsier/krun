@@ -58,6 +58,8 @@
 #include <stdbool.h>
 
 #include "libkruntime.h"
+#include "ittnotify.h"
+#include "assert.h"
 
 #ifdef WITH_JAVA
 #include <jni.h>
@@ -225,6 +227,22 @@ JNIEXPORT jint JNICALL
 Java_IterationsRunner_JNI_1krun_1get_1num_1cores(JNIEnv *e, jclass c)
 {
     return krun_get_num_cores();
+}
+
+JNIEXPORT void JNICALL
+Java_IterationsRunner_JNI_1vtune_1measure(JNIEnv *e, jclass c, jint mdata_idx) {
+    if (mdata_idx == 0) {
+        __itt_resume();
+    }
+    else if (mdata_idx == 1) {
+        __itt_pause();
+    }
+    else if (mdata_idx == 2) {
+        __itt_detach();
+    }
+    else {
+        assert(0);
+    }
 }
 #endif
 

@@ -107,13 +107,13 @@ BENCHMARKS = {
 SKIP = [
     "*:C:*",
     "*:PyPy:*",
-    #"*:Java:*",
+    "*:Java:*",
     "*:JavaInt:*",
     "*:JavaAot:*",
     "*:JavaC2Only:*",
     "*:JavaC1Only:*",
     "*:Graal:*",
-    "*:JavaTest:*",
+    #"*:JavaTest:*",
 ]
 
 for i in thresholds:

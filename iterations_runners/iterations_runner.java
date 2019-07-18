@@ -168,7 +168,6 @@ interface BaseKrunEntry {
 class IterationsRunner {
     static {
         System.loadLibrary("kruntime");
-        System.loadLibrary("vtune");
     }
 
     public static native void JNI_krun_init();

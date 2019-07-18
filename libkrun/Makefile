@@ -47,10 +47,12 @@ all: libkruntime.so libvtune.so test/test_prog
 
 libkruntime.so: libkruntime.c libkruntime.h
 	${CC} ${JAVA_CPPFLAGS} ${JAVA_CFLAGS} ${LIBKRUNTIME_CFLAGS} ${CFLAGS} \
+		-I${VTUNE_PATH}/include \
 		${CPPFLAGS} ${COMMON_CFLAGS} libkruntime.c -o libkruntime.so \
+		-L${VTUNE_PATH}/lib64/ -littnotify \
 		${JAVA_LDFLAGS} ${LDFLAGS} ${LIBKRUNTIME_LDFLAGS}
 
-libvtune.so: libvtune.c
+libvtune.so: libvtune.c libvtune.h
 	${CC} ${JAVA_CPPFLAGS} ${JAVA_CFLAGS} ${LIBKRUNTIME_CFLAGS} ${CFLAGS} \
 		-I${VTUNE_PATH}/include \
 		${CPPFLAGS} ${COMMON_CFLAGS} libvtune.c -o libvtune.so \

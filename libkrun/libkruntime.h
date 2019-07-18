@@ -47,6 +47,9 @@ JNIEXPORT jlong JNICALL Java_IterationsRunner_JNI_1krun_1get_1core_1cycles(JNIEn
 JNIEXPORT jlong JNICALL Java_IterationsRunner_JNI_1krun_1get_1aperf(JNIEnv *e, jclass c, jint mindex, jint core);
 JNIEXPORT jlong JNICALL Java_IterationsRunner_JNI_1krun_1get_1mperf(JNIEnv *e, jclass c, jint mindex, jint core);
 JNIEXPORT jint JNICALL Java_IterationsRunner_JNI_1krun_1get_1num_1cores(JNIEnv *e, jclass c);
+
+
+JNIEXPORT void JNICALL Java_IterationsRunner_JNI_1vtune_1measure(JNIEnv *e, jclass c, jint mindex);
 #endif  // WITH_JAVA
 
 #endif  // __LIBKRUNTIME_H
