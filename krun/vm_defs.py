@@ -475,6 +475,13 @@ class JavaVMDef(BaseVMDef):
 
         return {"raw_vm_events": iter_data}
 
+class JavaLogVMDef(JavaVMDef):
+    def __init__(self, vm_path, env=None, instrument=False):
+        JavaVMDef.__init__(self, vm_path, env=env,
+                           instrument=instrument)
+        self.extra_vm_args += ["-XX:+UnlockDiagnosticVMOptions", "-XX:+LogCompilation", "-XX:CompileCommand=print,*richards.run"]
+        # self.extra_vm_args += ["-XX:+PrintCodeCache"]
+
 class JavaIntVMDef(JavaVMDef):
     def __init__(self, vm_path, env=None, instrument=False):
         JavaVMDef.__init__(self, vm_path, env=env,
@@ -547,14 +554,16 @@ class JavaTestVMDef(JavaVMDef):
                  str(iterations), str(param)]
 
         amplxe = "/opt/intel/vtune_amplifier_2019.4.0.597835/bin64/amplxe-cl"
-
-        customized_cmd = "-collect-with runsa -knob stack-type=lbr -knob enable-user-tasks=true -knob sampling-interval=0.1 -knob uncore-sampling-interval=1 -knob event-config=DSB2MITE_SWITCHES.PENALTY_CYCLES:sa=2000003,IDQ.DSB_CYCLES:sa=2000003,DTLB_STORE_MISSES.MISS_CAUSES_A_WALK:sa=100003,IDQ.MITE_UOPS:sa=2000003 -knob enable-driverless-collection=true"
-
         data_dir = "/home/admin/Documents/WeiYizhou2019/vtunekrun/"
         analysis_cnt = len(os.listdir(data_dir))
-        analysis_cmd = amplxe.split() + customized_cmd.split() + ["-data-limit=5000", "-quiet", "-no-summary", "-r", data_dir+str(analysis_cnt)+".customized", "--"]
-        #analysis_cmd = amplxe.split() + customized_cmd.split() + ["-quiet", "-start-paused", "-no-summary", "-r", data_dir+str(analysis_cnt)+".customized", "--"]
+
+        # customized_cmd = "-collect-with runsa -knob enable-stack-collection=true -knob enable-user-tasks=true -knob sampling-interval=0.1 -knob uncore-sampling-interval=1 -knob event-config=DSB2MITE_SWITCHES.PENALTY_CYCLES:sa=2000003,IDQ.DSB_CYCLES:sa=2000003,IDQ.DSB_UOPS:sa=2000003,IDQ.MITE_CYCLES:sa=2000003,IDQ.MITE_UOPS:sa=2000003"
+        # analysis_cmd = amplxe.split() + customized_cmd.split() + ["-data-limit=5000", "-quiet", "-no-summary", "-r", data_dir+str(analysis_cnt)+".customized", "--"]
+
         #analysis_cmd = amplxe.split() + ["-collect", "hotspot", "-no-summary", "-r", data_dir+str(analysis_cnt)+".hotspot", "--"]
+
+        uarch_cmd = "-collect uarch-exploration -no-summary -start-paused"
+        analysis_cmd = amplxe.split() + uarch_cmd.split() + ["-r", data_dir+str(analysis_cnt)+".uarch", "--"]
 
         args = analysis_cmd + args
         print(args)

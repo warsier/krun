@@ -5,7 +5,7 @@ from krun.util import fatal
 from distutils.spawn import find_executable
 
 # Who to mail
-MAIL_TO = ["t-yizwei@microsoft.com"]
+# MAIL_TO = ["t-yizwei@microsoft.com"]
 
 # Maximum number of error emails to send per-run
 MAX_MAILS = 2
@@ -41,6 +41,11 @@ VMS = {
         'variants': ['default-java'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
+    'JavaLog': {
+        'vm_def': JavaLogVMDef("/home/admin/Documents/openjdk-11/build/linux-x86_64-normal-server-release/jdk/bin/java"),
+        'variants': ['default-java'],
+        'n_iterations': ITERATIONS_ALL_VMS,
+    },
     'JavaInt': {
         'vm_def': JavaIntVMDef("/usr/bin/java"),
         'variants': ['default-java'],
@@ -67,7 +72,7 @@ VMS = {
         'n_iterations': ITERATIONS_ALL_VMS,
     },
     'JavaTest': {
-        'vm_def': JavaTestVMDef("/usr/bin/java"),
+        'vm_def': JavaTestVMDef("/home/admin/Documents/openjdk-11/build/linux-x86_64-normal-server-release/jdk/bin/java"),
         'variants': ['default-java'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
@@ -108,12 +113,13 @@ SKIP = [
     "*:C:*",
     "*:PyPy:*",
     "*:Java:*",
+    # "*:JavaLog:*",
     "*:JavaInt:*",
     "*:JavaAot:*",
     "*:JavaC2Only:*",
     "*:JavaC1Only:*",
     "*:Graal:*",
-    #"*:JavaTest:*",
+    "*:JavaTest:*",
 ]
 
 for i in thresholds:
@@ -146,26 +152,26 @@ PRE_EXECUTION_CMDS = [
     # "cancelled" by systemd. Bringing the network itself down can fail in
     # the same way, so keep trying (with sleeps between).
     #"while true; do sudo systemctl stop networking; sleep 5; ping -q -c 10 %s || break; done" % PING_HOST,
-    "sudo service cron stop",
-    "sudo service atd stop",
-    "sudo service sendmail stop",
-    "sudo service lightdm stop",
-    "sudo service docker stop",
-    "sudo service containerd stop",
-    "sudo service mysql stop",
+    # "sudo service cron stop",
+    # "sudo service atd stop",
+    # "sudo service sendmail stop",
+    # "sudo service lightdm stop",
+    # "sudo service docker stop",
+    # "sudo service containerd stop",
+    # "sudo service mysql stop",
 ]
 
 POST_EXECUTION_CMDS = [
     # The network doesn't always come up properly on debian. We keep trying
     # until we can ping a host on the network.
     #"while true; do ping -c 3 -q %s && break; sudo systemctl stop networking; sleep 5; sudo systemctl start networking; done" % PING_HOST,
-    "sudo service cron start || true",
-    "sudo service atd start || true",
-    "sudo service sendmail start || true",
-    "sudo service lightdm start || true",
-    "sudo service docker start || true",
-    "sudo service containerd start || true",
-    "sudo service mysql start || true",
+    # "sudo service cron start || true",
+    # "sudo service atd start || true",
+    # "sudo service sendmail start || true",
+    # "sudo service lightdm start || true",
+    # "sudo service docker start || true",
+    # "sudo service containerd start || true",
+    # "sudo service mysql start || true",
 ]
 
 # CPU pinning (off by default)

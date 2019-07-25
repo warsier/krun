@@ -50,6 +50,7 @@ JNIEXPORT jint JNICALL Java_IterationsRunner_JNI_1krun_1get_1num_1cores(JNIEnv *
 
 
 JNIEXPORT void JNICALL Java_IterationsRunner_JNI_1vtune_1measure(JNIEnv *e, jclass c, jint mindex);
+JNIEXPORT void JNICALL Java_IterationsRunner_JNI_1vtune_1frame(JNIEnv *e, jclass c, jint mindex);
 #endif  // WITH_JAVA
 
 #endif  // __LIBKRUNTIME_H

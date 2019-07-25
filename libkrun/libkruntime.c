@@ -244,6 +244,25 @@ Java_IterationsRunner_JNI_1vtune_1measure(JNIEnv *e, jclass c, jint mdata_idx) {
         assert(0);
     }
 }
+
+__itt_domain *krun_vtune_domain; 
+
+JNIEXPORT void JNICALL
+Java_IterationsRunner_JNI_1vtune_1frame(JNIEnv *e, jclass c, jint mdata_idx) {
+    if (mdata_idx == 0) {
+        __itt_frame_begin_v3(krun_vtune_domain, NULL);
+    }
+    else if (mdata_idx == 1) {
+        __itt_frame_end_v3(krun_vtune_domain, NULL);
+    }
+    else if (mdata_idx == 2) {
+        krun_vtune_domain = __itt_domain_create("krun.vtune_analysis");
+        krun_vtune_domain->flags = 1;
+    }
+    else {
+        assert(0);
+    }
+}
 #endif
 
 #if defined(__linux__) && !defined(NO_MSRS)

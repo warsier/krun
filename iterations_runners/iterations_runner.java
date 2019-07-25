@@ -181,6 +181,7 @@ class IterationsRunner {
     public static native int JNI_krun_get_num_cores();
 
     public static native void JNI_vtune_measure(int mindex);
+    public static native void JNI_vtune_frame(int mindex);
 
     /* Prints signed longs for the per-core measurements */
     private static void emitPerCoreResults(String name, int numCores, long[][] array) {
@@ -276,14 +277,20 @@ class IterationsRunner {
             Arrays.fill(mperfCounts[core], 0);
         }
 
+        // initialized VTune frame:
+        // IterationsRunner.JNI_vtune_frame(2);
+ 
         for (int i = 0; i < iterations; i++) {
             if (debug) {
                 System.err.println("[iterations_runner.java] iteration: " + (i + 1) + "/" + iterations);
             }
 
             // VTune measurement section:
-            // IterationsRunner.JNI_vtune_measure(0);
-            
+            // if (i == 215) {
+            //     IterationsRunner.JNI_vtune_measure(0);
+            // }
+            // IterationsRunner.JNI_vtune_frame(0);
+
 
             // Start timed section
             IterationsRunner.JNI_krun_measure(0);
@@ -291,8 +298,11 @@ class IterationsRunner {
             IterationsRunner.JNI_krun_measure(1);
             // End timed section
             
-
-            // IterationsRunner.JNI_vtune_measure(1);
+            // End VTune measurement section:
+            // IterationsRunner.JNI_vtune_frame(1);
+            // if (i == 385) {
+            //     IterationsRunner.JNI_vtune_measure(2);
+            // }
 
             // Instrumentation mode emits a JSON dict onto a marker line.
             if (instrument) {
