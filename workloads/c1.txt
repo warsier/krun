@@ -1,0 +1,2919 @@
+<print_nmethod stamp='31.192'>
+Compiled method (c1)   31191  712       3       richards::run (387 bytes)
+ total in heap  [0x00007f066d87da10,0x00007f066d882658] = 19528
+ relocation     [0x00007f066d87db88,0x00007f066d87df18] = 912
+ main code      [0x00007f066d87df20,0x00007f066d880ce0] = 11712
+ stub code      [0x00007f066d880ce0,0x00007f066d880ec8] = 488
+ oops           [0x00007f066d880ec8,0x00007f066d880ed8] = 16
+ metadata       [0x00007f066d880ed8,0x00007f066d880f68] = 144
+ scopes data    [0x00007f066d880f68,0x00007f066d8819d0] = 2664
+ scopes pcs     [0x00007f066d8819d0,0x00007f066d882620] = 3152
+ dependencies   [0x00007f066d882620,0x00007f066d882628] = 8
+ nul chk table  [0x00007f066d882628,0x00007f066d882658] = 48
+Loaded disassembler from /home/admin/Documents/openjdk-11/build/linux-x86_64-normal-server-release/jdk/lib/server/hsdis-amd64.so
+----------------------------------------------------------------------
+richards.run()V  [0x00007f066d87df20, 0x00007f066d880ec8]  12200 bytes
+[Disassembling for mach=&apos;i386:x86-64&apos;]
+[Entry Point]
+[Constants]
+  # {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;
+  #           [sp+0x140]  (sp of caller)
+  0x00007f066d87df20: mov    0x8(%rsi),%r10d
+  0x00007f066d87df24: movabs $0x800000000,%r12
+  0x00007f066d87df2e: add    %r12,%r10
+  0x00007f066d87df31: xor    %r12,%r12
+  0x00007f066d87df34: cmp    %rax,%r10
+  0x00007f066d87df37: jne    0x00007f066d026c80  ;   {runtime_call ic_miss_stub}
+  0x00007f066d87df3d: data16 xchg %ax,%ax
+[Verified Entry Point]
+  0x00007f066d87df40: mov    %eax,-0x14000(%rsp)
+  0x00007f066d87df47: push   %rbp
+  0x00007f066d87df48: sub    $0x130,%rsp
+  0x00007f066d87df4f: mov    %rsi,0x98(%rsp)
+  0x00007f066d87df57: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87df61: mov    0x104(%rbx),%edx
+  0x00007f066d87df67: add    $0x8,%edx
+  0x00007f066d87df6a: mov    %edx,0x104(%rbx)
+  0x00007f066d87df70: and    $0x1ff8,%edx
+  0x00007f066d87df76: cmp    $0x0,%edx
+  0x00007f066d87df79: je     0x00007f066d880339  ;*iconst_0 {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@0 (line 472)
+
+  0x00007f066d87df7f: mov    $0x0,%r11d         ;*iload_1 {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@2 (line 472)
+
+  0x00007f066d87df85: data16 xchg %ax,%ax
+  0x00007f066d87df88: mov    0xc(%rsi),%ebx     ;*getfield iterations {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@4 (line 472)
+
+  0x00007f066d87df8b: cmp    %ebx,%r11d
+  0x00007f066d87df8e: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87df98: movabs $0x140,%rdx
+  0x00007f066d87dfa2: jge    0x00007f066d87dfb2
+  0x00007f066d87dfa8: movabs $0x150,%rdx
+  0x00007f066d87dfb2: mov    (%rbx,%rdx,1),%rdi
+  0x00007f066d87dfb6: lea    0x1(%rdi),%rdi
+  0x00007f066d87dfba: mov    %rdi,(%rbx,%rdx,1)
+  0x00007f066d87dfbe: jge    0x00007f066d880326  ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@7 (line 472)
+
+  0x00007f066d87dfc4: mov    %r11d,0x90(%rsp)
+  0x00007f066d87dfcc: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87dfd6: addq   $0x1,0x160(%rbx)
+  0x00007f066d87dfde: movabs $0x7f066ccdd920,%rbx  ;   {metadata(method data for {method} {0x00007f066ccd2a08} &apos;reset&apos; &apos;()V&apos; in &apos;Task&apos;)}
+  0x00007f066d87dfe8: mov    0x104(%rbx),%edx
+  0x00007f066d87dfee: add    $0x8,%edx
+  0x00007f066d87dff1: mov    %edx,0x104(%rbx)
+  0x00007f066d87dff7: and    $0x7ffff8,%edx
+  0x00007f066d87dffd: cmp    $0x0,%edx
+  0x00007f066d87e000: je     0x00007f066d88035a
+  0x00007f066d87e006: mov    $0xa,%ebx
+  0x00007f066d87e00b: movabs $0x8000a0530,%rdx  ;   {metadata(&apos;Task&apos;[])}
+  0x00007f066d87e015: movslq %ebx,%rbx
+  0x00007f066d87e018: mov    %rbx,%rdi
+  0x00007f066d87e01b: cmp    $0xffffff,%rbx
+  0x00007f066d87e022: ja     0x00007f066d88037b
+  0x00007f066d87e028: movabs $0x17,%rsi
+  0x00007f066d87e032: lea    (%rsi,%rbx,4),%rsi
+  0x00007f066d87e036: and    $0xfffffffffffffff8,%rsi
+  0x00007f066d87e03a: mov    0x118(%r15),%rax
+  0x00007f066d87e041: lea    (%rax,%rsi,1),%rsi
+  0x00007f066d87e045: cmp    0x128(%r15),%rsi
+  0x00007f066d87e04c: ja     0x00007f066d88037b
+  0x00007f066d87e052: mov    %rsi,0x118(%r15)
+  0x00007f066d87e059: sub    %rax,%rsi
+  0x00007f066d87e05c: movq   $0x1,(%rax)
+  0x00007f066d87e063: mov    %rdx,%rcx
+  0x00007f066d87e066: movabs $0x800000000,%r12
+  0x00007f066d87e070: sub    %r12,%rcx
+  0x00007f066d87e073: xor    %r12,%r12
+  0x00007f066d87e076: mov    %ecx,0x8(%rax)
+  0x00007f066d87e079: mov    %ebx,0xc(%rax)
+  0x00007f066d87e07c: sub    $0x10,%rsi
+  0x00007f066d87e080: je     0x00007f066d87e0a0
+  0x00007f066d87e086: test   %rsi,%rsi
+  0x00007f066d87e089: je     0x00007f066d87e0a0
+  0x00007f066d87e08f: xor    %rbx,%rbx
+  0x00007f066d87e092: shr    $0x3,%rsi
+  0x00007f066d87e096: mov    %rbx,0x8(%rax,%rsi,8)
+  0x00007f066d87e09b: dec    %rsi
+  0x00007f066d87e09e: jne    0x00007f066d87e096  ;*anewarray {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - Task::reset@2 (line 203)
+                                                ; - richards::run@10 (line 473)
+
+  0x00007f066d87e0a0: movabs $0x451800780,%rbx  ;   {oop(a &apos;java/lang/Class&apos;{0x0000000451800780} = &apos;Task&apos;)}
+  0x00007f066d87e0aa: movsbl 0x30(%r15),%edx
+  0x00007f066d87e0af: cmp    $0x0,%edx
+  0x00007f066d87e0b2: jne    0x00007f066d880385
+  0x00007f066d87e0b8: mov    %rax,%r10
+  0x00007f066d87e0bb: shr    $0x3,%r10
+  0x00007f066d87e0bf: mov    %r10d,0x70(%rbx)
+  0x00007f066d87e0c3: mov    %rbx,%rdx
+  0x00007f066d87e0c6: xor    %rax,%rdx
+  0x00007f066d87e0c9: shr    $0x16,%rdx
+  0x00007f066d87e0cd: cmp    $0x0,%rdx
+  0x00007f066d87e0d1: jne    0x00007f066d8803a4  ;*putstatic taskTab {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - Task::reset@5 (line 203)
+                                                ; - richards::run@10 (line 473)
+
+  0x00007f066d87e0d7: movsbl 0x30(%r15),%edx
+  0x00007f066d87e0dc: cmp    $0x0,%edx
+  0x00007f066d87e0df: jne    0x00007f066d8803bc
+  0x00007f066d87e0e5: movl   $0x0,0x74(%rbx)    ;*putstatic taskList {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - Task::reset@9 (line 204)
+                                                ; - richards::run@10 (line 473)
+
+  0x00007f066d87e0ec: movl   $0x0,0x80(%rbx)    ;*putstatic holdCount {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - Task::reset@13 (line 205)
+                                                ; - richards::run@10 (line 473)
+
+  0x00007f066d87e0f6: movl   $0x0,0x84(%rbx)    ;*putstatic qpktCount {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - Task::reset@17 (line 206)
+                                                ; - richards::run@10 (line 473)
+
+  0x00007f066d87e100: movabs $0x8000a0728,%rdx  ;   {metadata(&apos;IdleTask&apos;)}
+  0x00007f066d87e10a: mov    0x118(%r15),%rax
+  0x00007f066d87e111: lea    0x28(%rax),%rdi
+  0x00007f066d87e115: cmp    0x128(%r15),%rdi
+  0x00007f066d87e11c: ja     0x00007f066d8803db
+  0x00007f066d87e122: mov    %rdi,0x118(%r15)
+  0x00007f066d87e129: mov    0xb8(%rdx),%rcx
+  0x00007f066d87e130: mov    %rcx,(%rax)
+  0x00007f066d87e133: mov    %rdx,%rcx
+  0x00007f066d87e136: movabs $0x800000000,%r12
+  0x00007f066d87e140: sub    %r12,%rcx
+  0x00007f066d87e143: xor    %r12,%r12
+  0x00007f066d87e146: mov    %ecx,0x8(%rax)
+  0x00007f066d87e149: xor    %rcx,%rcx
+  0x00007f066d87e14c: mov    %ecx,0xc(%rax)
+  0x00007f066d87e14f: xor    %rcx,%rcx
+  0x00007f066d87e152: mov    %rcx,0x10(%rax)
+  0x00007f066d87e156: mov    %rcx,0x18(%rax)
+  0x00007f066d87e15a: mov    %rcx,0x20(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@13 (line 475)
+
+  0x00007f066d87e15e: movabs $0x8000964a0,%rdx  ;   {metadata(&apos;TaskState&apos;)}
+  0x00007f066d87e168: mov    %rax,%r14
+  0x00007f066d87e16b: mov    0x118(%r15),%rax
+  0x00007f066d87e172: lea    0x10(%rax),%rdi
+  0x00007f066d87e176: cmp    0x128(%r15),%rdi
+  0x00007f066d87e17d: ja     0x00007f066d8803e8
+  0x00007f066d87e183: mov    %rdi,0x118(%r15)
+  0x00007f066d87e18a: mov    0xb8(%rdx),%rcx
+  0x00007f066d87e191: mov    %rcx,(%rax)
+  0x00007f066d87e194: mov    %rdx,%rcx
+  0x00007f066d87e197: movabs $0x800000000,%r12
+  0x00007f066d87e1a1: sub    %r12,%rcx
+  0x00007f066d87e1a4: xor    %r12,%r12
+  0x00007f066d87e1a7: mov    %ecx,0x8(%rax)
+  0x00007f066d87e1aa: xor    %rcx,%rcx
+  0x00007f066d87e1ad: mov    %ecx,0xc(%rax)
+  0x00007f066d87e1b0: xor    %rcx,%rcx
+  0x00007f066d87e1b3: mov    %rax,%r9           ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@22 (line 475)
+
+  0x00007f066d87e1b6: mov    %r9,%rdx
+  0x00007f066d87e1b9: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87e1c3: addq   $0x1,0x170(%rsi)
+  0x00007f066d87e1cb: movabs $0x7f066ccdc470,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87e1d5: mov    0x104(%rdx),%esi
+  0x00007f066d87e1db: add    $0x8,%esi
+  0x00007f066d87e1de: mov    %esi,0x104(%rdx)
+  0x00007f066d87e1e4: and    $0x7ffff8,%esi
+  0x00007f066d87e1ea: cmp    $0x0,%esi
+  0x00007f066d87e1ed: je     0x00007f066d8803f5
+  0x00007f066d87e1f3: mov    %r9,%rdx
+  0x00007f066d87e1f6: movabs $0x7f066ccdc470,%rsi  ;   {metadata(method data for {method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87e200: addq   $0x1,0x140(%rsi)
+  0x00007f066d87e208: movabs $0x7f066c923880,%rdx  ;   {metadata(method data for {method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d87e212: mov    0x104(%rdx),%esi
+  0x00007f066d87e218: add    $0x8,%esi
+  0x00007f066d87e21b: mov    %esi,0x104(%rdx)
+  0x00007f066d87e221: and    $0x7ffff8,%esi
+  0x00007f066d87e227: cmp    $0x0,%esi
+  0x00007f066d87e22a: je     0x00007f066d880416
+  0x00007f066d87e230: movb   $0x1,0xc(%r9)      ;*putfield packetPending {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::&lt;init&gt;@6 (line 122)
+                                                ; - richards::run@26 (line 475)
+
+  0x00007f066d87e235: mov    %r9,%rdx
+  0x00007f066d87e238: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87e242: mov    0x8(%rdx),%edx
+  0x00007f066d87e245: movabs $0x800000000,%r12
+  0x00007f066d87e24f: add    %r12,%rdx
+  0x00007f066d87e252: xor    %r12,%r12
+  0x00007f066d87e255: cmp    0x190(%rsi),%rdx
+  0x00007f066d87e25c: jne    0x00007f066d87e26b
+  0x00007f066d87e25e: addq   $0x1,0x198(%rsi)
+  0x00007f066d87e266: jmpq   0x00007f066d87e2d1
+  0x00007f066d87e26b: cmp    0x1a0(%rsi),%rdx
+  0x00007f066d87e272: jne    0x00007f066d87e281
+  0x00007f066d87e274: addq   $0x1,0x1a8(%rsi)
+  0x00007f066d87e27c: jmpq   0x00007f066d87e2d1
+  0x00007f066d87e281: cmpq   $0x0,0x190(%rsi)
+  0x00007f066d87e28c: jne    0x00007f066d87e2a5
+  0x00007f066d87e28e: mov    %rdx,0x190(%rsi)
+  0x00007f066d87e295: movq   $0x1,0x198(%rsi)
+  0x00007f066d87e2a0: jmpq   0x00007f066d87e2d1
+  0x00007f066d87e2a5: cmpq   $0x0,0x1a0(%rsi)
+  0x00007f066d87e2b0: jne    0x00007f066d87e2c9
+  0x00007f066d87e2b2: mov    %rdx,0x1a0(%rsi)
+  0x00007f066d87e2b9: movq   $0x1,0x1a8(%rsi)
+  0x00007f066d87e2c4: jmpq   0x00007f066d87e2d1
+  0x00007f066d87e2c9: addq   $0x1,0x180(%rsi)
+  0x00007f066d87e2d1: movabs $0x7f066ccd8d68,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd37e8} &apos;Running&apos; &apos;()LTaskState;&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87e2db: mov    0x104(%rdx),%esi
+  0x00007f066d87e2e1: add    $0x8,%esi
+  0x00007f066d87e2e4: mov    %esi,0x104(%rdx)
+  0x00007f066d87e2ea: and    $0x7ffff8,%esi
+  0x00007f066d87e2f0: cmp    $0x0,%esi
+  0x00007f066d87e2f3: je     0x00007f066d880437
+  0x00007f066d87e2f9: movb   $0x0,0xc(%r9)      ;*putfield packetPending {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::Running@12 (line 138)
+                                                ; - richards::run@29 (line 475)
+
+  0x00007f066d87e2fe: movabs $0x800096a48,%rdx  ;   {metadata(&apos;IdleTaskRec&apos;)}
+  0x00007f066d87e308: mov    0x118(%r15),%rax
+  0x00007f066d87e30f: lea    0x18(%rax),%rdi
+  0x00007f066d87e313: cmp    0x128(%r15),%rdi
+  0x00007f066d87e31a: ja     0x00007f066d880458
+  0x00007f066d87e320: mov    %rdi,0x118(%r15)
+  0x00007f066d87e327: mov    0xb8(%rdx),%rcx
+  0x00007f066d87e32e: mov    %rcx,(%rax)
+  0x00007f066d87e331: mov    %rdx,%rcx
+  0x00007f066d87e334: movabs $0x800000000,%r12
+  0x00007f066d87e33e: sub    %r12,%rcx
+  0x00007f066d87e341: xor    %r12,%r12
+  0x00007f066d87e344: mov    %ecx,0x8(%rax)
+  0x00007f066d87e347: xor    %rcx,%rcx
+  0x00007f066d87e34a: mov    %ecx,0xc(%rax)
+  0x00007f066d87e34d: xor    %rcx,%rcx
+  0x00007f066d87e350: mov    %rcx,0x10(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@32 (line 475)
+
+  0x00007f066d87e354: mov    %rax,%rdx
+  0x00007f066d87e357: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87e361: addq   $0x1,0x1b8(%rcx)
+  0x00007f066d87e369: movabs $0x7f066ccdda88,%rdx  ;   {metadata(method data for {method} {0x00007f066ccc1ce8} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;IdleTaskRec&apos;)}
+  0x00007f066d87e373: mov    0x104(%rdx),%ecx
+  0x00007f066d87e379: add    $0x8,%ecx
+  0x00007f066d87e37c: mov    %ecx,0x104(%rdx)
+  0x00007f066d87e382: and    $0x7ffff8,%ecx
+  0x00007f066d87e388: cmp    $0x0,%ecx
+  0x00007f066d87e38b: je     0x00007f066d880465
+  0x00007f066d87e391: mov    %rax,%rdx
+  0x00007f066d87e394: movabs $0x7f066ccdda88,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1ce8} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;IdleTaskRec&apos;)}
+  0x00007f066d87e39e: addq   $0x1,0x140(%rcx)
+  0x00007f066d87e3a6: movabs $0x7f066ccdc8e8,%rdx  ;   {metadata(method data for {method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d87e3b0: mov    0x104(%rdx),%ecx
+  0x00007f066d87e3b6: add    $0x8,%ecx
+  0x00007f066d87e3b9: mov    %ecx,0x104(%rdx)
+  0x00007f066d87e3bf: and    $0x7ffff8,%ecx
+  0x00007f066d87e3c5: cmp    $0x0,%ecx
+  0x00007f066d87e3c8: je     0x00007f066d880486
+  0x00007f066d87e3ce: mov    %rax,%rdx
+  0x00007f066d87e3d1: movabs $0x7f066ccdc8e8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d87e3db: addq   $0x1,0x140(%rcx)
+  0x00007f066d87e3e3: movabs $0x7f066c923880,%rdx  ;   {metadata(method data for {method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d87e3ed: mov    0x104(%rdx),%ecx
+  0x00007f066d87e3f3: add    $0x8,%ecx
+  0x00007f066d87e3f6: mov    %ecx,0x104(%rdx)
+  0x00007f066d87e3fc: and    $0x7ffff8,%ecx
+  0x00007f066d87e402: cmp    $0x0,%ecx
+  0x00007f066d87e405: je     0x00007f066d8804a7
+  0x00007f066d87e40b: movl   $0x1,0xc(%rax)     ;*putfield control {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - IdleTaskRec::&lt;init&gt;@6 (line 76)
+                                                ; - richards::run@36 (line 475)
+
+  0x00007f066d87e412: movl   $0x2710,0x10(%rax)  ;*putfield count {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - IdleTaskRec::&lt;init&gt;@13 (line 76)
+                                                ; - richards::run@36 (line 475)
+
+  0x00007f066d87e419: mov    %r14,%rdx
+  0x00007f066d87e41c: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87e426: addq   $0x1,0x1c8(%rcx)
+  0x00007f066d87e42e: movabs $0x7f066ccddc08,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd48c0} &apos;&lt;init&gt;&apos; &apos;(IIILTaskState;LTaskRec;)V&apos; in &apos;IdleTask&apos;)}
+  0x00007f066d87e438: mov    0x104(%rdx),%ecx
+  0x00007f066d87e43e: add    $0x8,%ecx
+  0x00007f066d87e441: mov    %ecx,0x104(%rdx)
+  0x00007f066d87e447: and    $0x7ffff8,%ecx
+  0x00007f066d87e44d: cmp    $0x0,%ecx
+  0x00007f066d87e450: je     0x00007f066d8804c8
+  0x00007f066d87e456: mov    %r14,%rdx
+  0x00007f066d87e459: movabs $0x7f066ccddc08,%rcx  ;   {metadata(method data for {method} {0x00007f066ccd48c0} &apos;&lt;init&gt;&apos; &apos;(IIILTaskState;LTaskRec;)V&apos; in &apos;IdleTask&apos;)}
+  0x00007f066d87e463: addq   $0x1,0x140(%rcx)
+  0x00007f066d87e46b: mov    $0x1,%edx
+  0x00007f066d87e470: mov    $0x0,%ecx
+  0x00007f066d87e475: movabs $0x0,%r8           ;   {oop(NULL)}
+  0x00007f066d87e47f: mov    %rax,%rdi
+  0x00007f066d87e482: mov    %r14,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - IdleTask::&lt;init&gt;@8 (line 364)
+                                                ; - richards::run@39 (line 475)
+
+  0x00007f066d87e485: mov    %r14,0xa0(%rsp)
+  0x00007f066d87e48d: mov    %rbx,0x88(%rsp)
+  0x00007f066d87e495: xchg   %ax,%ax
+  0x00007f066d87e497: callq  0x00007f066d026f00  ; ImmutableOopMap{[160]=Oop [136]=Oop [152]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - IdleTask::&lt;init&gt;@8 (line 364)
+                                                ; - richards::run@39 (line 475)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87e49c: movabs $0x8000a0a28,%rdx  ;   {metadata(&apos;Packet&apos;)}
+  0x00007f066d87e4a6: mov    0x118(%r15),%rax
+  0x00007f066d87e4ad: lea    0x20(%rax),%rdi
+  0x00007f066d87e4b1: cmp    0x128(%r15),%rdi
+  0x00007f066d87e4b8: ja     0x00007f066d8804e9
+  0x00007f066d87e4be: mov    %rdi,0x118(%r15)
+  0x00007f066d87e4c5: mov    0xb8(%rdx),%rcx
+  0x00007f066d87e4cc: mov    %rcx,(%rax)
+  0x00007f066d87e4cf: mov    %rdx,%rcx
+  0x00007f066d87e4d2: movabs $0x800000000,%r12
+  0x00007f066d87e4dc: sub    %r12,%rcx
+  0x00007f066d87e4df: xor    %r12,%r12
+  0x00007f066d87e4e2: mov    %ecx,0x8(%rax)
+  0x00007f066d87e4e5: xor    %rcx,%rcx
+  0x00007f066d87e4e8: mov    %ecx,0xc(%rax)
+  0x00007f066d87e4eb: xor    %rcx,%rcx
+  0x00007f066d87e4ee: mov    %rcx,0x10(%rax)
+  0x00007f066d87e4f2: mov    %rcx,0x18(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@43 (line 478)
+
+  0x00007f066d87e4f6: mov    %rax,%rdx
+  0x00007f066d87e4f9: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87e503: addq   $0x1,0x1d8(%rcx)
+  0x00007f066d87e50b: movabs $0x0,%rdx          ;   {oop(NULL)}
+  0x00007f066d87e515: mov    $0x0,%ecx
+  0x00007f066d87e51a: mov    $0x3e9,%r8d
+  0x00007f066d87e520: mov    %rax,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@52 (line 478)
+
+  0x00007f066d87e523: mov    %rax,0xa8(%rsp)
+  0x00007f066d87e52b: nopl   0x0(%rax)
+  0x00007f066d87e52f: callq  0x00007f066d026f00  ; ImmutableOopMap{[136]=Oop [152]=Oop [168]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@52 (line 478)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87e534: movabs $0x8000a0a28,%rdx  ;   {metadata(&apos;Packet&apos;)}
+  0x00007f066d87e53e: mov    0x118(%r15),%rax
+  0x00007f066d87e545: lea    0x20(%rax),%rdi
+  0x00007f066d87e549: cmp    0x128(%r15),%rdi
+  0x00007f066d87e550: ja     0x00007f066d8804f6
+  0x00007f066d87e556: mov    %rdi,0x118(%r15)
+  0x00007f066d87e55d: mov    0xb8(%rdx),%rcx
+  0x00007f066d87e564: mov    %rcx,(%rax)
+  0x00007f066d87e567: mov    %rdx,%rcx
+  0x00007f066d87e56a: movabs $0x800000000,%r12
+  0x00007f066d87e574: sub    %r12,%rcx
+  0x00007f066d87e577: xor    %r12,%r12
+  0x00007f066d87e57a: mov    %ecx,0x8(%rax)
+  0x00007f066d87e57d: xor    %rcx,%rcx
+  0x00007f066d87e580: mov    %ecx,0xc(%rax)
+  0x00007f066d87e583: xor    %rcx,%rcx
+  0x00007f066d87e586: mov    %rcx,0x10(%rax)
+  0x00007f066d87e58a: mov    %rcx,0x18(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@56 (line 479)
+
+  0x00007f066d87e58e: mov    %rax,%rdx
+  0x00007f066d87e591: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87e59b: addq   $0x1,0x1e8(%rcx)
+  0x00007f066d87e5a3: mov    0xa8(%rsp),%rdx
+  0x00007f066d87e5ab: mov    $0x0,%ecx
+  0x00007f066d87e5b0: mov    $0x3e9,%r8d
+  0x00007f066d87e5b6: mov    %rax,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@65 (line 479)
+
+  0x00007f066d87e5b9: mov    %rax,0xb0(%rsp)
+  0x00007f066d87e5c1: nopw   0x0(%rax,%rax,1)
+  0x00007f066d87e5c7: callq  0x00007f066d026f00  ; ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@65 (line 479)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87e5cc: movabs $0x8000a0c90,%rdx  ;   {metadata(&apos;WorkTask&apos;)}
+  0x00007f066d87e5d6: mov    0x118(%r15),%rax
+  0x00007f066d87e5dd: lea    0x28(%rax),%rdi
+  0x00007f066d87e5e1: cmp    0x128(%r15),%rdi
+  0x00007f066d87e5e8: ja     0x00007f066d880503
+  0x00007f066d87e5ee: mov    %rdi,0x118(%r15)
+  0x00007f066d87e5f5: mov    0xb8(%rdx),%rcx
+  0x00007f066d87e5fc: mov    %rcx,(%rax)
+  0x00007f066d87e5ff: mov    %rdx,%rcx
+  0x00007f066d87e602: movabs $0x800000000,%r12
+  0x00007f066d87e60c: sub    %r12,%rcx
+  0x00007f066d87e60f: xor    %r12,%r12
+  0x00007f066d87e612: mov    %ecx,0x8(%rax)
+  0x00007f066d87e615: xor    %rcx,%rcx
+  0x00007f066d87e618: mov    %ecx,0xc(%rax)
+  0x00007f066d87e61b: xor    %rcx,%rcx
+  0x00007f066d87e61e: mov    %rcx,0x10(%rax)
+  0x00007f066d87e622: mov    %rcx,0x18(%rax)
+  0x00007f066d87e626: mov    %rcx,0x20(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@69 (line 480)
+
+  0x00007f066d87e62a: movabs $0x8000964a0,%rdx  ;   {metadata(&apos;TaskState&apos;)}
+  0x00007f066d87e634: mov    %rax,%rbx
+  0x00007f066d87e637: mov    0x118(%r15),%rax
+  0x00007f066d87e63e: lea    0x10(%rax),%rdi
+  0x00007f066d87e642: cmp    0x128(%r15),%rdi
+  0x00007f066d87e649: ja     0x00007f066d880510
+  0x00007f066d87e64f: mov    %rdi,0x118(%r15)
+  0x00007f066d87e656: mov    0xb8(%rdx),%rcx
+  0x00007f066d87e65d: mov    %rcx,(%rax)
+  0x00007f066d87e660: mov    %rdx,%rcx
+  0x00007f066d87e663: movabs $0x800000000,%r12
+  0x00007f066d87e66d: sub    %r12,%rcx
+  0x00007f066d87e670: xor    %r12,%r12
+  0x00007f066d87e673: mov    %ecx,0x8(%rax)
+  0x00007f066d87e676: xor    %rcx,%rcx
+  0x00007f066d87e679: mov    %ecx,0xc(%rax)
+  0x00007f066d87e67c: xor    %rcx,%rcx
+  0x00007f066d87e67f: mov    %rax,%r9           ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@78 (line 480)
+
+  0x00007f066d87e682: mov    %r9,%rdx
+  0x00007f066d87e685: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87e68f: addq   $0x1,0x1f8(%rsi)
+  0x00007f066d87e697: movabs $0x7f066ccdc470,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87e6a1: mov    0x104(%rdx),%esi
+  0x00007f066d87e6a7: add    $0x8,%esi
+  0x00007f066d87e6aa: mov    %esi,0x104(%rdx)
+  0x00007f066d87e6b0: and    $0x7ffff8,%esi
+  0x00007f066d87e6b6: cmp    $0x0,%esi
+  0x00007f066d87e6b9: je     0x00007f066d88051d
+  0x00007f066d87e6bf: mov    %r9,%rdx
+  0x00007f066d87e6c2: movabs $0x7f066ccdc470,%rsi  ;   {metadata(method data for {method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87e6cc: addq   $0x1,0x140(%rsi)
+  0x00007f066d87e6d4: movabs $0x7f066c923880,%rdx  ;   {metadata(method data for {method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d87e6de: mov    0x104(%rdx),%esi
+  0x00007f066d87e6e4: add    $0x8,%esi
+  0x00007f066d87e6e7: mov    %esi,0x104(%rdx)
+  0x00007f066d87e6ed: and    $0x7ffff8,%esi
+  0x00007f066d87e6f3: cmp    $0x0,%esi
+  0x00007f066d87e6f6: je     0x00007f066d88053e
+  0x00007f066d87e6fc: movb   $0x1,0xc(%r9)      ;*putfield packetPending {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::&lt;init&gt;@6 (line 122)
+                                                ; - richards::run@82 (line 480)
+
+  0x00007f066d87e701: mov    %r9,%rdx
+  0x00007f066d87e704: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87e70e: mov    0x8(%rdx),%edx
+  0x00007f066d87e711: movabs $0x800000000,%r12
+  0x00007f066d87e71b: add    %r12,%rdx
+  0x00007f066d87e71e: xor    %r12,%r12
+  0x00007f066d87e721: cmp    0x218(%rsi),%rdx
+  0x00007f066d87e728: jne    0x00007f066d87e737
+  0x00007f066d87e72a: addq   $0x1,0x220(%rsi)
+  0x00007f066d87e732: jmpq   0x00007f066d87e79d
+  0x00007f066d87e737: cmp    0x228(%rsi),%rdx
+  0x00007f066d87e73e: jne    0x00007f066d87e74d
+  0x00007f066d87e740: addq   $0x1,0x230(%rsi)
+  0x00007f066d87e748: jmpq   0x00007f066d87e79d
+  0x00007f066d87e74d: cmpq   $0x0,0x218(%rsi)
+  0x00007f066d87e758: jne    0x00007f066d87e771
+  0x00007f066d87e75a: mov    %rdx,0x218(%rsi)
+  0x00007f066d87e761: movq   $0x1,0x220(%rsi)
+  0x00007f066d87e76c: jmpq   0x00007f066d87e79d
+  0x00007f066d87e771: cmpq   $0x0,0x228(%rsi)
+  0x00007f066d87e77c: jne    0x00007f066d87e795
+  0x00007f066d87e77e: mov    %rdx,0x228(%rsi)
+  0x00007f066d87e785: movq   $0x1,0x230(%rsi)
+  0x00007f066d87e790: jmpq   0x00007f066d87e79d
+  0x00007f066d87e795: addq   $0x1,0x208(%rsi)
+  0x00007f066d87e79d: movabs $0x7f066ccdd010,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd3890} &apos;WaitingWithPacket&apos; &apos;()LTaskState;&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87e7a7: mov    0x104(%rdx),%esi
+  0x00007f066d87e7ad: add    $0x8,%esi
+  0x00007f066d87e7b0: mov    %esi,0x104(%rdx)
+  0x00007f066d87e7b6: and    $0x7ffff8,%esi
+  0x00007f066d87e7bc: cmp    $0x0,%esi
+  0x00007f066d87e7bf: je     0x00007f066d88055f
+  0x00007f066d87e7c5: movb   $0x1,0xd(%r9)      ;*putfield taskWaiting {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::WaitingWithPacket@4 (line 142)
+                                                ; - richards::run@85 (line 481)
+
+  0x00007f066d87e7ca: movb   $0x1,0xc(%r9)      ;*putfield packetPending {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::WaitingWithPacket@7 (line 142)
+                                                ; - richards::run@85 (line 481)
+
+  0x00007f066d87e7cf: movabs $0x800096c70,%rdx  ;   {metadata(&apos;WorkerTaskRec&apos;)}
+  0x00007f066d87e7d9: mov    0x118(%r15),%rax
+  0x00007f066d87e7e0: lea    0x18(%rax),%rdi
+  0x00007f066d87e7e4: cmp    0x128(%r15),%rdi
+  0x00007f066d87e7eb: ja     0x00007f066d880580
+  0x00007f066d87e7f1: mov    %rdi,0x118(%r15)
+  0x00007f066d87e7f8: mov    0xb8(%rdx),%rcx
+  0x00007f066d87e7ff: mov    %rcx,(%rax)
+  0x00007f066d87e802: mov    %rdx,%rcx
+  0x00007f066d87e805: movabs $0x800000000,%r12
+  0x00007f066d87e80f: sub    %r12,%rcx
+  0x00007f066d87e812: xor    %r12,%r12
+  0x00007f066d87e815: mov    %ecx,0x8(%rax)
+  0x00007f066d87e818: xor    %rcx,%rcx
+  0x00007f066d87e81b: mov    %ecx,0xc(%rax)
+  0x00007f066d87e81e: xor    %rcx,%rcx
+  0x00007f066d87e821: mov    %rcx,0x10(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@88 (line 481)
+
+  0x00007f066d87e825: mov    %rax,%rdx
+  0x00007f066d87e828: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87e832: addq   $0x1,0x240(%rcx)
+  0x00007f066d87e83a: movabs $0x7f066ccddf38,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd0220} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;WorkerTaskRec&apos;)}
+  0x00007f066d87e844: mov    0x104(%rdx),%ecx
+  0x00007f066d87e84a: add    $0x8,%ecx
+  0x00007f066d87e84d: mov    %ecx,0x104(%rdx)
+  0x00007f066d87e853: and    $0x7ffff8,%ecx
+  0x00007f066d87e859: cmp    $0x0,%ecx
+  0x00007f066d87e85c: je     0x00007f066d88058d
+  0x00007f066d87e862: mov    %rax,%rdx
+  0x00007f066d87e865: movabs $0x7f066ccddf38,%rcx  ;   {metadata(method data for {method} {0x00007f066ccd0220} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;WorkerTaskRec&apos;)}
+  0x00007f066d87e86f: addq   $0x1,0x140(%rcx)
+  0x00007f066d87e877: movabs $0x7f066ccdc8e8,%rdx  ;   {metadata(method data for {method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d87e881: mov    0x104(%rdx),%ecx
+  0x00007f066d87e887: add    $0x8,%ecx
+  0x00007f066d87e88a: mov    %ecx,0x104(%rdx)
+  0x00007f066d87e890: and    $0x7ffff8,%ecx
+  0x00007f066d87e896: cmp    $0x0,%ecx
+  0x00007f066d87e899: je     0x00007f066d8805ae
+  0x00007f066d87e89f: mov    %rax,%rdx
+  0x00007f066d87e8a2: movabs $0x7f066ccdc8e8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d87e8ac: addq   $0x1,0x140(%rcx)
+  0x00007f066d87e8b4: movabs $0x7f066c923880,%rdx  ;   {metadata(method data for {method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d87e8be: mov    0x104(%rdx),%ecx
+  0x00007f066d87e8c4: add    $0x8,%ecx
+  0x00007f066d87e8c7: mov    %ecx,0x104(%rdx)
+  0x00007f066d87e8cd: and    $0x7ffff8,%ecx
+  0x00007f066d87e8d3: cmp    $0x0,%ecx
+  0x00007f066d87e8d6: je     0x00007f066d8805cf
+  0x00007f066d87e8dc: movl   $0x3,0xc(%rax)     ;*putfield destination {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - WorkerTaskRec::&lt;init&gt;@6 (line 105)
+                                                ; - richards::run@92 (line 481)
+
+  0x00007f066d87e8e3: mov    %rbx,%rdx
+  0x00007f066d87e8e6: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87e8f0: addq   $0x1,0x250(%rcx)
+  0x00007f066d87e8f8: movabs $0x7f066ccddda0,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd6330} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;WorkTask&apos;)}
+  0x00007f066d87e902: mov    0x104(%rdx),%ecx
+  0x00007f066d87e908: add    $0x8,%ecx
+  0x00007f066d87e90b: mov    %ecx,0x104(%rdx)
+  0x00007f066d87e911: and    $0x7ffff8,%ecx
+  0x00007f066d87e917: cmp    $0x0,%ecx
+  0x00007f066d87e91a: je     0x00007f066d8805f0
+  0x00007f066d87e920: mov    %rbx,%rdx
+  0x00007f066d87e923: movabs $0x7f066ccddda0,%rcx  ;   {metadata(method data for {method} {0x00007f066ccd6330} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;WorkTask&apos;)}
+  0x00007f066d87e92d: addq   $0x1,0x140(%rcx)
+  0x00007f066d87e935: mov    $0x2,%edx
+  0x00007f066d87e93a: mov    $0x3e8,%ecx
+  0x00007f066d87e93f: mov    0xb0(%rsp),%r8
+  0x00007f066d87e947: mov    %rax,%rdi
+  0x00007f066d87e94a: mov    %rbx,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - WorkTask::&lt;init&gt;@8 (line 390)
+                                                ; - richards::run@95 (line 481)
+
+  0x00007f066d87e94d: mov    %rbx,0xb8(%rsp)
+  0x00007f066d87e955: xchg   %ax,%ax
+  0x00007f066d87e957: callq  0x00007f066d026f00  ; ImmutableOopMap{[136]=Oop [152]=Oop [184]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - WorkTask::&lt;init&gt;@8 (line 390)
+                                                ; - richards::run@95 (line 481)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87e95c: movabs $0x8000a0a28,%rdx  ;   {metadata(&apos;Packet&apos;)}
+  0x00007f066d87e966: mov    0x118(%r15),%rax
+  0x00007f066d87e96d: lea    0x20(%rax),%rdi
+  0x00007f066d87e971: cmp    0x128(%r15),%rdi
+  0x00007f066d87e978: ja     0x00007f066d880611
+  0x00007f066d87e97e: mov    %rdi,0x118(%r15)
+  0x00007f066d87e985: mov    0xb8(%rdx),%rcx
+  0x00007f066d87e98c: mov    %rcx,(%rax)
+  0x00007f066d87e98f: mov    %rdx,%rcx
+  0x00007f066d87e992: movabs $0x800000000,%r12
+  0x00007f066d87e99c: sub    %r12,%rcx
+  0x00007f066d87e99f: xor    %r12,%r12
+  0x00007f066d87e9a2: mov    %ecx,0x8(%rax)
+  0x00007f066d87e9a5: xor    %rcx,%rcx
+  0x00007f066d87e9a8: mov    %ecx,0xc(%rax)
+  0x00007f066d87e9ab: xor    %rcx,%rcx
+  0x00007f066d87e9ae: mov    %rcx,0x10(%rax)
+  0x00007f066d87e9b2: mov    %rcx,0x18(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@99 (line 484)
+
+  0x00007f066d87e9b6: mov    %rax,%rdx
+  0x00007f066d87e9b9: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87e9c3: addq   $0x1,0x260(%rcx)
+  0x00007f066d87e9cb: movabs $0x0,%rdx          ;   {oop(NULL)}
+  0x00007f066d87e9d5: mov    $0x5,%ecx
+  0x00007f066d87e9da: mov    $0x3e8,%r8d
+  0x00007f066d87e9e0: mov    %rax,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@108 (line 484)
+
+  0x00007f066d87e9e3: mov    %rax,0xc0(%rsp)
+  0x00007f066d87e9eb: nopl   0x0(%rax)
+  0x00007f066d87e9ef: callq  0x00007f066d026f00  ; ImmutableOopMap{[136]=Oop [152]=Oop [192]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@108 (line 484)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87e9f4: movabs $0x8000a0a28,%rdx  ;   {metadata(&apos;Packet&apos;)}
+  0x00007f066d87e9fe: mov    0x118(%r15),%rax
+  0x00007f066d87ea05: lea    0x20(%rax),%rdi
+  0x00007f066d87ea09: cmp    0x128(%r15),%rdi
+  0x00007f066d87ea10: ja     0x00007f066d88061e
+  0x00007f066d87ea16: mov    %rdi,0x118(%r15)
+  0x00007f066d87ea1d: mov    0xb8(%rdx),%rcx
+  0x00007f066d87ea24: mov    %rcx,(%rax)
+  0x00007f066d87ea27: mov    %rdx,%rcx
+  0x00007f066d87ea2a: movabs $0x800000000,%r12
+  0x00007f066d87ea34: sub    %r12,%rcx
+  0x00007f066d87ea37: xor    %r12,%r12
+  0x00007f066d87ea3a: mov    %ecx,0x8(%rax)
+  0x00007f066d87ea3d: xor    %rcx,%rcx
+  0x00007f066d87ea40: mov    %ecx,0xc(%rax)
+  0x00007f066d87ea43: xor    %rcx,%rcx
+  0x00007f066d87ea46: mov    %rcx,0x10(%rax)
+  0x00007f066d87ea4a: mov    %rcx,0x18(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@112 (line 485)
+
+  0x00007f066d87ea4e: mov    %rax,%rdx
+  0x00007f066d87ea51: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87ea5b: addq   $0x1,0x270(%rcx)
+  0x00007f066d87ea63: mov    0xc0(%rsp),%rdx
+  0x00007f066d87ea6b: mov    $0x5,%ecx
+  0x00007f066d87ea70: mov    $0x3e8,%r8d
+  0x00007f066d87ea76: mov    %rax,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@121 (line 485)
+
+  0x00007f066d87ea79: mov    %rax,0xc8(%rsp)
+  0x00007f066d87ea81: nopw   0x0(%rax,%rax,1)
+  0x00007f066d87ea87: callq  0x00007f066d026f00  ; ImmutableOopMap{[136]=Oop [152]=Oop [200]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@121 (line 485)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87ea8c: movabs $0x8000a0a28,%rdx  ;   {metadata(&apos;Packet&apos;)}
+  0x00007f066d87ea96: mov    0x118(%r15),%rax
+  0x00007f066d87ea9d: lea    0x20(%rax),%rdi
+  0x00007f066d87eaa1: cmp    0x128(%r15),%rdi
+  0x00007f066d87eaa8: ja     0x00007f066d88062b
+  0x00007f066d87eaae: mov    %rdi,0x118(%r15)
+  0x00007f066d87eab5: mov    0xb8(%rdx),%rcx
+  0x00007f066d87eabc: mov    %rcx,(%rax)
+  0x00007f066d87eabf: mov    %rdx,%rcx
+  0x00007f066d87eac2: movabs $0x800000000,%r12
+  0x00007f066d87eacc: sub    %r12,%rcx
+  0x00007f066d87eacf: xor    %r12,%r12
+  0x00007f066d87ead2: mov    %ecx,0x8(%rax)
+  0x00007f066d87ead5: xor    %rcx,%rcx
+  0x00007f066d87ead8: mov    %ecx,0xc(%rax)
+  0x00007f066d87eadb: xor    %rcx,%rcx
+  0x00007f066d87eade: mov    %rcx,0x10(%rax)
+  0x00007f066d87eae2: mov    %rcx,0x18(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@125 (line 486)
+
+  0x00007f066d87eae6: mov    %rax,%rdx
+  0x00007f066d87eae9: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87eaf3: addq   $0x1,0x280(%rcx)
+  0x00007f066d87eafb: mov    0xc8(%rsp),%rdx
+  0x00007f066d87eb03: mov    $0x5,%ecx
+  0x00007f066d87eb08: mov    $0x3e8,%r8d
+  0x00007f066d87eb0e: mov    %rax,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@134 (line 486)
+
+  0x00007f066d87eb11: mov    %rax,0xd0(%rsp)
+  0x00007f066d87eb19: nopw   0x0(%rax,%rax,1)
+  0x00007f066d87eb1f: callq  0x00007f066d026f00  ; ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@134 (line 486)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87eb24: movabs $0x8000a0f90,%rdx  ;   {metadata(&apos;HandlerTask&apos;)}
+  0x00007f066d87eb2e: mov    0x118(%r15),%rax
+  0x00007f066d87eb35: lea    0x28(%rax),%rdi
+  0x00007f066d87eb39: cmp    0x128(%r15),%rdi
+  0x00007f066d87eb40: ja     0x00007f066d880638
+  0x00007f066d87eb46: mov    %rdi,0x118(%r15)
+  0x00007f066d87eb4d: mov    0xb8(%rdx),%rcx
+  0x00007f066d87eb54: mov    %rcx,(%rax)
+  0x00007f066d87eb57: mov    %rdx,%rcx
+  0x00007f066d87eb5a: movabs $0x800000000,%r12
+  0x00007f066d87eb64: sub    %r12,%rcx
+  0x00007f066d87eb67: xor    %r12,%r12
+  0x00007f066d87eb6a: mov    %ecx,0x8(%rax)
+  0x00007f066d87eb6d: xor    %rcx,%rcx
+  0x00007f066d87eb70: mov    %ecx,0xc(%rax)
+  0x00007f066d87eb73: xor    %rcx,%rcx
+  0x00007f066d87eb76: mov    %rcx,0x10(%rax)
+  0x00007f066d87eb7a: mov    %rcx,0x18(%rax)
+  0x00007f066d87eb7e: mov    %rcx,0x20(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@138 (line 487)
+
+  0x00007f066d87eb82: movabs $0x8000964a0,%rdx  ;   {metadata(&apos;TaskState&apos;)}
+  0x00007f066d87eb8c: mov    %rax,%rbx
+  0x00007f066d87eb8f: mov    0x118(%r15),%rax
+  0x00007f066d87eb96: lea    0x10(%rax),%rdi
+  0x00007f066d87eb9a: cmp    0x128(%r15),%rdi
+  0x00007f066d87eba1: ja     0x00007f066d880645
+  0x00007f066d87eba7: mov    %rdi,0x118(%r15)
+  0x00007f066d87ebae: mov    0xb8(%rdx),%rcx
+  0x00007f066d87ebb5: mov    %rcx,(%rax)
+  0x00007f066d87ebb8: mov    %rdx,%rcx
+  0x00007f066d87ebbb: movabs $0x800000000,%r12
+  0x00007f066d87ebc5: sub    %r12,%rcx
+  0x00007f066d87ebc8: xor    %r12,%r12
+  0x00007f066d87ebcb: mov    %ecx,0x8(%rax)
+  0x00007f066d87ebce: xor    %rcx,%rcx
+  0x00007f066d87ebd1: mov    %ecx,0xc(%rax)
+  0x00007f066d87ebd4: xor    %rcx,%rcx
+  0x00007f066d87ebd7: mov    %rax,%r9           ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@147 (line 487)
+
+  0x00007f066d87ebda: mov    %r9,%rdx
+  0x00007f066d87ebdd: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87ebe7: addq   $0x1,0x290(%rsi)
+  0x00007f066d87ebef: movabs $0x7f066ccdc470,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87ebf9: mov    0x104(%rdx),%esi
+  0x00007f066d87ebff: add    $0x8,%esi
+  0x00007f066d87ec02: mov    %esi,0x104(%rdx)
+  0x00007f066d87ec08: and    $0x7ffff8,%esi
+  0x00007f066d87ec0e: cmp    $0x0,%esi
+  0x00007f066d87ec11: je     0x00007f066d880652
+  0x00007f066d87ec17: mov    %r9,%rdx
+  0x00007f066d87ec1a: movabs $0x7f066ccdc470,%rsi  ;   {metadata(method data for {method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87ec24: addq   $0x1,0x140(%rsi)
+  0x00007f066d87ec2c: movabs $0x7f066c923880,%rdx  ;   {metadata(method data for {method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d87ec36: mov    0x104(%rdx),%esi
+  0x00007f066d87ec3c: add    $0x8,%esi
+  0x00007f066d87ec3f: mov    %esi,0x104(%rdx)
+  0x00007f066d87ec45: and    $0x7ffff8,%esi
+  0x00007f066d87ec4b: cmp    $0x0,%esi
+  0x00007f066d87ec4e: je     0x00007f066d880673
+  0x00007f066d87ec54: movb   $0x1,0xc(%r9)      ;*putfield packetPending {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::&lt;init&gt;@6 (line 122)
+                                                ; - richards::run@151 (line 487)
+
+  0x00007f066d87ec59: mov    %r9,%rdx
+  0x00007f066d87ec5c: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87ec66: mov    0x8(%rdx),%edx
+  0x00007f066d87ec69: movabs $0x800000000,%r12
+  0x00007f066d87ec73: add    %r12,%rdx
+  0x00007f066d87ec76: xor    %r12,%r12
+  0x00007f066d87ec79: cmp    0x2b0(%rsi),%rdx
+  0x00007f066d87ec80: jne    0x00007f066d87ec8f
+  0x00007f066d87ec82: addq   $0x1,0x2b8(%rsi)
+  0x00007f066d87ec8a: jmpq   0x00007f066d87ecf5
+  0x00007f066d87ec8f: cmp    0x2c0(%rsi),%rdx
+  0x00007f066d87ec96: jne    0x00007f066d87eca5
+  0x00007f066d87ec98: addq   $0x1,0x2c8(%rsi)
+  0x00007f066d87eca0: jmpq   0x00007f066d87ecf5
+  0x00007f066d87eca5: cmpq   $0x0,0x2b0(%rsi)
+  0x00007f066d87ecb0: jne    0x00007f066d87ecc9
+  0x00007f066d87ecb2: mov    %rdx,0x2b0(%rsi)
+  0x00007f066d87ecb9: movq   $0x1,0x2b8(%rsi)
+  0x00007f066d87ecc4: jmpq   0x00007f066d87ecf5
+  0x00007f066d87ecc9: cmpq   $0x0,0x2c0(%rsi)
+  0x00007f066d87ecd4: jne    0x00007f066d87eced
+  0x00007f066d87ecd6: mov    %rdx,0x2c0(%rsi)
+  0x00007f066d87ecdd: movq   $0x1,0x2c8(%rsi)
+  0x00007f066d87ece8: jmpq   0x00007f066d87ecf5
+  0x00007f066d87eced: addq   $0x1,0x2a0(%rsi)
+  0x00007f066d87ecf5: movabs $0x7f066ccdd010,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd3890} &apos;WaitingWithPacket&apos; &apos;()LTaskState;&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87ecff: mov    0x104(%rdx),%esi
+  0x00007f066d87ed05: add    $0x8,%esi
+  0x00007f066d87ed08: mov    %esi,0x104(%rdx)
+  0x00007f066d87ed0e: and    $0x7ffff8,%esi
+  0x00007f066d87ed14: cmp    $0x0,%esi
+  0x00007f066d87ed17: je     0x00007f066d880694
+  0x00007f066d87ed1d: movb   $0x1,0xd(%r9)      ;*putfield taskWaiting {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::WaitingWithPacket@4 (line 142)
+                                                ; - richards::run@154 (line 488)
+
+  0x00007f066d87ed22: movb   $0x1,0xc(%r9)      ;*putfield packetPending {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::WaitingWithPacket@7 (line 142)
+                                                ; - richards::run@154 (line 488)
+
+  0x00007f066d87ed27: movabs $0x800096040,%rdx  ;   {metadata(&apos;HandlerTaskRec&apos;)}
+  0x00007f066d87ed31: mov    0x118(%r15),%rax
+  0x00007f066d87ed38: lea    0x18(%rax),%rdi
+  0x00007f066d87ed3c: cmp    0x128(%r15),%rdi
+  0x00007f066d87ed43: ja     0x00007f066d8806b5
+  0x00007f066d87ed49: mov    %rdi,0x118(%r15)
+  0x00007f066d87ed50: mov    0xb8(%rdx),%rcx
+  0x00007f066d87ed57: mov    %rcx,(%rax)
+  0x00007f066d87ed5a: mov    %rdx,%rcx
+  0x00007f066d87ed5d: movabs $0x800000000,%r12
+  0x00007f066d87ed67: sub    %r12,%rcx
+  0x00007f066d87ed6a: xor    %r12,%r12
+  0x00007f066d87ed6d: mov    %ecx,0x8(%rax)
+  0x00007f066d87ed70: xor    %rcx,%rcx
+  0x00007f066d87ed73: mov    %ecx,0xc(%rax)
+  0x00007f066d87ed76: xor    %rcx,%rcx
+  0x00007f066d87ed79: mov    %rcx,0x10(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@157 (line 488)
+
+  0x00007f066d87ed7d: mov    %rax,%rdx
+  0x00007f066d87ed80: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87ed8a: addq   $0x1,0x2d8(%rcx)
+  0x00007f066d87ed92: movabs $0x7f066ccdd180,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd0748} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;HandlerTaskRec&apos;)}
+  0x00007f066d87ed9c: mov    0x104(%rdx),%ecx
+  0x00007f066d87eda2: add    $0x8,%ecx
+  0x00007f066d87eda5: mov    %ecx,0x104(%rdx)
+  0x00007f066d87edab: and    $0x7ffff8,%ecx
+  0x00007f066d87edb1: cmp    $0x0,%ecx
+  0x00007f066d87edb4: je     0x00007f066d8806c2
+  0x00007f066d87edba: mov    %rax,%rdx
+  0x00007f066d87edbd: movabs $0x7f066ccdd180,%rcx  ;   {metadata(method data for {method} {0x00007f066ccd0748} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;HandlerTaskRec&apos;)}
+  0x00007f066d87edc7: addq   $0x1,0x140(%rcx)
+  0x00007f066d87edcf: movabs $0x7f066ccdc8e8,%rdx  ;   {metadata(method data for {method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d87edd9: mov    0x104(%rdx),%ecx
+  0x00007f066d87eddf: add    $0x8,%ecx
+  0x00007f066d87ede2: mov    %ecx,0x104(%rdx)
+  0x00007f066d87ede8: and    $0x7ffff8,%ecx
+  0x00007f066d87edee: cmp    $0x0,%ecx
+  0x00007f066d87edf1: je     0x00007f066d8806e3
+  0x00007f066d87edf7: mov    %rax,%rdx
+  0x00007f066d87edfa: movabs $0x7f066ccdc8e8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d87ee04: addq   $0x1,0x140(%rcx)
+  0x00007f066d87ee0c: movabs $0x7f066c923880,%rdx  ;   {metadata(method data for {method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d87ee16: mov    0x104(%rdx),%ecx
+  0x00007f066d87ee1c: add    $0x8,%ecx
+  0x00007f066d87ee1f: mov    %ecx,0x104(%rdx)
+  0x00007f066d87ee25: and    $0x7ffff8,%ecx
+  0x00007f066d87ee2b: cmp    $0x0,%ecx
+  0x00007f066d87ee2e: je     0x00007f066d880704
+  0x00007f066d87ee34: mov    %rbx,%rdx
+  0x00007f066d87ee37: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87ee41: addq   $0x1,0x2e8(%rcx)
+  0x00007f066d87ee49: movabs $0x7f066ccdd300,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd6b00} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;HandlerTask&apos;)}
+  0x00007f066d87ee53: mov    0x104(%rdx),%ecx
+  0x00007f066d87ee59: add    $0x8,%ecx
+  0x00007f066d87ee5c: mov    %ecx,0x104(%rdx)
+  0x00007f066d87ee62: and    $0x7ffff8,%ecx
+  0x00007f066d87ee68: cmp    $0x0,%ecx
+  0x00007f066d87ee6b: je     0x00007f066d880725
+  0x00007f066d87ee71: mov    %rbx,%rdx
+  0x00007f066d87ee74: movabs $0x7f066ccdd300,%rcx  ;   {metadata(method data for {method} {0x00007f066ccd6b00} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;HandlerTask&apos;)}
+  0x00007f066d87ee7e: addq   $0x1,0x140(%rcx)
+  0x00007f066d87ee86: mov    $0x3,%edx
+  0x00007f066d87ee8b: mov    $0x7d0,%ecx
+  0x00007f066d87ee90: mov    0xd0(%rsp),%r8
+  0x00007f066d87ee98: mov    %rax,%rdi
+  0x00007f066d87ee9b: mov    %rbx,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - HandlerTask::&lt;init&gt;@8 (line 325)
+                                                ; - richards::run@164 (line 488)
+
+  0x00007f066d87ee9e: mov    %rbx,0xd8(%rsp)
+  0x00007f066d87eea6: nop
+  0x00007f066d87eea7: callq  0x00007f066d026f00  ; ImmutableOopMap{[136]=Oop [152]=Oop [216]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - HandlerTask::&lt;init&gt;@8 (line 325)
+                                                ; - richards::run@164 (line 488)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87eeac: movabs $0x8000a0a28,%rdx  ;   {metadata(&apos;Packet&apos;)}
+  0x00007f066d87eeb6: mov    0x118(%r15),%rax
+  0x00007f066d87eebd: lea    0x20(%rax),%rdi
+  0x00007f066d87eec1: cmp    0x128(%r15),%rdi
+  0x00007f066d87eec8: ja     0x00007f066d880746
+  0x00007f066d87eece: mov    %rdi,0x118(%r15)
+  0x00007f066d87eed5: mov    0xb8(%rdx),%rcx
+  0x00007f066d87eedc: mov    %rcx,(%rax)
+  0x00007f066d87eedf: mov    %rdx,%rcx
+  0x00007f066d87eee2: movabs $0x800000000,%r12
+  0x00007f066d87eeec: sub    %r12,%rcx
+  0x00007f066d87eeef: xor    %r12,%r12
+  0x00007f066d87eef2: mov    %ecx,0x8(%rax)
+  0x00007f066d87eef5: xor    %rcx,%rcx
+  0x00007f066d87eef8: mov    %ecx,0xc(%rax)
+  0x00007f066d87eefb: xor    %rcx,%rcx
+  0x00007f066d87eefe: mov    %rcx,0x10(%rax)
+  0x00007f066d87ef02: mov    %rcx,0x18(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@168 (line 491)
+
+  0x00007f066d87ef06: mov    %rax,%rdx
+  0x00007f066d87ef09: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87ef13: addq   $0x1,0x2f8(%rcx)
+  0x00007f066d87ef1b: movabs $0x0,%rdx          ;   {oop(NULL)}
+  0x00007f066d87ef25: mov    $0x6,%ecx
+  0x00007f066d87ef2a: mov    $0x3e8,%r8d
+  0x00007f066d87ef30: mov    %rax,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@178 (line 491)
+
+  0x00007f066d87ef33: mov    %rax,0xe0(%rsp)
+  0x00007f066d87ef3b: nopl   0x0(%rax)
+  0x00007f066d87ef3f: callq  0x00007f066d026f00  ; ImmutableOopMap{[136]=Oop [152]=Oop [224]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@178 (line 491)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87ef44: movabs $0x8000a0a28,%rdx  ;   {metadata(&apos;Packet&apos;)}
+  0x00007f066d87ef4e: mov    0x118(%r15),%rax
+  0x00007f066d87ef55: lea    0x20(%rax),%rdi
+  0x00007f066d87ef59: cmp    0x128(%r15),%rdi
+  0x00007f066d87ef60: ja     0x00007f066d880753
+  0x00007f066d87ef66: mov    %rdi,0x118(%r15)
+  0x00007f066d87ef6d: mov    0xb8(%rdx),%rcx
+  0x00007f066d87ef74: mov    %rcx,(%rax)
+  0x00007f066d87ef77: mov    %rdx,%rcx
+  0x00007f066d87ef7a: movabs $0x800000000,%r12
+  0x00007f066d87ef84: sub    %r12,%rcx
+  0x00007f066d87ef87: xor    %r12,%r12
+  0x00007f066d87ef8a: mov    %ecx,0x8(%rax)
+  0x00007f066d87ef8d: xor    %rcx,%rcx
+  0x00007f066d87ef90: mov    %ecx,0xc(%rax)
+  0x00007f066d87ef93: xor    %rcx,%rcx
+  0x00007f066d87ef96: mov    %rcx,0x10(%rax)
+  0x00007f066d87ef9a: mov    %rcx,0x18(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@182 (line 492)
+
+  0x00007f066d87ef9e: mov    %rax,%rdx
+  0x00007f066d87efa1: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87efab: addq   $0x1,0x308(%rcx)
+  0x00007f066d87efb3: mov    0xe0(%rsp),%rdx
+  0x00007f066d87efbb: mov    $0x6,%ecx
+  0x00007f066d87efc0: mov    $0x3e8,%r8d
+  0x00007f066d87efc6: mov    %rax,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@192 (line 492)
+
+  0x00007f066d87efc9: mov    %rax,0xe8(%rsp)
+  0x00007f066d87efd1: nopw   0x0(%rax,%rax,1)
+  0x00007f066d87efd7: callq  0x00007f066d026f00  ; ImmutableOopMap{[136]=Oop [152]=Oop [232]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@192 (line 492)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87efdc: movabs $0x8000a0a28,%rdx  ;   {metadata(&apos;Packet&apos;)}
+  0x00007f066d87efe6: mov    0x118(%r15),%rax
+  0x00007f066d87efed: lea    0x20(%rax),%rdi
+  0x00007f066d87eff1: cmp    0x128(%r15),%rdi
+  0x00007f066d87eff8: ja     0x00007f066d880760
+  0x00007f066d87effe: mov    %rdi,0x118(%r15)
+  0x00007f066d87f005: mov    0xb8(%rdx),%rcx
+  0x00007f066d87f00c: mov    %rcx,(%rax)
+  0x00007f066d87f00f: mov    %rdx,%rcx
+  0x00007f066d87f012: movabs $0x800000000,%r12
+  0x00007f066d87f01c: sub    %r12,%rcx
+  0x00007f066d87f01f: xor    %r12,%r12
+  0x00007f066d87f022: mov    %ecx,0x8(%rax)
+  0x00007f066d87f025: xor    %rcx,%rcx
+  0x00007f066d87f028: mov    %ecx,0xc(%rax)
+  0x00007f066d87f02b: xor    %rcx,%rcx
+  0x00007f066d87f02e: mov    %rcx,0x10(%rax)
+  0x00007f066d87f032: mov    %rcx,0x18(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@196 (line 493)
+
+  0x00007f066d87f036: mov    %rax,%rdx
+  0x00007f066d87f039: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87f043: addq   $0x1,0x318(%rcx)
+  0x00007f066d87f04b: mov    0xe8(%rsp),%rdx
+  0x00007f066d87f053: mov    $0x6,%ecx
+  0x00007f066d87f058: mov    $0x3e8,%r8d
+  0x00007f066d87f05e: mov    %rax,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@206 (line 493)
+
+  0x00007f066d87f061: mov    %rax,0xf0(%rsp)
+  0x00007f066d87f069: nopw   0x0(%rax,%rax,1)
+  0x00007f066d87f06f: callq  0x00007f066d026f00  ; ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@206 (line 493)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87f074: movabs $0x8000a0f90,%rdx  ;   {metadata(&apos;HandlerTask&apos;)}
+  0x00007f066d87f07e: mov    0x118(%r15),%rax
+  0x00007f066d87f085: lea    0x28(%rax),%rdi
+  0x00007f066d87f089: cmp    0x128(%r15),%rdi
+  0x00007f066d87f090: ja     0x00007f066d88076d
+  0x00007f066d87f096: mov    %rdi,0x118(%r15)
+  0x00007f066d87f09d: mov    0xb8(%rdx),%rcx
+  0x00007f066d87f0a4: mov    %rcx,(%rax)
+  0x00007f066d87f0a7: mov    %rdx,%rcx
+  0x00007f066d87f0aa: movabs $0x800000000,%r12
+  0x00007f066d87f0b4: sub    %r12,%rcx
+  0x00007f066d87f0b7: xor    %r12,%r12
+  0x00007f066d87f0ba: mov    %ecx,0x8(%rax)
+  0x00007f066d87f0bd: xor    %rcx,%rcx
+  0x00007f066d87f0c0: mov    %ecx,0xc(%rax)
+  0x00007f066d87f0c3: xor    %rcx,%rcx
+  0x00007f066d87f0c6: mov    %rcx,0x10(%rax)
+  0x00007f066d87f0ca: mov    %rcx,0x18(%rax)
+  0x00007f066d87f0ce: mov    %rcx,0x20(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@210 (line 494)
+
+  0x00007f066d87f0d2: movabs $0x8000964a0,%rdx  ;   {metadata(&apos;TaskState&apos;)}
+  0x00007f066d87f0dc: mov    %rax,%rbx
+  0x00007f066d87f0df: mov    0x118(%r15),%rax
+  0x00007f066d87f0e6: lea    0x10(%rax),%rdi
+  0x00007f066d87f0ea: cmp    0x128(%r15),%rdi
+  0x00007f066d87f0f1: ja     0x00007f066d88077a
+  0x00007f066d87f0f7: mov    %rdi,0x118(%r15)
+  0x00007f066d87f0fe: mov    0xb8(%rdx),%rcx
+  0x00007f066d87f105: mov    %rcx,(%rax)
+  0x00007f066d87f108: mov    %rdx,%rcx
+  0x00007f066d87f10b: movabs $0x800000000,%r12
+  0x00007f066d87f115: sub    %r12,%rcx
+  0x00007f066d87f118: xor    %r12,%r12
+  0x00007f066d87f11b: mov    %ecx,0x8(%rax)
+  0x00007f066d87f11e: xor    %rcx,%rcx
+  0x00007f066d87f121: mov    %ecx,0xc(%rax)
+  0x00007f066d87f124: xor    %rcx,%rcx
+  0x00007f066d87f127: mov    %rax,%r9           ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@219 (line 494)
+
+  0x00007f066d87f12a: mov    %r9,%rdx
+  0x00007f066d87f12d: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87f137: addq   $0x1,0x328(%rsi)
+  0x00007f066d87f13f: movabs $0x7f066ccdc470,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87f149: mov    0x104(%rdx),%esi
+  0x00007f066d87f14f: add    $0x8,%esi
+  0x00007f066d87f152: mov    %esi,0x104(%rdx)
+  0x00007f066d87f158: and    $0x7ffff8,%esi
+  0x00007f066d87f15e: cmp    $0x0,%esi
+  0x00007f066d87f161: je     0x00007f066d880787
+  0x00007f066d87f167: mov    %r9,%rdx
+  0x00007f066d87f16a: movabs $0x7f066ccdc470,%rsi  ;   {metadata(method data for {method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87f174: addq   $0x1,0x140(%rsi)
+  0x00007f066d87f17c: movabs $0x7f066c923880,%rdx  ;   {metadata(method data for {method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d87f186: mov    0x104(%rdx),%esi
+  0x00007f066d87f18c: add    $0x8,%esi
+  0x00007f066d87f18f: mov    %esi,0x104(%rdx)
+  0x00007f066d87f195: and    $0x7ffff8,%esi
+  0x00007f066d87f19b: cmp    $0x0,%esi
+  0x00007f066d87f19e: je     0x00007f066d8807a8
+  0x00007f066d87f1a4: movb   $0x1,0xc(%r9)      ;*putfield packetPending {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::&lt;init&gt;@6 (line 122)
+                                                ; - richards::run@223 (line 494)
+
+  0x00007f066d87f1a9: mov    %r9,%rdx
+  0x00007f066d87f1ac: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87f1b6: mov    0x8(%rdx),%edx
+  0x00007f066d87f1b9: movabs $0x800000000,%r12
+  0x00007f066d87f1c3: add    %r12,%rdx
+  0x00007f066d87f1c6: xor    %r12,%r12
+  0x00007f066d87f1c9: cmp    0x348(%rsi),%rdx
+  0x00007f066d87f1d0: jne    0x00007f066d87f1df
+  0x00007f066d87f1d2: addq   $0x1,0x350(%rsi)
+  0x00007f066d87f1da: jmpq   0x00007f066d87f245
+  0x00007f066d87f1df: cmp    0x358(%rsi),%rdx
+  0x00007f066d87f1e6: jne    0x00007f066d87f1f5
+  0x00007f066d87f1e8: addq   $0x1,0x360(%rsi)
+  0x00007f066d87f1f0: jmpq   0x00007f066d87f245
+  0x00007f066d87f1f5: cmpq   $0x0,0x348(%rsi)
+  0x00007f066d87f200: jne    0x00007f066d87f219
+  0x00007f066d87f202: mov    %rdx,0x348(%rsi)
+  0x00007f066d87f209: movq   $0x1,0x350(%rsi)
+  0x00007f066d87f214: jmpq   0x00007f066d87f245
+  0x00007f066d87f219: cmpq   $0x0,0x358(%rsi)
+  0x00007f066d87f224: jne    0x00007f066d87f23d
+  0x00007f066d87f226: mov    %rdx,0x358(%rsi)
+  0x00007f066d87f22d: movq   $0x1,0x360(%rsi)
+  0x00007f066d87f238: jmpq   0x00007f066d87f245
+  0x00007f066d87f23d: addq   $0x1,0x338(%rsi)
+  0x00007f066d87f245: movabs $0x7f066ccdd010,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd3890} &apos;WaitingWithPacket&apos; &apos;()LTaskState;&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87f24f: mov    0x104(%rdx),%esi
+  0x00007f066d87f255: add    $0x8,%esi
+  0x00007f066d87f258: mov    %esi,0x104(%rdx)
+  0x00007f066d87f25e: and    $0x7ffff8,%esi
+  0x00007f066d87f264: cmp    $0x0,%esi
+  0x00007f066d87f267: je     0x00007f066d8807c9
+  0x00007f066d87f26d: movb   $0x1,0xd(%r9)      ;*putfield taskWaiting {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::WaitingWithPacket@4 (line 142)
+                                                ; - richards::run@226 (line 495)
+
+  0x00007f066d87f272: movb   $0x1,0xc(%r9)      ;*putfield packetPending {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::WaitingWithPacket@7 (line 142)
+                                                ; - richards::run@226 (line 495)
+
+  0x00007f066d87f277: movabs $0x800096040,%rdx  ;   {metadata(&apos;HandlerTaskRec&apos;)}
+  0x00007f066d87f281: mov    0x118(%r15),%rax
+  0x00007f066d87f288: lea    0x18(%rax),%rdi
+  0x00007f066d87f28c: cmp    0x128(%r15),%rdi
+  0x00007f066d87f293: ja     0x00007f066d8807ea
+  0x00007f066d87f299: mov    %rdi,0x118(%r15)
+  0x00007f066d87f2a0: mov    0xb8(%rdx),%rcx
+  0x00007f066d87f2a7: mov    %rcx,(%rax)
+  0x00007f066d87f2aa: mov    %rdx,%rcx
+  0x00007f066d87f2ad: movabs $0x800000000,%r12
+  0x00007f066d87f2b7: sub    %r12,%rcx
+  0x00007f066d87f2ba: xor    %r12,%r12
+  0x00007f066d87f2bd: mov    %ecx,0x8(%rax)
+  0x00007f066d87f2c0: xor    %rcx,%rcx
+  0x00007f066d87f2c3: mov    %ecx,0xc(%rax)
+  0x00007f066d87f2c6: xor    %rcx,%rcx
+  0x00007f066d87f2c9: mov    %rcx,0x10(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@229 (line 495)
+
+  0x00007f066d87f2cd: mov    %rax,%rdx
+  0x00007f066d87f2d0: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87f2da: addq   $0x1,0x370(%rcx)
+  0x00007f066d87f2e2: movabs $0x7f066ccdd180,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd0748} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;HandlerTaskRec&apos;)}
+  0x00007f066d87f2ec: mov    0x104(%rdx),%ecx
+  0x00007f066d87f2f2: add    $0x8,%ecx
+  0x00007f066d87f2f5: mov    %ecx,0x104(%rdx)
+  0x00007f066d87f2fb: and    $0x7ffff8,%ecx
+  0x00007f066d87f301: cmp    $0x0,%ecx
+  0x00007f066d87f304: je     0x00007f066d8807f7
+  0x00007f066d87f30a: mov    %rax,%rdx
+  0x00007f066d87f30d: movabs $0x7f066ccdd180,%rcx  ;   {metadata(method data for {method} {0x00007f066ccd0748} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;HandlerTaskRec&apos;)}
+  0x00007f066d87f317: addq   $0x1,0x140(%rcx)
+  0x00007f066d87f31f: movabs $0x7f066ccdc8e8,%rdx  ;   {metadata(method data for {method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d87f329: mov    0x104(%rdx),%ecx
+  0x00007f066d87f32f: add    $0x8,%ecx
+  0x00007f066d87f332: mov    %ecx,0x104(%rdx)
+  0x00007f066d87f338: and    $0x7ffff8,%ecx
+  0x00007f066d87f33e: cmp    $0x0,%ecx
+  0x00007f066d87f341: je     0x00007f066d880818
+  0x00007f066d87f347: mov    %rax,%rdx
+  0x00007f066d87f34a: movabs $0x7f066ccdc8e8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d87f354: addq   $0x1,0x140(%rcx)
+  0x00007f066d87f35c: movabs $0x7f066c923880,%rdx  ;   {metadata(method data for {method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d87f366: mov    0x104(%rdx),%ecx
+  0x00007f066d87f36c: add    $0x8,%ecx
+  0x00007f066d87f36f: mov    %ecx,0x104(%rdx)
+  0x00007f066d87f375: and    $0x7ffff8,%ecx
+  0x00007f066d87f37b: cmp    $0x0,%ecx
+  0x00007f066d87f37e: je     0x00007f066d880839
+  0x00007f066d87f384: mov    %rbx,%rdx
+  0x00007f066d87f387: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87f391: addq   $0x1,0x380(%rcx)
+  0x00007f066d87f399: movabs $0x7f066ccdd300,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd6b00} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;HandlerTask&apos;)}
+  0x00007f066d87f3a3: mov    0x104(%rdx),%ecx
+  0x00007f066d87f3a9: add    $0x8,%ecx
+  0x00007f066d87f3ac: mov    %ecx,0x104(%rdx)
+  0x00007f066d87f3b2: and    $0x7ffff8,%ecx
+  0x00007f066d87f3b8: cmp    $0x0,%ecx
+  0x00007f066d87f3bb: je     0x00007f066d88085a
+  0x00007f066d87f3c1: mov    %rbx,%rdx
+  0x00007f066d87f3c4: movabs $0x7f066ccdd300,%rcx  ;   {metadata(method data for {method} {0x00007f066ccd6b00} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;HandlerTask&apos;)}
+  0x00007f066d87f3ce: addq   $0x1,0x140(%rcx)
+  0x00007f066d87f3d6: mov    $0x4,%edx
+  0x00007f066d87f3db: mov    $0xbb8,%ecx
+  0x00007f066d87f3e0: mov    0xf0(%rsp),%r8
+  0x00007f066d87f3e8: mov    %rax,%rdi
+  0x00007f066d87f3eb: mov    %rbx,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - HandlerTask::&lt;init&gt;@8 (line 325)
+                                                ; - richards::run@236 (line 495)
+
+  0x00007f066d87f3ee: mov    %rbx,0xf8(%rsp)
+  0x00007f066d87f3f6: nop
+  0x00007f066d87f3f7: callq  0x00007f066d026f00  ; ImmutableOopMap{[136]=Oop [152]=Oop [248]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - HandlerTask::&lt;init&gt;@8 (line 325)
+                                                ; - richards::run@236 (line 495)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87f3fc: movabs $0x8000a1290,%rdx  ;   {metadata(&apos;DeviceTask&apos;)}
+  0x00007f066d87f406: mov    0x118(%r15),%rax
+  0x00007f066d87f40d: lea    0x28(%rax),%rdi
+  0x00007f066d87f411: cmp    0x128(%r15),%rdi
+  0x00007f066d87f418: ja     0x00007f066d88087b
+  0x00007f066d87f41e: mov    %rdi,0x118(%r15)
+  0x00007f066d87f425: mov    0xb8(%rdx),%rcx
+  0x00007f066d87f42c: mov    %rcx,(%rax)
+  0x00007f066d87f42f: mov    %rdx,%rcx
+  0x00007f066d87f432: movabs $0x800000000,%r12
+  0x00007f066d87f43c: sub    %r12,%rcx
+  0x00007f066d87f43f: xor    %r12,%r12
+  0x00007f066d87f442: mov    %ecx,0x8(%rax)
+  0x00007f066d87f445: xor    %rcx,%rcx
+  0x00007f066d87f448: mov    %ecx,0xc(%rax)
+  0x00007f066d87f44b: xor    %rcx,%rcx
+  0x00007f066d87f44e: mov    %rcx,0x10(%rax)
+  0x00007f066d87f452: mov    %rcx,0x18(%rax)
+  0x00007f066d87f456: mov    %rcx,0x20(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@242 (line 499)
+
+  0x00007f066d87f45a: movabs $0x8000964a0,%rdx  ;   {metadata(&apos;TaskState&apos;)}
+  0x00007f066d87f464: mov    %rax,%rbx
+  0x00007f066d87f467: mov    0x118(%r15),%rax
+  0x00007f066d87f46e: lea    0x10(%rax),%rdi
+  0x00007f066d87f472: cmp    0x128(%r15),%rdi
+  0x00007f066d87f479: ja     0x00007f066d880888
+  0x00007f066d87f47f: mov    %rdi,0x118(%r15)
+  0x00007f066d87f486: mov    0xb8(%rdx),%rcx
+  0x00007f066d87f48d: mov    %rcx,(%rax)
+  0x00007f066d87f490: mov    %rdx,%rcx
+  0x00007f066d87f493: movabs $0x800000000,%r12
+  0x00007f066d87f49d: sub    %r12,%rcx
+  0x00007f066d87f4a0: xor    %r12,%r12
+  0x00007f066d87f4a3: mov    %ecx,0x8(%rax)
+  0x00007f066d87f4a6: xor    %rcx,%rcx
+  0x00007f066d87f4a9: mov    %ecx,0xc(%rax)
+  0x00007f066d87f4ac: xor    %rcx,%rcx
+  0x00007f066d87f4af: mov    %rax,%r9           ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@251 (line 499)
+
+  0x00007f066d87f4b2: mov    %r9,%rdx
+  0x00007f066d87f4b5: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87f4bf: addq   $0x1,0x390(%rsi)
+  0x00007f066d87f4c7: movabs $0x7f066ccdc470,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87f4d1: mov    0x104(%rdx),%esi
+  0x00007f066d87f4d7: add    $0x8,%esi
+  0x00007f066d87f4da: mov    %esi,0x104(%rdx)
+  0x00007f066d87f4e0: and    $0x7ffff8,%esi
+  0x00007f066d87f4e6: cmp    $0x0,%esi
+  0x00007f066d87f4e9: je     0x00007f066d880895
+  0x00007f066d87f4ef: mov    %r9,%rdx
+  0x00007f066d87f4f2: movabs $0x7f066ccdc470,%rsi  ;   {metadata(method data for {method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87f4fc: addq   $0x1,0x140(%rsi)
+  0x00007f066d87f504: movabs $0x7f066c923880,%rdx  ;   {metadata(method data for {method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d87f50e: mov    0x104(%rdx),%esi
+  0x00007f066d87f514: add    $0x8,%esi
+  0x00007f066d87f517: mov    %esi,0x104(%rdx)
+  0x00007f066d87f51d: and    $0x7ffff8,%esi
+  0x00007f066d87f523: cmp    $0x0,%esi
+  0x00007f066d87f526: je     0x00007f066d8808b6
+  0x00007f066d87f52c: movb   $0x1,0xc(%r9)      ;*putfield packetPending {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::&lt;init&gt;@6 (line 122)
+                                                ; - richards::run@255 (line 499)
+
+  0x00007f066d87f531: mov    %r9,%rdx
+  0x00007f066d87f534: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87f53e: mov    0x8(%rdx),%edx
+  0x00007f066d87f541: movabs $0x800000000,%r12
+  0x00007f066d87f54b: add    %r12,%rdx
+  0x00007f066d87f54e: xor    %r12,%r12
+  0x00007f066d87f551: cmp    0x3b0(%rsi),%rdx
+  0x00007f066d87f558: jne    0x00007f066d87f567
+  0x00007f066d87f55a: addq   $0x1,0x3b8(%rsi)
+  0x00007f066d87f562: jmpq   0x00007f066d87f5cd
+  0x00007f066d87f567: cmp    0x3c0(%rsi),%rdx
+  0x00007f066d87f56e: jne    0x00007f066d87f57d
+  0x00007f066d87f570: addq   $0x1,0x3c8(%rsi)
+  0x00007f066d87f578: jmpq   0x00007f066d87f5cd
+  0x00007f066d87f57d: cmpq   $0x0,0x3b0(%rsi)
+  0x00007f066d87f588: jne    0x00007f066d87f5a1
+  0x00007f066d87f58a: mov    %rdx,0x3b0(%rsi)
+  0x00007f066d87f591: movq   $0x1,0x3b8(%rsi)
+  0x00007f066d87f59c: jmpq   0x00007f066d87f5cd
+  0x00007f066d87f5a1: cmpq   $0x0,0x3c0(%rsi)
+  0x00007f066d87f5ac: jne    0x00007f066d87f5c5
+  0x00007f066d87f5ae: mov    %rdx,0x3c0(%rsi)
+  0x00007f066d87f5b5: movq   $0x1,0x3c8(%rsi)
+  0x00007f066d87f5c0: jmpq   0x00007f066d87f5cd
+  0x00007f066d87f5c5: addq   $0x1,0x3a0(%rsi)
+  0x00007f066d87f5cd: movabs $0x7f066ccdd498,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd3740} &apos;Waiting&apos; &apos;()LTaskState;&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87f5d7: mov    0x104(%rdx),%esi
+  0x00007f066d87f5dd: add    $0x8,%esi
+  0x00007f066d87f5e0: mov    %esi,0x104(%rdx)
+  0x00007f066d87f5e6: and    $0x7ffff8,%esi
+  0x00007f066d87f5ec: cmp    $0x0,%esi
+  0x00007f066d87f5ef: je     0x00007f066d8808d7
+  0x00007f066d87f5f5: movb   $0x0,0xc(%r9)      ;*putfield packetPending {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::Waiting@7 (line 133)
+                                                ; - richards::run@258 (line 499)
+
+  0x00007f066d87f5fa: movb   $0x1,0xd(%r9)      ;*putfield taskWaiting {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::Waiting@12 (line 134)
+                                                ; - richards::run@258 (line 499)
+
+  0x00007f066d87f5ff: movabs $0x800096280,%rdx  ;   {metadata(&apos;DeviceTaskRec&apos;)}
+  0x00007f066d87f609: mov    0x118(%r15),%rax
+  0x00007f066d87f610: lea    0x10(%rax),%rdi
+  0x00007f066d87f614: cmp    0x128(%r15),%rdi
+  0x00007f066d87f61b: ja     0x00007f066d8808f8
+  0x00007f066d87f621: mov    %rdi,0x118(%r15)
+  0x00007f066d87f628: mov    0xb8(%rdx),%rcx
+  0x00007f066d87f62f: mov    %rcx,(%rax)
+  0x00007f066d87f632: mov    %rdx,%rcx
+  0x00007f066d87f635: movabs $0x800000000,%r12
+  0x00007f066d87f63f: sub    %r12,%rcx
+  0x00007f066d87f642: xor    %r12,%r12
+  0x00007f066d87f645: mov    %ecx,0x8(%rax)
+  0x00007f066d87f648: xor    %rcx,%rcx
+  0x00007f066d87f64b: mov    %ecx,0xc(%rax)
+  0x00007f066d87f64e: xor    %rcx,%rcx          ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@261 (line 499)
+
+  0x00007f066d87f651: mov    %rax,%rdx
+  0x00007f066d87f654: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87f65e: addq   $0x1,0x3d8(%rcx)
+  0x00007f066d87f666: movabs $0x7f066ccdd608,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd0d10} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;DeviceTaskRec&apos;)}
+  0x00007f066d87f670: mov    0x104(%rdx),%ecx
+  0x00007f066d87f676: add    $0x8,%ecx
+  0x00007f066d87f679: mov    %ecx,0x104(%rdx)
+  0x00007f066d87f67f: and    $0x7ffff8,%ecx
+  0x00007f066d87f685: cmp    $0x0,%ecx
+  0x00007f066d87f688: je     0x00007f066d880905
+  0x00007f066d87f68e: mov    %rax,%rdx
+  0x00007f066d87f691: movabs $0x7f066ccdd608,%rcx  ;   {metadata(method data for {method} {0x00007f066ccd0d10} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;DeviceTaskRec&apos;)}
+  0x00007f066d87f69b: addq   $0x1,0x140(%rcx)
+  0x00007f066d87f6a3: movabs $0x7f066ccdc8e8,%rdx  ;   {metadata(method data for {method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d87f6ad: mov    0x104(%rdx),%ecx
+  0x00007f066d87f6b3: add    $0x8,%ecx
+  0x00007f066d87f6b6: mov    %ecx,0x104(%rdx)
+  0x00007f066d87f6bc: and    $0x7ffff8,%ecx
+  0x00007f066d87f6c2: cmp    $0x0,%ecx
+  0x00007f066d87f6c5: je     0x00007f066d880926
+  0x00007f066d87f6cb: mov    %rax,%rdx
+  0x00007f066d87f6ce: movabs $0x7f066ccdc8e8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d87f6d8: addq   $0x1,0x140(%rcx)
+  0x00007f066d87f6e0: movabs $0x7f066c923880,%rdx  ;   {metadata(method data for {method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d87f6ea: mov    0x104(%rdx),%ecx
+  0x00007f066d87f6f0: add    $0x8,%ecx
+  0x00007f066d87f6f3: mov    %ecx,0x104(%rdx)
+  0x00007f066d87f6f9: and    $0x7ffff8,%ecx
+  0x00007f066d87f6ff: cmp    $0x0,%ecx
+  0x00007f066d87f702: je     0x00007f066d880947
+  0x00007f066d87f708: mov    %rbx,%rdx
+  0x00007f066d87f70b: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87f715: addq   $0x1,0x3e8(%rcx)
+  0x00007f066d87f71d: movabs $0x7f066ccdd788,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd7210} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;DeviceTask&apos;)}
+  0x00007f066d87f727: mov    0x104(%rdx),%ecx
+  0x00007f066d87f72d: add    $0x8,%ecx
+  0x00007f066d87f730: mov    %ecx,0x104(%rdx)
+  0x00007f066d87f736: and    $0x7ffff8,%ecx
+  0x00007f066d87f73c: cmp    $0x0,%ecx
+  0x00007f066d87f73f: je     0x00007f066d880968
+  0x00007f066d87f745: mov    %rbx,%rdx
+  0x00007f066d87f748: movabs $0x7f066ccdd788,%rcx  ;   {metadata(method data for {method} {0x00007f066ccd7210} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;DeviceTask&apos;)}
+  0x00007f066d87f752: addq   $0x1,0x140(%rcx)
+  0x00007f066d87f75a: mov    $0x5,%edx
+  0x00007f066d87f75f: mov    $0xfa0,%ecx
+  0x00007f066d87f764: movabs $0x0,%r8           ;   {oop(NULL)}
+  0x00007f066d87f76e: mov    %rax,%rdi
+  0x00007f066d87f771: mov    %rbx,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - DeviceTask::&lt;init&gt;@8 (line 299)
+                                                ; - richards::run@268 (line 499)
+
+  0x00007f066d87f774: mov    %rbx,0x100(%rsp)
+  0x00007f066d87f77c: data16 xchg %ax,%ax
+  0x00007f066d87f77f: callq  0x00007f066d026f00  ; ImmutableOopMap{[136]=Oop [152]=Oop [256]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - DeviceTask::&lt;init&gt;@8 (line 299)
+                                                ; - richards::run@268 (line 499)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87f784: movabs $0x8000a1290,%rdx  ;   {metadata(&apos;DeviceTask&apos;)}
+  0x00007f066d87f78e: mov    0x118(%r15),%rax
+  0x00007f066d87f795: lea    0x28(%rax),%rdi
+  0x00007f066d87f799: cmp    0x128(%r15),%rdi
+  0x00007f066d87f7a0: ja     0x00007f066d880989
+  0x00007f066d87f7a6: mov    %rdi,0x118(%r15)
+  0x00007f066d87f7ad: mov    0xb8(%rdx),%rcx
+  0x00007f066d87f7b4: mov    %rcx,(%rax)
+  0x00007f066d87f7b7: mov    %rdx,%rcx
+  0x00007f066d87f7ba: movabs $0x800000000,%r12
+  0x00007f066d87f7c4: sub    %r12,%rcx
+  0x00007f066d87f7c7: xor    %r12,%r12
+  0x00007f066d87f7ca: mov    %ecx,0x8(%rax)
+  0x00007f066d87f7cd: xor    %rcx,%rcx
+  0x00007f066d87f7d0: mov    %ecx,0xc(%rax)
+  0x00007f066d87f7d3: xor    %rcx,%rcx
+  0x00007f066d87f7d6: mov    %rcx,0x10(%rax)
+  0x00007f066d87f7da: mov    %rcx,0x18(%rax)
+  0x00007f066d87f7de: mov    %rcx,0x20(%rax)    ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@272 (line 501)
+
+  0x00007f066d87f7e2: movabs $0x8000964a0,%rdx  ;   {metadata(&apos;TaskState&apos;)}
+  0x00007f066d87f7ec: mov    %rax,%rbx
+  0x00007f066d87f7ef: mov    0x118(%r15),%rax
+  0x00007f066d87f7f6: lea    0x10(%rax),%rdi
+  0x00007f066d87f7fa: cmp    0x128(%r15),%rdi
+  0x00007f066d87f801: ja     0x00007f066d880996
+  0x00007f066d87f807: mov    %rdi,0x118(%r15)
+  0x00007f066d87f80e: mov    0xb8(%rdx),%rcx
+  0x00007f066d87f815: mov    %rcx,(%rax)
+  0x00007f066d87f818: mov    %rdx,%rcx
+  0x00007f066d87f81b: movabs $0x800000000,%r12
+  0x00007f066d87f825: sub    %r12,%rcx
+  0x00007f066d87f828: xor    %r12,%r12
+  0x00007f066d87f82b: mov    %ecx,0x8(%rax)
+  0x00007f066d87f82e: xor    %rcx,%rcx
+  0x00007f066d87f831: mov    %ecx,0xc(%rax)
+  0x00007f066d87f834: xor    %rcx,%rcx
+  0x00007f066d87f837: mov    %rax,%r9           ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@282 (line 501)
+
+  0x00007f066d87f83a: mov    %r9,%rdx
+  0x00007f066d87f83d: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87f847: addq   $0x1,0x3f8(%rsi)
+  0x00007f066d87f84f: movabs $0x7f066ccdc470,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87f859: mov    0x104(%rdx),%esi
+  0x00007f066d87f85f: add    $0x8,%esi
+  0x00007f066d87f862: mov    %esi,0x104(%rdx)
+  0x00007f066d87f868: and    $0x7ffff8,%esi
+  0x00007f066d87f86e: cmp    $0x0,%esi
+  0x00007f066d87f871: je     0x00007f066d8809a3
+  0x00007f066d87f877: mov    %r9,%rdx
+  0x00007f066d87f87a: movabs $0x7f066ccdc470,%rsi  ;   {metadata(method data for {method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87f884: addq   $0x1,0x140(%rsi)
+  0x00007f066d87f88c: movabs $0x7f066c923880,%rdx  ;   {metadata(method data for {method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d87f896: mov    0x104(%rdx),%esi
+  0x00007f066d87f89c: add    $0x8,%esi
+  0x00007f066d87f89f: mov    %esi,0x104(%rdx)
+  0x00007f066d87f8a5: and    $0x7ffff8,%esi
+  0x00007f066d87f8ab: cmp    $0x0,%esi
+  0x00007f066d87f8ae: je     0x00007f066d8809c4
+  0x00007f066d87f8b4: movb   $0x1,0xc(%r9)      ;*putfield packetPending {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::&lt;init&gt;@6 (line 122)
+                                                ; - richards::run@286 (line 501)
+
+  0x00007f066d87f8b9: mov    %r9,%rdx
+  0x00007f066d87f8bc: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87f8c6: mov    0x8(%rdx),%edx
+  0x00007f066d87f8c9: movabs $0x800000000,%r12
+  0x00007f066d87f8d3: add    %r12,%rdx
+  0x00007f066d87f8d6: xor    %r12,%r12
+  0x00007f066d87f8d9: cmp    0x418(%rsi),%rdx
+  0x00007f066d87f8e0: jne    0x00007f066d87f8ef
+  0x00007f066d87f8e2: addq   $0x1,0x420(%rsi)
+  0x00007f066d87f8ea: jmpq   0x00007f066d87f955
+  0x00007f066d87f8ef: cmp    0x428(%rsi),%rdx
+  0x00007f066d87f8f6: jne    0x00007f066d87f905
+  0x00007f066d87f8f8: addq   $0x1,0x430(%rsi)
+  0x00007f066d87f900: jmpq   0x00007f066d87f955
+  0x00007f066d87f905: cmpq   $0x0,0x418(%rsi)
+  0x00007f066d87f910: jne    0x00007f066d87f929
+  0x00007f066d87f912: mov    %rdx,0x418(%rsi)
+  0x00007f066d87f919: movq   $0x1,0x420(%rsi)
+  0x00007f066d87f924: jmpq   0x00007f066d87f955
+  0x00007f066d87f929: cmpq   $0x0,0x428(%rsi)
+  0x00007f066d87f934: jne    0x00007f066d87f94d
+  0x00007f066d87f936: mov    %rdx,0x428(%rsi)
+  0x00007f066d87f93d: movq   $0x1,0x430(%rsi)
+  0x00007f066d87f948: jmpq   0x00007f066d87f955
+  0x00007f066d87f94d: addq   $0x1,0x408(%rsi)
+  0x00007f066d87f955: movabs $0x7f066ccdd498,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd3740} &apos;Waiting&apos; &apos;()LTaskState;&apos; in &apos;TaskState&apos;)}
+  0x00007f066d87f95f: mov    0x104(%rdx),%esi
+  0x00007f066d87f965: add    $0x8,%esi
+  0x00007f066d87f968: mov    %esi,0x104(%rdx)
+  0x00007f066d87f96e: and    $0x7ffff8,%esi
+  0x00007f066d87f974: cmp    $0x0,%esi
+  0x00007f066d87f977: je     0x00007f066d8809e5
+  0x00007f066d87f97d: movb   $0x0,0xc(%r9)      ;*putfield packetPending {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::Waiting@7 (line 133)
+                                                ; - richards::run@289 (line 501)
+
+  0x00007f066d87f982: movb   $0x1,0xd(%r9)      ;*putfield taskWaiting {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - TaskState::Waiting@12 (line 134)
+                                                ; - richards::run@289 (line 501)
+
+  0x00007f066d87f987: movabs $0x800096280,%rdx  ;   {metadata(&apos;DeviceTaskRec&apos;)}
+  0x00007f066d87f991: mov    0x118(%r15),%rax
+  0x00007f066d87f998: lea    0x10(%rax),%rdi
+  0x00007f066d87f99c: cmp    0x128(%r15),%rdi
+  0x00007f066d87f9a3: ja     0x00007f066d880a06
+  0x00007f066d87f9a9: mov    %rdi,0x118(%r15)
+  0x00007f066d87f9b0: mov    0xb8(%rdx),%rcx
+  0x00007f066d87f9b7: mov    %rcx,(%rax)
+  0x00007f066d87f9ba: mov    %rdx,%rcx
+  0x00007f066d87f9bd: movabs $0x800000000,%r12
+  0x00007f066d87f9c7: sub    %r12,%rcx
+  0x00007f066d87f9ca: xor    %r12,%r12
+  0x00007f066d87f9cd: mov    %ecx,0x8(%rax)
+  0x00007f066d87f9d0: xor    %rcx,%rcx
+  0x00007f066d87f9d3: mov    %ecx,0xc(%rax)
+  0x00007f066d87f9d6: xor    %rcx,%rcx          ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@292 (line 501)
+
+  0x00007f066d87f9d9: mov    %rax,%rdx
+  0x00007f066d87f9dc: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87f9e6: addq   $0x1,0x440(%rcx)
+  0x00007f066d87f9ee: movabs $0x7f066ccdd608,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd0d10} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;DeviceTaskRec&apos;)}
+  0x00007f066d87f9f8: mov    0x104(%rdx),%ecx
+  0x00007f066d87f9fe: add    $0x8,%ecx
+  0x00007f066d87fa01: mov    %ecx,0x104(%rdx)
+  0x00007f066d87fa07: and    $0x7ffff8,%ecx
+  0x00007f066d87fa0d: cmp    $0x0,%ecx
+  0x00007f066d87fa10: je     0x00007f066d880a13
+  0x00007f066d87fa16: mov    %rax,%rdx
+  0x00007f066d87fa19: movabs $0x7f066ccdd608,%rcx  ;   {metadata(method data for {method} {0x00007f066ccd0d10} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;DeviceTaskRec&apos;)}
+  0x00007f066d87fa23: addq   $0x1,0x140(%rcx)
+  0x00007f066d87fa2b: movabs $0x7f066ccdc8e8,%rdx  ;   {metadata(method data for {method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d87fa35: mov    0x104(%rdx),%ecx
+  0x00007f066d87fa3b: add    $0x8,%ecx
+  0x00007f066d87fa3e: mov    %ecx,0x104(%rdx)
+  0x00007f066d87fa44: and    $0x7ffff8,%ecx
+  0x00007f066d87fa4a: cmp    $0x0,%ecx
+  0x00007f066d87fa4d: je     0x00007f066d880a34
+  0x00007f066d87fa53: mov    %rax,%rdx
+  0x00007f066d87fa56: movabs $0x7f066ccdc8e8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d87fa60: addq   $0x1,0x140(%rcx)
+  0x00007f066d87fa68: movabs $0x7f066c923880,%rdx  ;   {metadata(method data for {method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d87fa72: mov    0x104(%rdx),%ecx
+  0x00007f066d87fa78: add    $0x8,%ecx
+  0x00007f066d87fa7b: mov    %ecx,0x104(%rdx)
+  0x00007f066d87fa81: and    $0x7ffff8,%ecx
+  0x00007f066d87fa87: cmp    $0x0,%ecx
+  0x00007f066d87fa8a: je     0x00007f066d880a55
+  0x00007f066d87fa90: mov    %rbx,%rdx
+  0x00007f066d87fa93: movabs $0x7f066ccde1f8,%rcx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87fa9d: addq   $0x1,0x450(%rcx)
+  0x00007f066d87faa5: movabs $0x7f066ccdd788,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd7210} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;DeviceTask&apos;)}
+  0x00007f066d87faaf: mov    0x104(%rdx),%ecx
+  0x00007f066d87fab5: add    $0x8,%ecx
+  0x00007f066d87fab8: mov    %ecx,0x104(%rdx)
+  0x00007f066d87fabe: and    $0x7ffff8,%ecx
+  0x00007f066d87fac4: cmp    $0x0,%ecx
+  0x00007f066d87fac7: je     0x00007f066d880a76
+  0x00007f066d87facd: mov    %rbx,%rdx
+  0x00007f066d87fad0: movabs $0x7f066ccdd788,%rcx  ;   {metadata(method data for {method} {0x00007f066ccd7210} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;DeviceTask&apos;)}
+  0x00007f066d87fada: addq   $0x1,0x140(%rcx)
+  0x00007f066d87fae2: mov    $0x6,%edx
+  0x00007f066d87fae7: mov    $0x1388,%ecx
+  0x00007f066d87faec: movabs $0x0,%r8           ;   {oop(NULL)}
+  0x00007f066d87faf6: mov    %rax,%rdi
+  0x00007f066d87faf9: mov    %rbx,%rsi          ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - DeviceTask::&lt;init&gt;@8 (line 299)
+                                                ; - richards::run@299 (line 501)
+
+  0x00007f066d87fafc: mov    %rbx,0x108(%rsp)
+  0x00007f066d87fb04: data16 xchg %ax,%ax
+  0x00007f066d87fb07: callq  0x00007f066d026f00  ; ImmutableOopMap{[136]=Oop [152]=Oop [264]=Oop }
+                                                ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - DeviceTask::&lt;init&gt;@8 (line 299)
+                                                ; - richards::run@299 (line 501)
+                                                ;   {optimized virtual_call}
+  0x00007f066d87fb0c: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87fb16: addq   $0x1,0x460(%rsi)
+  0x00007f066d87fb1e: nop
+  0x00007f066d87fb1f: callq  0x00007f066d027400  ; ImmutableOopMap{[136]=Oop [152]=Oop }
+                                                ;*invokestatic schedule {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@303 (line 504)
+                                                ;   {static_call}
+  0x00007f066d87fb24: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87fb2e: addq   $0x1,0x470(%rbx)
+  0x00007f066d87fb36: movabs $0x7f066ccdacd8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccd28b8} &apos;get_queuePacketCount&apos; &apos;()I&apos; in &apos;Task&apos;)}
+  0x00007f066d87fb40: mov    0x104(%rbx),%edx
+  0x00007f066d87fb46: add    $0x8,%edx
+  0x00007f066d87fb49: mov    %edx,0x104(%rbx)
+  0x00007f066d87fb4f: and    $0x7ffff8,%edx
+  0x00007f066d87fb55: cmp    $0x0,%edx
+  0x00007f066d87fb58: je     0x00007f066d880a97
+  0x00007f066d87fb5e: mov    0x88(%rsp),%rbx
+  0x00007f066d87fb66: mov    0x84(%rbx),%r8d    ;*getstatic qpktCount {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - Task::get_queuePacketCount@0 (line 199)
+                                                ; - richards::run@306 (line 506)
+
+  0x00007f066d87fb6d: movabs $0x7f066ccde1f8,%rdx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87fb77: addq   $0x1,0x480(%rdx)
+  0x00007f066d87fb7f: movabs $0x7f066ccda3e0,%rdx  ;   {metadata(method data for {method} {0x00007f066ccd2778} &apos;get_holdCount&apos; &apos;()I&apos; in &apos;Task&apos;)}
+  0x00007f066d87fb89: mov    0x104(%rdx),%esi
+  0x00007f066d87fb8f: add    $0x8,%esi
+  0x00007f066d87fb92: mov    %esi,0x104(%rdx)
+  0x00007f066d87fb98: and    $0x7ffff8,%esi
+  0x00007f066d87fb9e: cmp    $0x0,%esi
+  0x00007f066d87fba1: je     0x00007f066d880ab8
+  0x00007f066d87fba7: mov    0x80(%rbx),%r9d    ;*getstatic holdCount {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - Task::get_holdCount@0 (line 196)
+                                                ; - richards::run@310 (line 507)
+
+  0x00007f066d87fbae: cmp    $0x5ace,%r8d
+  0x00007f066d87fbb5: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87fbbf: movabs $0x490,%rdx
+  0x00007f066d87fbc9: jne    0x00007f066d87fbd9
+  0x00007f066d87fbcf: movabs $0x4a0,%rdx
+  0x00007f066d87fbd9: mov    (%rbx,%rdx,1),%rsi
+  0x00007f066d87fbdd: lea    0x1(%rsi),%rsi
+  0x00007f066d87fbe1: mov    %rsi,(%rbx,%rdx,1)
+  0x00007f066d87fbe5: jne    0x00007f066d87fc28  ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@319 (line 508)
+
+  0x00007f066d87fbeb: cmp    $0x2451,%r9d
+  0x00007f066d87fbf2: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87fbfc: movabs $0x4b0,%rdx
+  0x00007f066d87fc06: je     0x00007f066d87fc16
+  0x00007f066d87fc0c: movabs $0x4c0,%rdx
+  0x00007f066d87fc16: mov    (%rbx,%rdx,1),%rsi
+  0x00007f066d87fc1a: lea    0x1(%rsi),%rsi
+  0x00007f066d87fc1e: mov    %rsi,(%rbx,%rdx,1)
+  0x00007f066d87fc22: je     0x00007f066d8802cc  ;*if_icmpeq {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@327 (line 508)
+
+  0x00007f066d87fc28: mov    %r9d,0x94(%rsp)
+  0x00007f066d87fc30: jmpq   0x00007f066d880b3d  ;   {no_reloc}
+  0x00007f066d87fc35: add    %al,(%rax)
+  0x00007f066d87fc37: add    %al,(%rax)
+  0x00007f066d87fc39: add    %ah,0xf(%rsi)
+  0x00007f066d87fc3c: (bad)
+  0x00007f066d87fc3d: add    %r8b,(%rax)
+  0x00007f066d87fc40: jmpq   0x00007f066d880b58  ; implicit exception: dispatches to 0x00007f066d880b47
+  0x00007f066d87fc45: nop
+  0x00007f066d87fc46: nop
+  0x00007f066d87fc47: shl    $0x3,%r11          ;*getstatic out {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@330 (line 509)
+
+  0x00007f066d87fc4b: mov    $0x4,%ebx
+  0x00007f066d87fc50: movabs $0x800013e80,%rdx  ;   {metadata(&apos;java/lang/Object&apos;[])}
+  0x00007f066d87fc5a: movslq %ebx,%rbx
+  0x00007f066d87fc5d: mov    %rbx,%rdi
+  0x00007f066d87fc60: cmp    $0xffffff,%rbx
+  0x00007f066d87fc67: ja     0x00007f066d880b62
+  0x00007f066d87fc6d: movabs $0x17,%rsi
+  0x00007f066d87fc77: lea    (%rsi,%rbx,4),%rsi
+  0x00007f066d87fc7b: and    $0xfffffffffffffff8,%rsi
+  0x00007f066d87fc7f: mov    0x118(%r15),%rax
+  0x00007f066d87fc86: lea    (%rax,%rsi,1),%rsi
+  0x00007f066d87fc8a: cmp    0x128(%r15),%rsi
+  0x00007f066d87fc91: ja     0x00007f066d880b62
+  0x00007f066d87fc97: mov    %rsi,0x118(%r15)
+  0x00007f066d87fc9e: sub    %rax,%rsi
+  0x00007f066d87fca1: movq   $0x1,(%rax)
+  0x00007f066d87fca8: mov    %rdx,%rcx
+  0x00007f066d87fcab: movabs $0x800000000,%r12
+  0x00007f066d87fcb5: sub    %r12,%rcx
+  0x00007f066d87fcb8: xor    %r12,%r12
+  0x00007f066d87fcbb: mov    %ecx,0x8(%rax)
+  0x00007f066d87fcbe: mov    %ebx,0xc(%rax)
+  0x00007f066d87fcc1: sub    $0x10,%rsi
+  0x00007f066d87fcc5: je     0x00007f066d87fce5
+  0x00007f066d87fccb: test   %rsi,%rsi
+  0x00007f066d87fcce: je     0x00007f066d87fce5
+  0x00007f066d87fcd4: xor    %rbx,%rbx
+  0x00007f066d87fcd7: shr    $0x3,%rsi
+  0x00007f066d87fcdb: mov    %rbx,0x8(%rax,%rsi,8)
+  0x00007f066d87fce0: dec    %rsi
+  0x00007f066d87fce3: jne    0x00007f066d87fcdb  ;*anewarray {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@336 (line 509)
+
+  0x00007f066d87fce5: mov    %rax,0x110(%rsp)
+  0x00007f066d87fced: mov    %r8,%rsi           ;*invokestatic valueOf {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@342 (line 510)
+
+  0x00007f066d87fcf0: mov    %r11,0x118(%rsp)
+  0x00007f066d87fcf8: nopl   0x0(%rax)
+  0x00007f066d87fcff: callq  0x00007f066d027400  ; ImmutableOopMap{[152]=Oop [272]=Oop [280]=Oop }
+                                                ;*invokestatic valueOf {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@342 (line 510)
+                                                ;   {static_call}
+  0x00007f066d87fd04: mov    0x110(%rsp),%rdi
+  0x00007f066d87fd0c: cmp    $0x0,%rax
+  0x00007f066d87fd10: jne    0x00007f066d87fd28
+  0x00007f066d87fd12: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87fd1c: orb    $0x1,0x4d9(%rbx)
+  0x00007f066d87fd23: jmpq   0x00007f066d87fe30
+  0x00007f066d87fd28: mov    0x8(%rdi),%esi     ; implicit exception: dispatches to 0x00007f066d880b6c
+  0x00007f066d87fd2b: movabs $0x800000000,%r12
+  0x00007f066d87fd35: add    %r12,%rsi
+  0x00007f066d87fd38: xor    %r12,%r12
+  0x00007f066d87fd3b: mov    0x8(%rax),%ebx
+  0x00007f066d87fd3e: movabs $0x800000000,%r12
+  0x00007f066d87fd48: add    %r12,%rbx
+  0x00007f066d87fd4b: xor    %r12,%r12
+  0x00007f066d87fd4e: mov    0xe8(%rsi),%rsi
+  0x00007f066d87fd55: cmp    %rsi,%rbx
+  0x00007f066d87fd58: je     0x00007f066d87fd86
+  0x00007f066d87fd5e: mov    0x10(%rsi),%edx
+  0x00007f066d87fd61: cmp    (%rbx,%rdx,1),%rsi
+  0x00007f066d87fd65: je     0x00007f066d87fd86
+  0x00007f066d87fd6b: cmp    $0x20,%edx
+  0x00007f066d87fd6e: jne    0x00007f066d87fe19
+  0x00007f066d87fd74: push   %rbx
+  0x00007f066d87fd75: push   %rsi
+  0x00007f066d87fd76: callq  0x00007f066d0ee680  ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x00007f066d87fd7b: pop    %rbx
+  0x00007f066d87fd7c: pop    %rsi
+  0x00007f066d87fd7d: cmp    $0x0,%esi
+  0x00007f066d87fd80: je     0x00007f066d87fe19
+  0x00007f066d87fd86: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87fd90: mov    0x8(%rax),%esi
+  0x00007f066d87fd93: movabs $0x800000000,%r12
+  0x00007f066d87fd9d: add    %r12,%rsi
+  0x00007f066d87fda0: xor    %r12,%r12
+  0x00007f066d87fda3: cmp    0x4f0(%rbx),%rsi
+  0x00007f066d87fdaa: jne    0x00007f066d87fdb9
+  0x00007f066d87fdac: addq   $0x1,0x4f8(%rbx)
+  0x00007f066d87fdb4: jmpq   0x00007f066d87fe30
+  0x00007f066d87fdb9: cmp    0x500(%rbx),%rsi
+  0x00007f066d87fdc0: jne    0x00007f066d87fdcf
+  0x00007f066d87fdc2: addq   $0x1,0x508(%rbx)
+  0x00007f066d87fdca: jmpq   0x00007f066d87fe30
+  0x00007f066d87fdcf: cmpq   $0x0,0x4f0(%rbx)
+  0x00007f066d87fdda: jne    0x00007f066d87fdf3
+  0x00007f066d87fddc: mov    %rsi,0x4f0(%rbx)
+  0x00007f066d87fde3: movq   $0x1,0x4f8(%rbx)
+  0x00007f066d87fdee: jmpq   0x00007f066d87fe30
+  0x00007f066d87fdf3: cmpq   $0x0,0x500(%rbx)
+  0x00007f066d87fdfe: jne    0x00007f066d87fe17
+  0x00007f066d87fe00: mov    %rsi,0x500(%rbx)
+  0x00007f066d87fe07: movq   $0x1,0x508(%rbx)
+  0x00007f066d87fe12: jmpq   0x00007f066d87fe30
+  0x00007f066d87fe17: jmp    0x00007f066d87fe30
+  0x00007f066d87fe19: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87fe23: subq   $0x1,0x4e0(%rbx)
+  0x00007f066d87fe2b: jmpq   0x00007f066d880b71
+  0x00007f066d87fe30: lea    0x10(%rdi),%rsi
+  0x00007f066d87fe34: movsbl 0x30(%r15),%ebx
+  0x00007f066d87fe39: cmp    $0x0,%ebx
+  0x00007f066d87fe3c: jne    0x00007f066d880b7a
+  0x00007f066d87fe42: mov    %rax,%r10
+  0x00007f066d87fe45: shr    $0x3,%r10
+  0x00007f066d87fe49: mov    %r10d,(%rsi)
+  0x00007f066d87fe4c: mov    %rsi,%rbx
+  0x00007f066d87fe4f: xor    %rax,%rbx
+  0x00007f066d87fe52: shr    $0x16,%rbx
+  0x00007f066d87fe56: cmp    $0x0,%rbx
+  0x00007f066d87fe5a: jne    0x00007f066d880b98  ;*aastore {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@345 (line 510)
+
+  0x00007f066d87fe60: mov    $0x5ace,%esi       ;*invokestatic valueOf {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@351 (line 510)
+
+  0x00007f066d87fe65: xchg   %ax,%ax
+  0x00007f066d87fe67: callq  0x00007f066d027400  ; ImmutableOopMap{[152]=Oop [280]=Oop [272]=Oop }
+                                                ;*invokestatic valueOf {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@351 (line 510)
+                                                ;   {static_call}
+  0x00007f066d87fe6c: mov    0x110(%rsp),%rdi
+  0x00007f066d87fe74: cmp    $0x0,%rax
+  0x00007f066d87fe78: jne    0x00007f066d87fe90
+  0x00007f066d87fe7a: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87fe84: orb    $0x1,0x521(%rbx)
+  0x00007f066d87fe8b: jmpq   0x00007f066d87ff98
+  0x00007f066d87fe90: mov    0x8(%rdi),%esi     ; implicit exception: dispatches to 0x00007f066d880bb0
+  0x00007f066d87fe93: movabs $0x800000000,%r12
+  0x00007f066d87fe9d: add    %r12,%rsi
+  0x00007f066d87fea0: xor    %r12,%r12
+  0x00007f066d87fea3: mov    0x8(%rax),%ebx
+  0x00007f066d87fea6: movabs $0x800000000,%r12
+  0x00007f066d87feb0: add    %r12,%rbx
+  0x00007f066d87feb3: xor    %r12,%r12
+  0x00007f066d87feb6: mov    0xe8(%rsi),%rsi
+  0x00007f066d87febd: cmp    %rsi,%rbx
+  0x00007f066d87fec0: je     0x00007f066d87feee
+  0x00007f066d87fec6: mov    0x10(%rsi),%edx
+  0x00007f066d87fec9: cmp    (%rbx,%rdx,1),%rsi
+  0x00007f066d87fecd: je     0x00007f066d87feee
+  0x00007f066d87fed3: cmp    $0x20,%edx
+  0x00007f066d87fed6: jne    0x00007f066d87ff81
+  0x00007f066d87fedc: push   %rbx
+  0x00007f066d87fedd: push   %rsi
+  0x00007f066d87fede: callq  0x00007f066d0ee680  ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x00007f066d87fee3: pop    %rbx
+  0x00007f066d87fee4: pop    %rsi
+  0x00007f066d87fee5: cmp    $0x0,%esi
+  0x00007f066d87fee8: je     0x00007f066d87ff81
+  0x00007f066d87feee: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87fef8: mov    0x8(%rax),%esi
+  0x00007f066d87fefb: movabs $0x800000000,%r12
+  0x00007f066d87ff05: add    %r12,%rsi
+  0x00007f066d87ff08: xor    %r12,%r12
+  0x00007f066d87ff0b: cmp    0x538(%rbx),%rsi
+  0x00007f066d87ff12: jne    0x00007f066d87ff21
+  0x00007f066d87ff14: addq   $0x1,0x540(%rbx)
+  0x00007f066d87ff1c: jmpq   0x00007f066d87ff98
+  0x00007f066d87ff21: cmp    0x548(%rbx),%rsi
+  0x00007f066d87ff28: jne    0x00007f066d87ff37
+  0x00007f066d87ff2a: addq   $0x1,0x550(%rbx)
+  0x00007f066d87ff32: jmpq   0x00007f066d87ff98
+  0x00007f066d87ff37: cmpq   $0x0,0x538(%rbx)
+  0x00007f066d87ff42: jne    0x00007f066d87ff5b
+  0x00007f066d87ff44: mov    %rsi,0x538(%rbx)
+  0x00007f066d87ff4b: movq   $0x1,0x540(%rbx)
+  0x00007f066d87ff56: jmpq   0x00007f066d87ff98
+  0x00007f066d87ff5b: cmpq   $0x0,0x548(%rbx)
+  0x00007f066d87ff66: jne    0x00007f066d87ff7f
+  0x00007f066d87ff68: mov    %rsi,0x548(%rbx)
+  0x00007f066d87ff6f: movq   $0x1,0x550(%rbx)
+  0x00007f066d87ff7a: jmpq   0x00007f066d87ff98
+  0x00007f066d87ff7f: jmp    0x00007f066d87ff98
+  0x00007f066d87ff81: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87ff8b: subq   $0x1,0x528(%rbx)
+  0x00007f066d87ff93: jmpq   0x00007f066d880bb5
+  0x00007f066d87ff98: lea    0x14(%rdi),%rsi
+  0x00007f066d87ff9c: movsbl 0x30(%r15),%ebx
+  0x00007f066d87ffa1: cmp    $0x0,%ebx
+  0x00007f066d87ffa4: jne    0x00007f066d880bbe
+  0x00007f066d87ffaa: mov    %rax,%r10
+  0x00007f066d87ffad: shr    $0x3,%r10
+  0x00007f066d87ffb1: mov    %r10d,(%rsi)
+  0x00007f066d87ffb4: mov    %rsi,%rbx
+  0x00007f066d87ffb7: xor    %rax,%rbx
+  0x00007f066d87ffba: shr    $0x16,%rbx
+  0x00007f066d87ffbe: cmp    $0x0,%rbx
+  0x00007f066d87ffc2: jne    0x00007f066d880bdc  ;*aastore {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@354 (line 510)
+
+  0x00007f066d87ffc8: mov    0x94(%rsp),%esi    ;*invokestatic valueOf {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@359 (line 510)
+
+  0x00007f066d87ffcf: callq  0x00007f066d027400  ; ImmutableOopMap{[152]=Oop [280]=Oop [272]=Oop }
+                                                ;*invokestatic valueOf {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@359 (line 510)
+                                                ;   {static_call}
+  0x00007f066d87ffd4: mov    0x110(%rsp),%rdi
+  0x00007f066d87ffdc: cmp    $0x0,%rax
+  0x00007f066d87ffe0: jne    0x00007f066d87fff8
+  0x00007f066d87ffe2: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d87ffec: orb    $0x1,0x569(%rbx)
+  0x00007f066d87fff3: jmpq   0x00007f066d880100
+  0x00007f066d87fff8: mov    0x8(%rdi),%esi     ; implicit exception: dispatches to 0x00007f066d880bf4
+  0x00007f066d87fffb: movabs $0x800000000,%r12
+  0x00007f066d880005: add    %r12,%rsi
+  0x00007f066d880008: xor    %r12,%r12
+  0x00007f066d88000b: mov    0x8(%rax),%ebx
+  0x00007f066d88000e: movabs $0x800000000,%r12
+  0x00007f066d880018: add    %r12,%rbx
+  0x00007f066d88001b: xor    %r12,%r12
+  0x00007f066d88001e: mov    0xe8(%rsi),%rsi
+  0x00007f066d880025: cmp    %rsi,%rbx
+  0x00007f066d880028: je     0x00007f066d880056
+  0x00007f066d88002e: mov    0x10(%rsi),%edx
+  0x00007f066d880031: cmp    (%rbx,%rdx,1),%rsi
+  0x00007f066d880035: je     0x00007f066d880056
+  0x00007f066d88003b: cmp    $0x20,%edx
+  0x00007f066d88003e: jne    0x00007f066d8800e9
+  0x00007f066d880044: push   %rbx
+  0x00007f066d880045: push   %rsi
+  0x00007f066d880046: callq  0x00007f066d0ee680  ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x00007f066d88004b: pop    %rbx
+  0x00007f066d88004c: pop    %rsi
+  0x00007f066d88004d: cmp    $0x0,%esi
+  0x00007f066d880050: je     0x00007f066d8800e9
+  0x00007f066d880056: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d880060: mov    0x8(%rax),%esi
+  0x00007f066d880063: movabs $0x800000000,%r12
+  0x00007f066d88006d: add    %r12,%rsi
+  0x00007f066d880070: xor    %r12,%r12
+  0x00007f066d880073: cmp    0x580(%rbx),%rsi
+  0x00007f066d88007a: jne    0x00007f066d880089
+  0x00007f066d88007c: addq   $0x1,0x588(%rbx)
+  0x00007f066d880084: jmpq   0x00007f066d880100
+  0x00007f066d880089: cmp    0x590(%rbx),%rsi
+  0x00007f066d880090: jne    0x00007f066d88009f
+  0x00007f066d880092: addq   $0x1,0x598(%rbx)
+  0x00007f066d88009a: jmpq   0x00007f066d880100
+  0x00007f066d88009f: cmpq   $0x0,0x580(%rbx)
+  0x00007f066d8800aa: jne    0x00007f066d8800c3
+  0x00007f066d8800ac: mov    %rsi,0x580(%rbx)
+  0x00007f066d8800b3: movq   $0x1,0x588(%rbx)
+  0x00007f066d8800be: jmpq   0x00007f066d880100
+  0x00007f066d8800c3: cmpq   $0x0,0x590(%rbx)
+  0x00007f066d8800ce: jne    0x00007f066d8800e7
+  0x00007f066d8800d0: mov    %rsi,0x590(%rbx)
+  0x00007f066d8800d7: movq   $0x1,0x598(%rbx)
+  0x00007f066d8800e2: jmpq   0x00007f066d880100
+  0x00007f066d8800e7: jmp    0x00007f066d880100
+  0x00007f066d8800e9: movabs $0x7f066ccde1f8,%rbx  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d8800f3: subq   $0x1,0x570(%rbx)
+  0x00007f066d8800fb: jmpq   0x00007f066d880bf9
+  0x00007f066d880100: lea    0x18(%rdi),%rsi
+  0x00007f066d880104: movsbl 0x30(%r15),%ebx
+  0x00007f066d880109: cmp    $0x0,%ebx
+  0x00007f066d88010c: jne    0x00007f066d880c02
+  0x00007f066d880112: mov    %rax,%r10
+  0x00007f066d880115: shr    $0x3,%r10
+  0x00007f066d880119: mov    %r10d,(%rsi)
+  0x00007f066d88011c: mov    %rsi,%rbx
+  0x00007f066d88011f: xor    %rax,%rbx
+  0x00007f066d880122: shr    $0x16,%rbx
+  0x00007f066d880126: cmp    $0x0,%rbx
+  0x00007f066d88012a: jne    0x00007f066d880c20  ;*aastore {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@362 (line 510)
+
+  0x00007f066d880130: mov    $0x2451,%esi       ;*invokestatic valueOf {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@368 (line 510)
+
+  0x00007f066d880135: xchg   %ax,%ax
+  0x00007f066d880137: callq  0x00007f066d027400  ; ImmutableOopMap{[152]=Oop [280]=Oop [272]=Oop }
+                                                ;*invokestatic valueOf {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@368 (line 510)
+                                                ;   {static_call}
+  0x00007f066d88013c: mov    0x110(%rsp),%rcx
+  0x00007f066d880144: cmp    $0x0,%rax
+  0x00007f066d880148: jne    0x00007f066d880160
+  0x00007f066d88014a: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d880154: orb    $0x1,0x5b1(%rsi)
+  0x00007f066d88015b: jmpq   0x00007f066d880268
+  0x00007f066d880160: mov    0x8(%rcx),%edx     ; implicit exception: dispatches to 0x00007f066d880c38
+  0x00007f066d880163: movabs $0x800000000,%r12
+  0x00007f066d88016d: add    %r12,%rdx
+  0x00007f066d880170: xor    %r12,%r12
+  0x00007f066d880173: mov    0x8(%rax),%esi
+  0x00007f066d880176: movabs $0x800000000,%r12
+  0x00007f066d880180: add    %r12,%rsi
+  0x00007f066d880183: xor    %r12,%r12
+  0x00007f066d880186: mov    0xe8(%rdx),%rdx
+  0x00007f066d88018d: cmp    %rdx,%rsi
+  0x00007f066d880190: je     0x00007f066d8801be
+  0x00007f066d880196: mov    0x10(%rdx),%edi
+  0x00007f066d880199: cmp    (%rsi,%rdi,1),%rdx
+  0x00007f066d88019d: je     0x00007f066d8801be
+  0x00007f066d8801a3: cmp    $0x20,%edi
+  0x00007f066d8801a6: jne    0x00007f066d880251
+  0x00007f066d8801ac: push   %rsi
+  0x00007f066d8801ad: push   %rdx
+  0x00007f066d8801ae: callq  0x00007f066d0ee680  ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x00007f066d8801b3: pop    %rsi
+  0x00007f066d8801b4: pop    %rdx
+  0x00007f066d8801b5: cmp    $0x0,%edx
+  0x00007f066d8801b8: je     0x00007f066d880251
+  0x00007f066d8801be: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d8801c8: mov    0x8(%rax),%edx
+  0x00007f066d8801cb: movabs $0x800000000,%r12
+  0x00007f066d8801d5: add    %r12,%rdx
+  0x00007f066d8801d8: xor    %r12,%r12
+  0x00007f066d8801db: cmp    0x5c8(%rsi),%rdx
+  0x00007f066d8801e2: jne    0x00007f066d8801f1
+  0x00007f066d8801e4: addq   $0x1,0x5d0(%rsi)
+  0x00007f066d8801ec: jmpq   0x00007f066d880268
+  0x00007f066d8801f1: cmp    0x5d8(%rsi),%rdx
+  0x00007f066d8801f8: jne    0x00007f066d880207
+  0x00007f066d8801fa: addq   $0x1,0x5e0(%rsi)
+  0x00007f066d880202: jmpq   0x00007f066d880268
+  0x00007f066d880207: cmpq   $0x0,0x5c8(%rsi)
+  0x00007f066d880212: jne    0x00007f066d88022b
+  0x00007f066d880214: mov    %rdx,0x5c8(%rsi)
+  0x00007f066d88021b: movq   $0x1,0x5d0(%rsi)
+  0x00007f066d880226: jmpq   0x00007f066d880268
+  0x00007f066d88022b: cmpq   $0x0,0x5d8(%rsi)
+  0x00007f066d880236: jne    0x00007f066d88024f
+  0x00007f066d880238: mov    %rdx,0x5d8(%rsi)
+  0x00007f066d88023f: movq   $0x1,0x5e0(%rsi)
+  0x00007f066d88024a: jmpq   0x00007f066d880268
+  0x00007f066d88024f: jmp    0x00007f066d880268
+  0x00007f066d880251: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d88025b: subq   $0x1,0x5b8(%rsi)
+  0x00007f066d880263: jmpq   0x00007f066d880c3d
+  0x00007f066d880268: lea    0x1c(%rcx),%rdx
+  0x00007f066d88026c: movsbl 0x30(%r15),%esi
+  0x00007f066d880271: cmp    $0x0,%esi
+  0x00007f066d880274: jne    0x00007f066d880c46
+  0x00007f066d88027a: mov    %rax,%r10
+  0x00007f066d88027d: shr    $0x3,%r10
+  0x00007f066d880281: mov    %r10d,(%rdx)
+  0x00007f066d880284: mov    %rdx,%rsi
+  0x00007f066d880287: xor    %rax,%rsi
+  0x00007f066d88028a: shr    $0x16,%rsi
+  0x00007f066d88028e: cmp    $0x0,%rsi
+  0x00007f066d880292: jne    0x00007f066d880c64  ;*aastore {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@371 (line 510)
+
+  0x00007f066d880298: movabs $0x45181d150,%rdx  ;   {oop(&quot;bad checksums: %d:%d %d:%d
+&quot;{0x000000045181d150})}
+  0x00007f066d8802a2: mov    0x118(%rsp),%rsi   ;*invokevirtual printf {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@372 (line 509)
+
+  0x00007f066d8802aa: data16 xchg %ax,%ax
+  0x00007f066d8802ad: movabs $0xffffffffffffffff,%rax
+  0x00007f066d8802b7: callq  0x00007f066d027180  ; ImmutableOopMap{[152]=Oop }
+                                                ;*invokevirtual printf {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@372 (line 509)
+                                                ;   {virtual_call}
+  0x00007f066d8802bc: mov    $0x1,%esi          ;*invokestatic exit {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@377 (line 511)
+
+  0x00007f066d8802c1: nopw   0x0(%rax,%rax,1)
+  0x00007f066d8802c7: callq  0x00007f066d027400  ; ImmutableOopMap{[152]=Oop }
+                                                ;*invokestatic exit {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@377 (line 511)
+                                                ;   {static_call}
+  0x00007f066d8802cc: mov    0x90(%rsp),%r11d
+  0x00007f066d8802d4: inc    %r11d
+  0x00007f066d8802d7: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d8802e1: mov    0x108(%rsi),%edi
+  0x00007f066d8802e7: add    $0x8,%edi
+  0x00007f066d8802ea: mov    %edi,0x108(%rsi)
+  0x00007f066d8802f0: and    $0xfff8,%edi
+  0x00007f066d8802f6: cmp    $0x0,%edi
+  0x00007f066d8802f9: je     0x00007f066d880c7c  ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@383 (line 472)
+
+  0x00007f066d8802ff: mov    0x108(%r15),%r10   ; ImmutableOopMap{[152]=Oop }
+                                                ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                ; - richards::run@383 (line 472)
+
+  0x00007f066d880306: test   %eax,(%r10)        ;   {poll}
+  0x00007f066d880309: movabs $0x7f066ccde1f8,%rsi  ;   {metadata(method data for {method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d880313: incl   0x638(%rsi)
+  0x00007f066d880319: mov    0x98(%rsp),%rsi
+  0x00007f066d880321: jmpq   0x00007f066d87df88  ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@383 (line 472)
+
+  0x00007f066d880326: add    $0x130,%rsp
+  0x00007f066d88032d: pop    %rbp
+  0x00007f066d88032e: mov    0x108(%r15),%r10
+  0x00007f066d880335: test   %eax,(%r10)        ;   {poll_return}
+  0x00007f066d880338: retq
+  0x00007f066d880339: movabs $0x7f066ccc1838,%r10  ;   {metadata({method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d880343: mov    %r10,0x8(%rsp)
+  0x00007f066d880348: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880350: callq  0x00007f066d0f0800  ; ImmutableOopMap{rsi=Oop [152]=Oop }
+                                                ;*synchronization entry
+                                                ; - richards::run@-1 (line 472)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880355: jmpq   0x00007f066d87df7f
+  0x00007f066d88035a: movabs $0x7f066ccd2a08,%r10  ;   {metadata({method} {0x00007f066ccd2a08} &apos;reset&apos; &apos;()V&apos; in &apos;Task&apos;)}
+  0x00007f066d880364: mov    %r10,0x8(%rsp)
+  0x00007f066d880369: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880371: callq  0x00007f066d0f0800  ; ImmutableOopMap{[152]=Oop }
+                                                ;*synchronization entry
+                                                ; - Task::reset@-1 (line 203)
+                                                ; - richards::run@10 (line 473)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880376: jmpq   0x00007f066d87e006
+  0x00007f066d88037b: callq  0x00007f066d05e300  ; ImmutableOopMap{[152]=Oop }
+                                                ;*anewarray {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - Task::reset@2 (line 203)
+                                                ; - richards::run@10 (line 473)
+                                                ;   {runtime_call new_object_array Runtime1 stub}
+  0x00007f066d880380: jmpq   0x00007f066d87e0a0
+  0x00007f066d880385: mov    0x70(%rbx),%edx
+  0x00007f066d880388: shl    $0x3,%rdx
+  0x00007f066d88038c: cmp    $0x0,%rdx
+  0x00007f066d880390: je     0x00007f066d87e0b8
+  0x00007f066d880396: mov    %rdx,(%rsp)
+  0x00007f066d88039a: callq  0x00007f066d0f0d00  ;   {runtime_call g1_pre_barrier_slow}
+  0x00007f066d88039f: jmpq   0x00007f066d87e0b8
+  0x00007f066d8803a4: cmp    $0x0,%rax
+  0x00007f066d8803a8: je     0x00007f066d87e0d7
+  0x00007f066d8803ae: mov    %rbx,(%rsp)
+  0x00007f066d8803b2: callq  0x00007f066d0f0f80  ;   {runtime_call g1_post_barrier_slow}
+  0x00007f066d8803b7: jmpq   0x00007f066d87e0d7
+  0x00007f066d8803bc: mov    0x74(%rbx),%edx
+  0x00007f066d8803bf: shl    $0x3,%rdx
+  0x00007f066d8803c3: cmp    $0x0,%rdx
+  0x00007f066d8803c7: je     0x00007f066d87e0e5
+  0x00007f066d8803cd: mov    %rdx,(%rsp)
+  0x00007f066d8803d1: callq  0x00007f066d0f0d00  ;   {runtime_call g1_pre_barrier_slow}
+  0x00007f066d8803d6: jmpq   0x00007f066d87e0e5
+  0x00007f066d8803db: mov    %rdx,%rdx
+  0x00007f066d8803de: callq  0x00007f066d05ec00  ; ImmutableOopMap{[152]=Oop rbx=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@13 (line 475)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d8803e3: jmpq   0x00007f066d87e15e
+  0x00007f066d8803e8: mov    %rdx,%rdx
+  0x00007f066d8803eb: callq  0x00007f066d05ec00  ; ImmutableOopMap{[152]=Oop rbx=Oop r14=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@22 (line 475)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d8803f0: jmpq   0x00007f066d87e1b3
+  0x00007f066d8803f5: movabs $0x7f066ccd35f0,%r10  ;   {metadata({method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d8803ff: mov    %r10,0x8(%rsp)
+  0x00007f066d880404: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88040c: callq  0x00007f066d0f0800  ; ImmutableOopMap{[152]=Oop rbx=Oop r14=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskState::&lt;init&gt;@-1 (line 121)
+                                                ; - richards::run@26 (line 475)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880411: jmpq   0x00007f066d87e1f3
+  0x00007f066d880416: movabs $0x7f066c6ff610,%r10  ;   {metadata({method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d880420: mov    %r10,0x8(%rsp)
+  0x00007f066d880425: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88042d: callq  0x00007f066d0f0800  ; ImmutableOopMap{[152]=Oop rbx=Oop r14=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - java.lang.Object::&lt;init&gt;@-1 (line 50)
+                                                ; - TaskState::&lt;init&gt;@1 (line 121)
+                                                ; - richards::run@26 (line 475)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880432: jmpq   0x00007f066d87e230
+  0x00007f066d880437: movabs $0x7f066ccd37e8,%r10  ;   {metadata({method} {0x00007f066ccd37e8} &apos;Running&apos; &apos;()LTaskState;&apos; in &apos;TaskState&apos;)}
+  0x00007f066d880441: mov    %r10,0x8(%rsp)
+  0x00007f066d880446: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88044e: callq  0x00007f066d0f0800  ; ImmutableOopMap{[152]=Oop rbx=Oop r14=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskState::Running@-1 (line 138)
+                                                ; - richards::run@29 (line 475)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880453: jmpq   0x00007f066d87e2f9
+  0x00007f066d880458: mov    %rdx,%rdx
+  0x00007f066d88045b: callq  0x00007f066d05ec00  ; ImmutableOopMap{[152]=Oop rbx=Oop r14=Oop r9=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@32 (line 475)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880460: jmpq   0x00007f066d87e354
+  0x00007f066d880465: movabs $0x7f066ccc1ce8,%r10  ;   {metadata({method} {0x00007f066ccc1ce8} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;IdleTaskRec&apos;)}
+  0x00007f066d88046f: mov    %r10,0x8(%rsp)
+  0x00007f066d880474: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88047c: callq  0x00007f066d0f0800  ; ImmutableOopMap{[152]=Oop rbx=Oop r14=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - IdleTaskRec::&lt;init&gt;@-1 (line 76)
+                                                ; - richards::run@36 (line 475)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880481: jmpq   0x00007f066d87e391
+  0x00007f066d880486: movabs $0x7f066ccc1aa0,%r10  ;   {metadata({method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d880490: mov    %r10,0x8(%rsp)
+  0x00007f066d880495: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88049d: callq  0x00007f066d0f0800  ; ImmutableOopMap{[152]=Oop rbx=Oop r14=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskRec::&lt;init&gt;@-1 (line 62)
+                                                ; - IdleTaskRec::&lt;init&gt;@1 (line 76)
+                                                ; - richards::run@36 (line 475)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8804a2: jmpq   0x00007f066d87e3ce
+  0x00007f066d8804a7: movabs $0x7f066c6ff610,%r10  ;   {metadata({method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d8804b1: mov    %r10,0x8(%rsp)
+  0x00007f066d8804b6: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8804be: callq  0x00007f066d0f0800  ; ImmutableOopMap{[152]=Oop rbx=Oop r14=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - java.lang.Object::&lt;init&gt;@-1 (line 50)
+                                                ; - TaskRec::&lt;init&gt;@1 (line 62)
+                                                ; - IdleTaskRec::&lt;init&gt;@1 (line 76)
+                                                ; - richards::run@36 (line 475)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8804c3: jmpq   0x00007f066d87e40b
+  0x00007f066d8804c8: movabs $0x7f066ccd48c0,%r10  ;   {metadata({method} {0x00007f066ccd48c0} &apos;&lt;init&gt;&apos; &apos;(IIILTaskState;LTaskRec;)V&apos; in &apos;IdleTask&apos;)}
+  0x00007f066d8804d2: mov    %r10,0x8(%rsp)
+  0x00007f066d8804d7: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8804df: callq  0x00007f066d0f0800  ; ImmutableOopMap{[152]=Oop rbx=Oop r14=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - IdleTask::&lt;init&gt;@-1 (line 364)
+                                                ; - richards::run@39 (line 475)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8804e4: jmpq   0x00007f066d87e456
+  0x00007f066d8804e9: mov    %rdx,%rdx
+  0x00007f066d8804ec: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@43 (line 478)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d8804f1: jmpq   0x00007f066d87e4f6
+  0x00007f066d8804f6: mov    %rdx,%rdx
+  0x00007f066d8804f9: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [168]=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@56 (line 479)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d8804fe: jmpq   0x00007f066d87e58e
+  0x00007f066d880503: mov    %rdx,%rdx
+  0x00007f066d880506: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@69 (line 480)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d88050b: jmpq   0x00007f066d87e62a
+  0x00007f066d880510: mov    %rdx,%rdx
+  0x00007f066d880513: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop rbx=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@78 (line 480)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880518: jmpq   0x00007f066d87e67f
+  0x00007f066d88051d: movabs $0x7f066ccd35f0,%r10  ;   {metadata({method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d880527: mov    %r10,0x8(%rsp)
+  0x00007f066d88052c: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880534: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskState::&lt;init&gt;@-1 (line 121)
+                                                ; - richards::run@82 (line 480)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880539: jmpq   0x00007f066d87e6bf
+  0x00007f066d88053e: movabs $0x7f066c6ff610,%r10  ;   {metadata({method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d880548: mov    %r10,0x8(%rsp)
+  0x00007f066d88054d: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880555: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - java.lang.Object::&lt;init&gt;@-1 (line 50)
+                                                ; - TaskState::&lt;init&gt;@1 (line 121)
+                                                ; - richards::run@82 (line 480)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d88055a: jmpq   0x00007f066d87e6fc
+  0x00007f066d88055f: movabs $0x7f066ccd3890,%r10  ;   {metadata({method} {0x00007f066ccd3890} &apos;WaitingWithPacket&apos; &apos;()LTaskState;&apos; in &apos;TaskState&apos;)}
+  0x00007f066d880569: mov    %r10,0x8(%rsp)
+  0x00007f066d88056e: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880576: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskState::WaitingWithPacket@-1 (line 142)
+                                                ; - richards::run@85 (line 481)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d88057b: jmpq   0x00007f066d87e7c5
+  0x00007f066d880580: mov    %rdx,%rdx
+  0x00007f066d880583: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop rbx=Oop r9=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@88 (line 481)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880588: jmpq   0x00007f066d87e825
+  0x00007f066d88058d: movabs $0x7f066ccd0220,%r10  ;   {metadata({method} {0x00007f066ccd0220} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;WorkerTaskRec&apos;)}
+  0x00007f066d880597: mov    %r10,0x8(%rsp)
+  0x00007f066d88059c: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8805a4: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - WorkerTaskRec::&lt;init&gt;@-1 (line 105)
+                                                ; - richards::run@92 (line 481)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8805a9: jmpq   0x00007f066d87e862
+  0x00007f066d8805ae: movabs $0x7f066ccc1aa0,%r10  ;   {metadata({method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d8805b8: mov    %r10,0x8(%rsp)
+  0x00007f066d8805bd: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8805c5: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskRec::&lt;init&gt;@-1 (line 62)
+                                                ; - WorkerTaskRec::&lt;init&gt;@1 (line 105)
+                                                ; - richards::run@92 (line 481)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8805ca: jmpq   0x00007f066d87e89f
+  0x00007f066d8805cf: movabs $0x7f066c6ff610,%r10  ;   {metadata({method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d8805d9: mov    %r10,0x8(%rsp)
+  0x00007f066d8805de: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8805e6: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - java.lang.Object::&lt;init&gt;@-1 (line 50)
+                                                ; - TaskRec::&lt;init&gt;@1 (line 62)
+                                                ; - WorkerTaskRec::&lt;init&gt;@1 (line 105)
+                                                ; - richards::run@92 (line 481)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8805eb: jmpq   0x00007f066d87e8dc
+  0x00007f066d8805f0: movabs $0x7f066ccd6330,%r10  ;   {metadata({method} {0x00007f066ccd6330} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;WorkTask&apos;)}
+  0x00007f066d8805fa: mov    %r10,0x8(%rsp)
+  0x00007f066d8805ff: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880607: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - WorkTask::&lt;init&gt;@-1 (line 390)
+                                                ; - richards::run@95 (line 481)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d88060c: jmpq   0x00007f066d87e920
+  0x00007f066d880611: mov    %rdx,%rdx
+  0x00007f066d880614: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@99 (line 484)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880619: jmpq   0x00007f066d87e9b6
+  0x00007f066d88061e: mov    %rdx,%rdx
+  0x00007f066d880621: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [192]=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@112 (line 485)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880626: jmpq   0x00007f066d87ea4e
+  0x00007f066d88062b: mov    %rdx,%rdx
+  0x00007f066d88062e: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [200]=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@125 (line 486)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880633: jmpq   0x00007f066d87eae6
+  0x00007f066d880638: mov    %rdx,%rdx
+  0x00007f066d88063b: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@138 (line 487)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880640: jmpq   0x00007f066d87eb82
+  0x00007f066d880645: mov    %rdx,%rdx
+  0x00007f066d880648: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop rbx=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@147 (line 487)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d88064d: jmpq   0x00007f066d87ebd7
+  0x00007f066d880652: movabs $0x7f066ccd35f0,%r10  ;   {metadata({method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d88065c: mov    %r10,0x8(%rsp)
+  0x00007f066d880661: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880669: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskState::&lt;init&gt;@-1 (line 121)
+                                                ; - richards::run@151 (line 487)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d88066e: jmpq   0x00007f066d87ec17
+  0x00007f066d880673: movabs $0x7f066c6ff610,%r10  ;   {metadata({method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d88067d: mov    %r10,0x8(%rsp)
+  0x00007f066d880682: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88068a: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - java.lang.Object::&lt;init&gt;@-1 (line 50)
+                                                ; - TaskState::&lt;init&gt;@1 (line 121)
+                                                ; - richards::run@151 (line 487)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d88068f: jmpq   0x00007f066d87ec54
+  0x00007f066d880694: movabs $0x7f066ccd3890,%r10  ;   {metadata({method} {0x00007f066ccd3890} &apos;WaitingWithPacket&apos; &apos;()LTaskState;&apos; in &apos;TaskState&apos;)}
+  0x00007f066d88069e: mov    %r10,0x8(%rsp)
+  0x00007f066d8806a3: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8806ab: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskState::WaitingWithPacket@-1 (line 142)
+                                                ; - richards::run@154 (line 488)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8806b0: jmpq   0x00007f066d87ed1d
+  0x00007f066d8806b5: mov    %rdx,%rdx
+  0x00007f066d8806b8: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop rbx=Oop r9=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@157 (line 488)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d8806bd: jmpq   0x00007f066d87ed7d
+  0x00007f066d8806c2: movabs $0x7f066ccd0748,%r10  ;   {metadata({method} {0x00007f066ccd0748} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;HandlerTaskRec&apos;)}
+  0x00007f066d8806cc: mov    %r10,0x8(%rsp)
+  0x00007f066d8806d1: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8806d9: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - HandlerTaskRec::&lt;init&gt;@-1 (line 87)
+                                                ; - richards::run@161 (line 488)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8806de: jmpq   0x00007f066d87edba
+  0x00007f066d8806e3: movabs $0x7f066ccc1aa0,%r10  ;   {metadata({method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d8806ed: mov    %r10,0x8(%rsp)
+  0x00007f066d8806f2: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8806fa: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskRec::&lt;init&gt;@-1 (line 62)
+                                                ; - HandlerTaskRec::&lt;init&gt;@1 (line 87)
+                                                ; - richards::run@161 (line 488)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8806ff: jmpq   0x00007f066d87edf7
+  0x00007f066d880704: movabs $0x7f066c6ff610,%r10  ;   {metadata({method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d88070e: mov    %r10,0x8(%rsp)
+  0x00007f066d880713: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88071b: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - java.lang.Object::&lt;init&gt;@-1 (line 50)
+                                                ; - TaskRec::&lt;init&gt;@1 (line 62)
+                                                ; - HandlerTaskRec::&lt;init&gt;@1 (line 87)
+                                                ; - richards::run@161 (line 488)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880720: jmpq   0x00007f066d87ee34
+  0x00007f066d880725: movabs $0x7f066ccd6b00,%r10  ;   {metadata({method} {0x00007f066ccd6b00} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;HandlerTask&apos;)}
+  0x00007f066d88072f: mov    %r10,0x8(%rsp)
+  0x00007f066d880734: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88073c: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - HandlerTask::&lt;init&gt;@-1 (line 325)
+                                                ; - richards::run@164 (line 488)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880741: jmpq   0x00007f066d87ee71
+  0x00007f066d880746: mov    %rdx,%rdx
+  0x00007f066d880749: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@168 (line 491)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d88074e: jmpq   0x00007f066d87ef06
+  0x00007f066d880753: mov    %rdx,%rdx
+  0x00007f066d880756: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [224]=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@182 (line 492)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d88075b: jmpq   0x00007f066d87ef9e
+  0x00007f066d880760: mov    %rdx,%rdx
+  0x00007f066d880763: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [232]=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@196 (line 493)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880768: jmpq   0x00007f066d87f036
+  0x00007f066d88076d: mov    %rdx,%rdx
+  0x00007f066d880770: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@210 (line 494)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880775: jmpq   0x00007f066d87f0d2
+  0x00007f066d88077a: mov    %rdx,%rdx
+  0x00007f066d88077d: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop rbx=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@219 (line 494)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880782: jmpq   0x00007f066d87f127
+  0x00007f066d880787: movabs $0x7f066ccd35f0,%r10  ;   {metadata({method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d880791: mov    %r10,0x8(%rsp)
+  0x00007f066d880796: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88079e: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskState::&lt;init&gt;@-1 (line 121)
+                                                ; - richards::run@223 (line 494)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8807a3: jmpq   0x00007f066d87f167
+  0x00007f066d8807a8: movabs $0x7f066c6ff610,%r10  ;   {metadata({method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d8807b2: mov    %r10,0x8(%rsp)
+  0x00007f066d8807b7: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8807bf: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - java.lang.Object::&lt;init&gt;@-1 (line 50)
+                                                ; - TaskState::&lt;init&gt;@1 (line 121)
+                                                ; - richards::run@223 (line 494)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8807c4: jmpq   0x00007f066d87f1a4
+  0x00007f066d8807c9: movabs $0x7f066ccd3890,%r10  ;   {metadata({method} {0x00007f066ccd3890} &apos;WaitingWithPacket&apos; &apos;()LTaskState;&apos; in &apos;TaskState&apos;)}
+  0x00007f066d8807d3: mov    %r10,0x8(%rsp)
+  0x00007f066d8807d8: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8807e0: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskState::WaitingWithPacket@-1 (line 142)
+                                                ; - richards::run@226 (line 495)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8807e5: jmpq   0x00007f066d87f26d
+  0x00007f066d8807ea: mov    %rdx,%rdx
+  0x00007f066d8807ed: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop rbx=Oop r9=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@229 (line 495)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d8807f2: jmpq   0x00007f066d87f2cd
+  0x00007f066d8807f7: movabs $0x7f066ccd0748,%r10  ;   {metadata({method} {0x00007f066ccd0748} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;HandlerTaskRec&apos;)}
+  0x00007f066d880801: mov    %r10,0x8(%rsp)
+  0x00007f066d880806: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88080e: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - HandlerTaskRec::&lt;init&gt;@-1 (line 87)
+                                                ; - richards::run@233 (line 495)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880813: jmpq   0x00007f066d87f30a
+  0x00007f066d880818: movabs $0x7f066ccc1aa0,%r10  ;   {metadata({method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d880822: mov    %r10,0x8(%rsp)
+  0x00007f066d880827: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88082f: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskRec::&lt;init&gt;@-1 (line 62)
+                                                ; - HandlerTaskRec::&lt;init&gt;@1 (line 87)
+                                                ; - richards::run@233 (line 495)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880834: jmpq   0x00007f066d87f347
+  0x00007f066d880839: movabs $0x7f066c6ff610,%r10  ;   {metadata({method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d880843: mov    %r10,0x8(%rsp)
+  0x00007f066d880848: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880850: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - java.lang.Object::&lt;init&gt;@-1 (line 50)
+                                                ; - TaskRec::&lt;init&gt;@1 (line 62)
+                                                ; - HandlerTaskRec::&lt;init&gt;@1 (line 87)
+                                                ; - richards::run@233 (line 495)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880855: jmpq   0x00007f066d87f384
+  0x00007f066d88085a: movabs $0x7f066ccd6b00,%r10  ;   {metadata({method} {0x00007f066ccd6b00} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;HandlerTask&apos;)}
+  0x00007f066d880864: mov    %r10,0x8(%rsp)
+  0x00007f066d880869: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880871: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - HandlerTask::&lt;init&gt;@-1 (line 325)
+                                                ; - richards::run@236 (line 495)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880876: jmpq   0x00007f066d87f3c1
+  0x00007f066d88087b: mov    %rdx,%rdx
+  0x00007f066d88087e: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@242 (line 499)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880883: jmpq   0x00007f066d87f45a
+  0x00007f066d880888: mov    %rdx,%rdx
+  0x00007f066d88088b: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@251 (line 499)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880890: jmpq   0x00007f066d87f4af
+  0x00007f066d880895: movabs $0x7f066ccd35f0,%r10  ;   {metadata({method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d88089f: mov    %r10,0x8(%rsp)
+  0x00007f066d8808a4: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8808ac: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskState::&lt;init&gt;@-1 (line 121)
+                                                ; - richards::run@255 (line 499)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8808b1: jmpq   0x00007f066d87f4ef
+  0x00007f066d8808b6: movabs $0x7f066c6ff610,%r10  ;   {metadata({method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d8808c0: mov    %r10,0x8(%rsp)
+  0x00007f066d8808c5: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8808cd: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - java.lang.Object::&lt;init&gt;@-1 (line 50)
+                                                ; - TaskState::&lt;init&gt;@1 (line 121)
+                                                ; - richards::run@255 (line 499)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8808d2: jmpq   0x00007f066d87f52c
+  0x00007f066d8808d7: movabs $0x7f066ccd3740,%r10  ;   {metadata({method} {0x00007f066ccd3740} &apos;Waiting&apos; &apos;()LTaskState;&apos; in &apos;TaskState&apos;)}
+  0x00007f066d8808e1: mov    %r10,0x8(%rsp)
+  0x00007f066d8808e6: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8808ee: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskState::Waiting@-1 (line 133)
+                                                ; - richards::run@258 (line 499)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8808f3: jmpq   0x00007f066d87f5f5
+  0x00007f066d8808f8: mov    %rdx,%rdx
+  0x00007f066d8808fb: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@261 (line 499)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880900: jmpq   0x00007f066d87f651
+  0x00007f066d880905: movabs $0x7f066ccd0d10,%r10  ;   {metadata({method} {0x00007f066ccd0d10} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;DeviceTaskRec&apos;)}
+  0x00007f066d88090f: mov    %r10,0x8(%rsp)
+  0x00007f066d880914: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88091c: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - DeviceTaskRec::&lt;init&gt;@-1 (line 67)
+                                                ; - richards::run@265 (line 499)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880921: jmpq   0x00007f066d87f68e
+  0x00007f066d880926: movabs $0x7f066ccc1aa0,%r10  ;   {metadata({method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d880930: mov    %r10,0x8(%rsp)
+  0x00007f066d880935: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88093d: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskRec::&lt;init&gt;@-1 (line 62)
+                                                ; - DeviceTaskRec::&lt;init&gt;@1 (line 67)
+                                                ; - richards::run@265 (line 499)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880942: jmpq   0x00007f066d87f6cb
+  0x00007f066d880947: movabs $0x7f066c6ff610,%r10  ;   {metadata({method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d880951: mov    %r10,0x8(%rsp)
+  0x00007f066d880956: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88095e: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - java.lang.Object::&lt;init&gt;@-1 (line 50)
+                                                ; - TaskRec::&lt;init&gt;@1 (line 62)
+                                                ; - DeviceTaskRec::&lt;init&gt;@1 (line 67)
+                                                ; - richards::run@265 (line 499)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880963: jmpq   0x00007f066d87f708
+  0x00007f066d880968: movabs $0x7f066ccd7210,%r10  ;   {metadata({method} {0x00007f066ccd7210} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;DeviceTask&apos;)}
+  0x00007f066d880972: mov    %r10,0x8(%rsp)
+  0x00007f066d880977: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d88097f: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - DeviceTask::&lt;init&gt;@-1 (line 299)
+                                                ; - richards::run@268 (line 499)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880984: jmpq   0x00007f066d87f745
+  0x00007f066d880989: mov    %rdx,%rdx
+  0x00007f066d88098c: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@272 (line 501)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880991: jmpq   0x00007f066d87f7e2
+  0x00007f066d880996: mov    %rdx,%rdx
+  0x00007f066d880999: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@282 (line 501)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d88099e: jmpq   0x00007f066d87f837
+  0x00007f066d8809a3: movabs $0x7f066ccd35f0,%r10  ;   {metadata({method} {0x00007f066ccd35f0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskState&apos;)}
+  0x00007f066d8809ad: mov    %r10,0x8(%rsp)
+  0x00007f066d8809b2: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8809ba: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskState::&lt;init&gt;@-1 (line 121)
+                                                ; - richards::run@286 (line 501)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8809bf: jmpq   0x00007f066d87f877
+  0x00007f066d8809c4: movabs $0x7f066c6ff610,%r10  ;   {metadata({method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d8809ce: mov    %r10,0x8(%rsp)
+  0x00007f066d8809d3: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8809db: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - java.lang.Object::&lt;init&gt;@-1 (line 50)
+                                                ; - TaskState::&lt;init&gt;@1 (line 121)
+                                                ; - richards::run@286 (line 501)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d8809e0: jmpq   0x00007f066d87f8b4
+  0x00007f066d8809e5: movabs $0x7f066ccd3740,%r10  ;   {metadata({method} {0x00007f066ccd3740} &apos;Waiting&apos; &apos;()LTaskState;&apos; in &apos;TaskState&apos;)}
+  0x00007f066d8809ef: mov    %r10,0x8(%rsp)
+  0x00007f066d8809f4: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d8809fc: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskState::Waiting@-1 (line 133)
+                                                ; - richards::run@289 (line 501)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880a01: jmpq   0x00007f066d87f97d
+  0x00007f066d880a06: mov    %rdx,%rdx
+  0x00007f066d880a09: callq  0x00007f066d05ec00  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop }
+                                                ;*new {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@292 (line 501)
+                                                ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x00007f066d880a0e: jmpq   0x00007f066d87f9d9
+  0x00007f066d880a13: movabs $0x7f066ccd0d10,%r10  ;   {metadata({method} {0x00007f066ccd0d10} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;DeviceTaskRec&apos;)}
+  0x00007f066d880a1d: mov    %r10,0x8(%rsp)
+  0x00007f066d880a22: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880a2a: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - DeviceTaskRec::&lt;init&gt;@-1 (line 67)
+                                                ; - richards::run@296 (line 501)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880a2f: jmpq   0x00007f066d87fa16
+  0x00007f066d880a34: movabs $0x7f066ccc1aa0,%r10  ;   {metadata({method} {0x00007f066ccc1aa0} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;TaskRec&apos;)}
+  0x00007f066d880a3e: mov    %r10,0x8(%rsp)
+  0x00007f066d880a43: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880a4b: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - TaskRec::&lt;init&gt;@-1 (line 62)
+                                                ; - DeviceTaskRec::&lt;init&gt;@1 (line 67)
+                                                ; - richards::run@296 (line 501)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880a50: jmpq   0x00007f066d87fa53
+  0x00007f066d880a55: movabs $0x7f066c6ff610,%r10  ;   {metadata({method} {0x00007f066c6ff610} &apos;&lt;init&gt;&apos; &apos;()V&apos; in &apos;java/lang/Object&apos;)}
+  0x00007f066d880a5f: mov    %r10,0x8(%rsp)
+  0x00007f066d880a64: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880a6c: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - java.lang.Object::&lt;init&gt;@-1 (line 50)
+                                                ; - TaskRec::&lt;init&gt;@1 (line 62)
+                                                ; - DeviceTaskRec::&lt;init&gt;@1 (line 67)
+                                                ; - richards::run@296 (line 501)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880a71: jmpq   0x00007f066d87fa90
+  0x00007f066d880a76: movabs $0x7f066ccd7210,%r10  ;   {metadata({method} {0x00007f066ccd7210} &apos;&lt;init&gt;&apos; &apos;(IILPacket;LTaskState;LTaskRec;)V&apos; in &apos;DeviceTask&apos;)}
+  0x00007f066d880a80: mov    %r10,0x8(%rsp)
+  0x00007f066d880a85: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880a8d: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop rax=Oop }
+                                                ;*synchronization entry
+                                                ; - DeviceTask::&lt;init&gt;@-1 (line 299)
+                                                ; - richards::run@299 (line 501)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880a92: jmpq   0x00007f066d87facd
+  0x00007f066d880a97: movabs $0x7f066ccd28b8,%r10  ;   {metadata({method} {0x00007f066ccd28b8} &apos;get_queuePacketCount&apos; &apos;()I&apos; in &apos;Task&apos;)}
+  0x00007f066d880aa1: mov    %r10,0x8(%rsp)
+  0x00007f066d880aa6: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880aae: callq  0x00007f066d0f0800  ; ImmutableOopMap{[136]=Oop [152]=Oop }
+                                                ;*synchronization entry
+                                                ; - Task::get_queuePacketCount@-1 (line 199)
+                                                ; - richards::run@306 (line 506)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880ab3: jmpq   0x00007f066d87fb5e
+  0x00007f066d880ab8: movabs $0x7f066ccd2778,%r10  ;   {metadata({method} {0x00007f066ccd2778} &apos;get_holdCount&apos; &apos;()I&apos; in &apos;Task&apos;)}
+  0x00007f066d880ac2: mov    %r10,0x8(%rsp)
+  0x00007f066d880ac7: movq   $0xffffffffffffffff,(%rsp)
+  0x00007f066d880acf: callq  0x00007f066d0f0800  ; ImmutableOopMap{[152]=Oop rbx=Oop }
+                                                ;*synchronization entry
+                                                ; - Task::get_holdCount@-1 (line 196)
+                                                ; - richards::run@310 (line 507)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880ad4: jmpq   0x00007f066d87fba7
+  0x00007f066d880ad9: movabs $0x0,%rbx          ;   {oop(NULL)}
+  0x00007f066d880ae3: push   %rax
+  0x00007f066d880ae4: push   %rbx
+  0x00007f066d880ae5: mov    0x50(%rbx),%rbx
+  0x00007f066d880ae9: push   %rdi
+  0x00007f066d880aea: push   %rsi
+  0x00007f066d880aeb: push   %rdx
+  0x00007f066d880aec: push   %rcx
+  0x00007f066d880aed: push   %r8
+  0x00007f066d880aef: push   %r9
+  0x00007f066d880af1: push   %r10
+  0x00007f066d880af3: push   %r11
+  0x00007f066d880af5: test   $0xf,%esp
+  0x00007f066d880afb: je     0x00007f066d880b13
+  0x00007f066d880b01: sub    $0x8,%rsp
+  0x00007f066d880b05: callq  0x00007f06844e1bb0  ;   {runtime_call Thread::current()}
+  0x00007f066d880b0a: add    $0x8,%rsp
+  0x00007f066d880b0e: jmpq   0x00007f066d880b18
+  0x00007f066d880b13: callq  0x00007f06844e1bb0  ;   {runtime_call Thread::current()}
+  0x00007f066d880b18: pop    %r11
+  0x00007f066d880b1a: pop    %r10
+  0x00007f066d880b1c: pop    %r9
+  0x00007f066d880b1e: pop    %r8
+  0x00007f066d880b20: pop    %rcx
+  0x00007f066d880b21: pop    %rdx
+  0x00007f066d880b22: pop    %rsi
+  0x00007f066d880b23: pop    %rdi
+  0x00007f066d880b24: cmp    0x140(%rbx),%rax
+  0x00007f066d880b2b: pop    %rbx
+  0x00007f066d880b2c: pop    %rax
+  0x00007f066d880b2d: jne    0x00007f066d880b3d
+  0x00007f066d880b33: jmpq   0x00007f066d87fc3a
+  0x00007f066d880b38: mov    $0xa5a6400,%eax
+  0x00007f066d880b3d: callq  0x00007f066d0efd00  ; ImmutableOopMap{[152]=Oop }
+                                                ;*getstatic out {reexecute=1 rethrow=0 return_oop=0}
+                                                ; - richards::run@330 (line 509)
+                                                ;   {runtime_call load_mirror_patching Runtime1 stub}
+  0x00007f066d880b42: jmpq   0x00007f066d87fc30
+  0x00007f066d880b47: callq  0x00007f066d05f520  ; ImmutableOopMap{[152]=Oop rbx=Oop }
+                                                ;*getstatic out {reexecute=1 rethrow=0 return_oop=0}
+                                                ; - richards::run@330 (line 509)
+                                                ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f066d880b4c: mov    0x0(%rbx),%r11d
+  0x00007f066d880b53: mov    $0x7050c00,%eax
+  0x00007f066d880b58: callq  0x00007f066d0ef400  ; ImmutableOopMap{[152]=Oop rbx=Oop }
+                                                ;*getstatic out {reexecute=1 rethrow=0 return_oop=0}
+                                                ; - richards::run@330 (line 509)
+                                                ;   {runtime_call access_field_patching Runtime1 stub}
+  0x00007f066d880b5d: jmpq   0x00007f066d87fc40
+  0x00007f066d880b62: callq  0x00007f066d05e300  ; ImmutableOopMap{[152]=Oop r11=Oop }
+                                                ;*anewarray {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - richards::run@336 (line 509)
+                                                ;   {runtime_call new_object_array Runtime1 stub}
+  0x00007f066d880b67: jmpq   0x00007f066d87fce5
+  0x00007f066d880b6c: callq  0x00007f066d05f520  ; ImmutableOopMap{[152]=Oop [280]=Oop rax=Oop rdi=Oop [272]=Oop }
+                                                ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                                                ; - richards::run@345 (line 510)
+                                                ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f066d880b71: mov    %rax,(%rsp)
+  0x00007f066d880b75: callq  0x00007f066d0edf20  ; ImmutableOopMap{[152]=Oop [280]=Oop rax=Oop rdi=Oop [272]=Oop }
+                                                ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                                                ; - richards::run@345 (line 510)
+                                                ;   {runtime_call throw_array_store_exception Runtime1 stub}
+  0x00007f066d880b7a: mov    (%rsi),%ebx
+  0x00007f066d880b7c: shl    $0x3,%rbx
+  0x00007f066d880b80: cmp    $0x0,%rbx
+  0x00007f066d880b84: je     0x00007f066d87fe42
+  0x00007f066d880b8a: mov    %rbx,(%rsp)
+  0x00007f066d880b8e: callq  0x00007f066d0f0d00  ;   {runtime_call g1_pre_barrier_slow}
+  0x00007f066d880b93: jmpq   0x00007f066d87fe42
+  0x00007f066d880b98: cmp    $0x0,%rax
+  0x00007f066d880b9c: je     0x00007f066d87fe60
+  0x00007f066d880ba2: mov    %rsi,(%rsp)
+  0x00007f066d880ba6: callq  0x00007f066d0f0f80  ;   {runtime_call g1_post_barrier_slow}
+  0x00007f066d880bab: jmpq   0x00007f066d87fe60
+  0x00007f066d880bb0: callq  0x00007f066d05f520  ; ImmutableOopMap{[152]=Oop [280]=Oop rax=Oop rdi=Oop [272]=Oop }
+                                                ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                                                ; - richards::run@354 (line 510)
+                                                ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f066d880bb5: mov    %rax,(%rsp)
+  0x00007f066d880bb9: callq  0x00007f066d0edf20  ; ImmutableOopMap{[152]=Oop [280]=Oop rax=Oop rdi=Oop [272]=Oop }
+                                                ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                                                ; - richards::run@354 (line 510)
+                                                ;   {runtime_call throw_array_store_exception Runtime1 stub}
+  0x00007f066d880bbe: mov    (%rsi),%ebx
+  0x00007f066d880bc0: shl    $0x3,%rbx
+  0x00007f066d880bc4: cmp    $0x0,%rbx
+  0x00007f066d880bc8: je     0x00007f066d87ffaa
+  0x00007f066d880bce: mov    %rbx,(%rsp)
+  0x00007f066d880bd2: callq  0x00007f066d0f0d00  ;   {runtime_call g1_pre_barrier_slow}
+  0x00007f066d880bd7: jmpq   0x00007f066d87ffaa
+  0x00007f066d880bdc: cmp    $0x0,%rax
+  0x00007f066d880be0: je     0x00007f066d87ffc8
+  0x00007f066d880be6: mov    %rsi,(%rsp)
+  0x00007f066d880bea: callq  0x00007f066d0f0f80  ;   {runtime_call g1_post_barrier_slow}
+  0x00007f066d880bef: jmpq   0x00007f066d87ffc8
+  0x00007f066d880bf4: callq  0x00007f066d05f520  ; ImmutableOopMap{[152]=Oop [280]=Oop rax=Oop rdi=Oop [272]=Oop }
+                                                ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                                                ; - richards::run@362 (line 510)
+                                                ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f066d880bf9: mov    %rax,(%rsp)
+  0x00007f066d880bfd: callq  0x00007f066d0edf20  ; ImmutableOopMap{[152]=Oop [280]=Oop rax=Oop rdi=Oop [272]=Oop }
+                                                ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                                                ; - richards::run@362 (line 510)
+                                                ;   {runtime_call throw_array_store_exception Runtime1 stub}
+  0x00007f066d880c02: mov    (%rsi),%ebx
+  0x00007f066d880c04: shl    $0x3,%rbx
+  0x00007f066d880c08: cmp    $0x0,%rbx
+  0x00007f066d880c0c: je     0x00007f066d880112
+  0x00007f066d880c12: mov    %rbx,(%rsp)
+  0x00007f066d880c16: callq  0x00007f066d0f0d00  ;   {runtime_call g1_pre_barrier_slow}
+  0x00007f066d880c1b: jmpq   0x00007f066d880112
+  0x00007f066d880c20: cmp    $0x0,%rax
+  0x00007f066d880c24: je     0x00007f066d880130
+  0x00007f066d880c2a: mov    %rsi,(%rsp)
+  0x00007f066d880c2e: callq  0x00007f066d0f0f80  ;   {runtime_call g1_post_barrier_slow}
+  0x00007f066d880c33: jmpq   0x00007f066d880130
+  0x00007f066d880c38: callq  0x00007f066d05f520  ; ImmutableOopMap{[152]=Oop [280]=Oop rax=Oop rcx=Oop [272]=Oop }
+                                                ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                                                ; - richards::run@371 (line 510)
+                                                ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007f066d880c3d: mov    %rax,(%rsp)
+  0x00007f066d880c41: callq  0x00007f066d0edf20  ; ImmutableOopMap{[152]=Oop [280]=Oop rax=Oop rcx=Oop [272]=Oop }
+                                                ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                                                ; - richards::run@371 (line 510)
+                                                ;   {runtime_call throw_array_store_exception Runtime1 stub}
+  0x00007f066d880c46: mov    (%rdx),%esi
+  0x00007f066d880c48: shl    $0x3,%rsi
+  0x00007f066d880c4c: cmp    $0x0,%rsi
+  0x00007f066d880c50: je     0x00007f066d88027a
+  0x00007f066d880c56: mov    %rsi,(%rsp)
+  0x00007f066d880c5a: callq  0x00007f066d0f0d00  ;   {runtime_call g1_pre_barrier_slow}
+  0x00007f066d880c5f: jmpq   0x00007f066d88027a
+  0x00007f066d880c64: cmp    $0x0,%rax
+  0x00007f066d880c68: je     0x00007f066d880298
+  0x00007f066d880c6e: mov    %rdx,(%rsp)
+  0x00007f066d880c72: callq  0x00007f066d0f0f80  ;   {runtime_call g1_post_barrier_slow}
+  0x00007f066d880c77: jmpq   0x00007f066d880298
+  0x00007f066d880c7c: movabs $0x7f066ccc1838,%r10  ;   {metadata({method} {0x00007f066ccc1838} &apos;run&apos; &apos;()V&apos; in &apos;richards&apos;)}
+  0x00007f066d880c86: mov    %r10,0x8(%rsp)
+  0x00007f066d880c8b: movq   $0x17f,(%rsp)
+  0x00007f066d880c93: callq  0x00007f066d0f0800  ; ImmutableOopMap{[152]=Oop }
+                                                ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                ; - richards::run@383 (line 472)
+                                                ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007f066d880c98: jmpq   0x00007f066d8802ff
+  0x00007f066d880c9d: nop
+  0x00007f066d880c9e: nop
+  0x00007f066d880c9f: mov    0x420(%r15),%rax
+  0x00007f066d880ca6: movabs $0x0,%r10
+  0x00007f066d880cb0: mov    %r10,0x420(%r15)
+  0x00007f066d880cb7: movabs $0x0,%r10
+  0x00007f066d880cc1: mov    %r10,0x428(%r15)
+  0x00007f066d880cc8: add    $0x130,%rsp
+  0x00007f066d880ccf: pop    %rbp
+  0x00007f066d880cd0: jmpq   0x00007f066d060200  ;   {runtime_call unwind_exception Runtime1 stub}
+  0x00007f066d880cd5: hlt
+  0x00007f066d880cd6: hlt
+  0x00007f066d880cd7: hlt
+  0x00007f066d880cd8: hlt
+  0x00007f066d880cd9: hlt
+  0x00007f066d880cda: hlt
+  0x00007f066d880cdb: hlt
+  0x00007f066d880cdc: hlt
+  0x00007f066d880cdd: hlt
+  0x00007f066d880cde: hlt
+  0x00007f066d880cdf: hlt
+[Stub Code]
+  0x00007f066d880ce0: nopl   0x0(%rax,%rax,1)   ;   {no_reloc}
+  0x00007f066d880ce5: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880cef: jmpq   0x00007f066d880cef  ;   {runtime_call}
+  0x00007f066d880cf4: nop
+  0x00007f066d880cf5: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880cff: jmpq   0x00007f066d880cff  ;   {runtime_call}
+  0x00007f066d880d04: nop
+  0x00007f066d880d05: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880d0f: jmpq   0x00007f066d880d0f  ;   {runtime_call}
+  0x00007f066d880d14: nop
+  0x00007f066d880d15: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880d1f: jmpq   0x00007f066d880d1f  ;   {runtime_call}
+  0x00007f066d880d24: nop
+  0x00007f066d880d25: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880d2f: jmpq   0x00007f066d880d2f  ;   {runtime_call}
+  0x00007f066d880d34: nop
+  0x00007f066d880d35: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880d3f: jmpq   0x00007f066d880d3f  ;   {runtime_call}
+  0x00007f066d880d44: nop
+  0x00007f066d880d45: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880d4f: jmpq   0x00007f066d880d4f  ;   {runtime_call}
+  0x00007f066d880d54: nop
+  0x00007f066d880d55: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880d5f: jmpq   0x00007f066d880d5f  ;   {runtime_call}
+  0x00007f066d880d64: nop
+  0x00007f066d880d65: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880d6f: jmpq   0x00007f066d880d6f  ;   {runtime_call}
+  0x00007f066d880d74: nop
+  0x00007f066d880d75: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880d7f: jmpq   0x00007f066d880d7f  ;   {runtime_call}
+  0x00007f066d880d84: nop
+  0x00007f066d880d85: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880d8f: jmpq   0x00007f066d880d8f  ;   {runtime_call}
+  0x00007f066d880d94: nop
+  0x00007f066d880d95: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880d9f: jmpq   0x00007f066d880d9f  ;   {runtime_call}
+  0x00007f066d880da4: nop
+  0x00007f066d880da5: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880daf: jmpq   0x00007f066d880daf  ;   {runtime_call}
+  0x00007f066d880db4: nop
+  0x00007f066d880db5: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880dbf: jmpq   0x00007f066d880dbf  ;   {runtime_call}
+  0x00007f066d880dc4: nop
+  0x00007f066d880dc5: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880dcf: jmpq   0x00007f066d880dcf  ;   {runtime_call}
+  0x00007f066d880dd4: nop
+  0x00007f066d880dd5: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880ddf: jmpq   0x00007f066d880ddf  ;   {runtime_call}
+  0x00007f066d880de4: nop
+  0x00007f066d880de5: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880def: jmpq   0x00007f066d880def  ;   {runtime_call}
+  0x00007f066d880df4: nop
+  0x00007f066d880df5: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880dff: jmpq   0x00007f066d880dff  ;   {runtime_call}
+  0x00007f066d880e04: nop
+  0x00007f066d880e05: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880e0f: jmpq   0x00007f066d880e0f  ;   {runtime_call}
+  0x00007f066d880e14: nop
+  0x00007f066d880e15: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880e1f: jmpq   0x00007f066d880e1f  ;   {runtime_call}
+  0x00007f066d880e24: nop
+  0x00007f066d880e25: movabs $0x0,%rbx          ;   {static_stub}
+  0x00007f066d880e2f: jmpq   0x00007f066d880e2f  ;   {runtime_call}
+[Exception Handler]
+  0x00007f066d880e34: callq  0x00007f066d05d880  ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x00007f066d880e39: mov    %rsp,-0x28(%rsp)
+  0x00007f066d880e3e: sub    $0x80,%rsp
+  0x00007f066d880e45: mov    %rax,0x78(%rsp)
+  0x00007f066d880e4a: mov    %rcx,0x70(%rsp)
+  0x00007f066d880e4f: mov    %rdx,0x68(%rsp)
+  0x00007f066d880e54: mov    %rbx,0x60(%rsp)
+  0x00007f066d880e59: mov    %rbp,0x50(%rsp)
+  0x00007f066d880e5e: mov    %rsi,0x48(%rsp)
+  0x00007f066d880e63: mov    %rdi,0x40(%rsp)
+  0x00007f066d880e68: mov    %r8,0x38(%rsp)
+  0x00007f066d880e6d: mov    %r9,0x30(%rsp)
+  0x00007f066d880e72: mov    %r10,0x28(%rsp)
+  0x00007f066d880e77: mov    %r11,0x20(%rsp)
+  0x00007f066d880e7c: mov    %r12,0x18(%rsp)
+  0x00007f066d880e81: mov    %r13,0x10(%rsp)
+  0x00007f066d880e86: mov    %r14,0x8(%rsp)
+  0x00007f066d880e8b: mov    %r15,(%rsp)
+  0x00007f066d880e8f: movabs $0x7f0684845f9e,%rdi  ;   {external_word}
+  0x00007f066d880e99: movabs $0x7f066d880e39,%rsi  ;   {internal_word}
+  0x00007f066d880ea3: mov    %rsp,%rdx
+  0x00007f066d880ea6: and    $0xfffffffffffffff0,%rsp
+  0x00007f066d880eaa: callq  0x00007f06844a64e0  ;   {runtime_call MacroAssembler::debug64(char*, long, long*)}
+  0x00007f066d880eaf: hlt
+[Deopt Handler Code]
+  0x00007f066d880eb0: movabs $0x7f066d880eb0,%r10  ;   {section_word}
+  0x00007f066d880eba: push   %r10
+  0x00007f066d880ebc: jmpq   0x00007f066d028520  ;   {runtime_call DeoptimizationBlob}
+  0x00007f066d880ec1: hlt
+  0x00007f066d880ec2: hlt
+  0x00007f066d880ec3: hlt
+  0x00007f066d880ec4: hlt
+  0x00007f066d880ec5: hlt
+  0x00007f066d880ec6: hlt
+  0x00007f066d880ec7: hlt
+
+ImmutableOopMap{[160]=Oop [136]=Oop [152]=Oop }pc offsets: 1404
+ImmutableOopMap{[136]=Oop [152]=Oop [168]=Oop }pc offsets: 1556
+ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop }pc offsets: 1708
+ImmutableOopMap{[136]=Oop [152]=Oop [184]=Oop }pc offsets: 2620
+ImmutableOopMap{[136]=Oop [152]=Oop [192]=Oop }pc offsets: 2772
+ImmutableOopMap{[136]=Oop [152]=Oop [200]=Oop }pc offsets: 2924
+ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop }pc offsets: 3076
+ImmutableOopMap{[136]=Oop [152]=Oop [216]=Oop }pc offsets: 3980
+ImmutableOopMap{[136]=Oop [152]=Oop [224]=Oop }pc offsets: 4132
+ImmutableOopMap{[136]=Oop [152]=Oop [232]=Oop }pc offsets: 4284
+ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop }pc offsets: 4436
+ImmutableOopMap{[136]=Oop [152]=Oop [248]=Oop }pc offsets: 5340
+ImmutableOopMap{[136]=Oop [152]=Oop [256]=Oop }pc offsets: 6244
+ImmutableOopMap{[136]=Oop [152]=Oop [264]=Oop }pc offsets: 7148
+ImmutableOopMap{[136]=Oop [152]=Oop }pc offsets: 7172
+ImmutableOopMap{[152]=Oop [272]=Oop [280]=Oop }pc offsets: 7652
+ImmutableOopMap{[152]=Oop [280]=Oop [272]=Oop }pc offsets: 8012 8372 8732
+ImmutableOopMap{[152]=Oop }pc offsets: 9116 9132 9190
+ImmutableOopMap{rsi=Oop [152]=Oop }pc offsets: 9269
+ImmutableOopMap{[152]=Oop }pc offsets: 9302 9312
+ImmutableOopMap{[152]=Oop rbx=Oop }pc offsets: 9411
+ImmutableOopMap{[152]=Oop rbx=Oop r14=Oop }pc offsets: 9424
+ImmutableOopMap{[152]=Oop rbx=Oop r14=Oop r9=Oop }pc offsets: 9457 9490 9523 9536
+ImmutableOopMap{[152]=Oop rbx=Oop r14=Oop r9=Oop rax=Oop }pc offsets: 9569 9602 9635 9668
+ImmutableOopMap{[136]=Oop [152]=Oop }pc offsets: 9681
+ImmutableOopMap{[136]=Oop [152]=Oop [168]=Oop }pc offsets: 9694
+ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop }pc offsets: 9707
+ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop rbx=Oop }pc offsets: 9720
+ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop rbx=Oop r9=Oop }pc offsets: 9753 9786 9819 9832
+ImmutableOopMap{[136]=Oop [152]=Oop [176]=Oop rbx=Oop r9=Oop rax=Oop }pc offsets: 9865 9898 9931 9964
+ImmutableOopMap{[136]=Oop [152]=Oop }pc offsets: 9977
+ImmutableOopMap{[136]=Oop [152]=Oop [192]=Oop }pc offsets: 9990
+ImmutableOopMap{[136]=Oop [152]=Oop [200]=Oop }pc offsets: 10003
+ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop }pc offsets: 10016
+ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop rbx=Oop }pc offsets: 10029
+ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop rbx=Oop r9=Oop }pc offsets: 10062 10095 10128 10141
+ImmutableOopMap{[136]=Oop [152]=Oop [208]=Oop rbx=Oop r9=Oop rax=Oop }pc offsets: 10174 10207 10240 10273
+ImmutableOopMap{[136]=Oop [152]=Oop }pc offsets: 10286
+ImmutableOopMap{[136]=Oop [152]=Oop [224]=Oop }pc offsets: 10299
+ImmutableOopMap{[136]=Oop [152]=Oop [232]=Oop }pc offsets: 10312
+ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop }pc offsets: 10325
+ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop rbx=Oop }pc offsets: 10338
+ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop rbx=Oop r9=Oop }pc offsets: 10371 10404 10437 10450
+ImmutableOopMap{[136]=Oop [152]=Oop [240]=Oop rbx=Oop r9=Oop rax=Oop }pc offsets: 10483 10516 10549 10582
+ImmutableOopMap{[136]=Oop [152]=Oop }pc offsets: 10595
+ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop }pc offsets: 10608
+ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop }pc offsets: 10641 10674 10707 10720
+ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop rax=Oop }pc offsets: 10753 10786 10819 10852
+ImmutableOopMap{[136]=Oop [152]=Oop }pc offsets: 10865
+ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop }pc offsets: 10878
+ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop }pc offsets: 10911 10944 10977 10990
+ImmutableOopMap{[136]=Oop [152]=Oop rbx=Oop r9=Oop rax=Oop }pc offsets: 11023 11056 11089 11122
+ImmutableOopMap{[136]=Oop [152]=Oop }pc offsets: 11155
+ImmutableOopMap{[152]=Oop rbx=Oop }pc offsets: 11188
+ImmutableOopMap{[152]=Oop }pc offsets: 11298
+ImmutableOopMap{[152]=Oop rbx=Oop }pc offsets: 11308 11325
+ImmutableOopMap{[152]=Oop r11=Oop }pc offsets: 11335
+ImmutableOopMap{[152]=Oop [280]=Oop rax=Oop rdi=Oop [272]=Oop }pc offsets: 11345 11354 11413 11422 11481 11490
+ImmutableOopMap{[152]=Oop [280]=Oop rax=Oop rcx=Oop [272]=Oop }pc offsets: 11549 11558
+ImmutableOopMap{[152]=Oop }pc offsets: 11640 </print_nmethod>
