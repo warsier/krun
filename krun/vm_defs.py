@@ -475,61 +475,20 @@ class JavaVMDef(BaseVMDef):
 
         return {"raw_vm_events": iter_data}
 
-class JavaLogVMDef(JavaVMDef):
-    def __init__(self, vm_path, env=None, instrument=False):
+class JavaExtraArgVMDef(JavaVMDef):
+    def __init__(self, vm_path,
+                 extra_vm_args=[""], env=None, instrument=False):
         JavaVMDef.__init__(self, vm_path, env=env,
                            instrument=instrument)
-        self.extra_vm_args += ["-XX:+UnlockDiagnosticVMOptions", "-XX:+LogCompilation", "-XX:CompileCommand=print,*richards.run"]
-        # self.extra_vm_args += ["-XX:+PrintCodeCache"]
+        self.extra_vm_args += extra_vm_args
 
-class JavaIntVMDef(JavaVMDef):
-    def __init__(self, vm_path, env=None, instrument=False):
+class JavaVtuneVMDef(JavaVMDef):
+    def __init__(self, vm_path, customized_cmd,
+                 extra_vm_args=[""], env=None, instrument=False):
         JavaVMDef.__init__(self, vm_path, env=env,
                            instrument=instrument)
-        self.extra_vm_args += ["-Xint"]
-
-class JavaAotVMDef(JavaVMDef):
-    def __init__(self, vm_path, env=None, instrument=False):
-        JavaVMDef.__init__(self, vm_path, env=env,
-                           instrument=instrument)
-        self.extra_vm_args += ["-Xcomp"]
-
-class JavaDelayedJitVMDef(JavaVMDef):
-    def __init__(self, vm_path, env=None, instrument=False, threshold=50000):
-        JavaVMDef.__init__(self, vm_path, env=env,
-                           instrument=instrument)
-        self.extra_vm_args += ["-XX:CompileThreshold="+str(threshold)]
-
-class JavaC2OnlyVMDef(JavaVMDef):
-    def __init__(self, vm_path, env=None, instrument=False):
-        JavaVMDef.__init__(self, vm_path, env=env,
-                           instrument=instrument)
-        self.extra_vm_args += ["-XX:-TieredCompilation"]
-
-class JavaC1OnlyVMDef(JavaVMDef):
-    def __init__(self, vm_path, env=None, instrument=False):
-        JavaVMDef.__init__(self, vm_path, env=env,
-                           instrument=instrument)
-        self.extra_vm_args += ["-XX:TieredStopAtLevel=1"]
-
-class JavaC2OnlyDelayedJitVMDef(JavaDelayedJitVMDef):
-    def __init__(self, vm_path, env=None, instrument=False, threshold=50000):
-        JavaDelayedJitVMDef.__init__(self, vm_path, env=env,
-                           instrument=instrument, threshold=threshold)
-        self.extra_vm_args += ["-XX:-TieredCompilation"]
-
-class JavaC1OnlyDelayedJitVMDef(JavaDelayedJitVMDef):
-    def __init__(self, vm_path, env=None, instrument=False, threshold=50000):
-        JavaDelayedJitVMDef.__init__(self, vm_path, env=env,
-                           instrument=instrument, threshold=threshold)
-        self.extra_vm_args += ["-XX:TieredStopAtLevel=1"]
-
-class JavaTestVMDef(JavaVMDef):
-    def __init__(self, vm_path, env=None, instrument=False):
-        self.vm_path = vm_path
-        self.extra_vm_args = ["-Xdebug"]
-        BaseVMDef.__init__(self, "IterationsRunner", env=env,
-                           instrument=instrument)
+        self.extra_vm_args += extra_vm_args
+        self.customized_cmd = customized_cmd
 
     def run_exec(self, entry_point, iterations,
                  param, heap_lim_k, stack_lim_k, key, key_pexec_idx,
@@ -557,14 +516,11 @@ class JavaTestVMDef(JavaVMDef):
         data_dir = "/home/admin/Documents/WeiYizhou2019/vtunekrun/"
         analysis_cnt = len(os.listdir(data_dir))
 
-        # customized_cmd = "-collect-with runsa -knob enable-stack-collection=true -knob enable-user-tasks=true -knob sampling-interval=0.1 -knob uncore-sampling-interval=1 -knob event-config=DSB2MITE_SWITCHES.PENALTY_CYCLES:sa=2000003,IDQ.DSB_CYCLES:sa=2000003,IDQ.DSB_UOPS:sa=2000003,IDQ.MITE_CYCLES:sa=2000003,IDQ.MITE_UOPS:sa=2000003"
-        # analysis_cmd = amplxe.split() + customized_cmd.split() + ["-data-limit=5000", "-quiet", "-no-summary", "-r", data_dir+str(analysis_cnt)+".customized", "--"]
-
-        #analysis_cmd = amplxe.split() + ["-collect", "hotspot", "-no-summary", "-r", data_dir+str(analysis_cnt)+".hotspot", "--"]
-
-        uarch_cmd = "-collect uarch-exploration -no-summary -start-paused"
-        analysis_cmd = amplxe.split() + uarch_cmd.split() + ["-r", data_dir+str(analysis_cnt)+".uarch", "--"]
-
+        customized_cmd = self.customized_cmd
+        analysis_cmd = amplxe.split() + customized_cmd.split() + [
+            "-data-limit=5000", "-quiet", "-no-summary",
+            "-r", data_dir+str(analysis_cnt)+".customized", "--"
+        ]
         args = analysis_cmd + args
         print(args)
 

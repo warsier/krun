@@ -1,0 +1,191 @@
+  0: iconst_0        
+  1: istore_1        
+  2: iload_1         
+  3: aload_0         
+  4: getfield        #6   // Field iterations:I
+  7: if_icmpge       386  
+ 10: invokestatic    #32  // Method Task.reset:()V
+ 13: new             #33  // class IdleTask
+ 16: dup             
+ 17: iconst_1        
+ 18: iconst_1        
+ 19: sipush          10000
+ 22: new             #34  // class TaskState
+ 25: dup             
+ 26: invokespecial   #35  // Method TaskState."<init>":()V
+ 29: invokevirtual   #36  // Method TaskState.Running:()LTaskState;
+ 32: new             #37  // class IdleTaskRec
+ 35: dup             
+ 36: invokespecial   #38  // Method IdleTaskRec."<init>":()V
+ 39: invokespecial   #39  // Method IdleTask."<init>":(IIILTaskState;LTaskRec;)V
+ 42: pop             
+ 43: new             #40  // class Packet
+ 46: dup             
+ 47: aconst_null     
+ 48: iconst_0        
+ 49: sipush          1001 
+ 52: invokespecial   #41  // Method Packet."<init>":(LPacket;II)V
+ 55: astore_2        
+ 56: new             #40  // class Packet
+ 59: dup             
+ 60: aload_2         
+ 61: iconst_0        
+ 62: sipush          1001 
+ 65: invokespecial   #41  // Method Packet."<init>":(LPacket;II)V
+ 68: astore_2        
+ 69: new             #42  // class WorkTask
+ 72: dup             
+ 73: iconst_2        
+ 74: sipush          1000 
+ 77: aload_2         
+ 78: new             #34  // class TaskState
+ 81: dup             
+ 82: invokespecial   #35  // Method TaskState."<init>":()V
+ 85: invokevirtual   #43  // Method TaskState.WaitingWithPacket:()LTaskState;
+ 88: new             #44  // class WorkerTaskRec
+ 91: dup             
+ 92: invokespecial   #45  // Method WorkerTaskRec."<init>":()V
+ 95: invokespecial   #46  // Method WorkTask."<init>":(IILPacket;LTaskState;LTaskRec;)V
+ 98: pop             
+ 99: new             #40  // class Packet
+102: dup             
+103: aconst_null     
+104: iconst_5        
+105: sipush          1000 
+108: invokespecial   #41  // Method Packet."<init>":(LPacket;II)V
+111: astore_2        
+112: new             #40  // class Packet
+115: dup             
+116: aload_2         
+117: iconst_5        
+118: sipush          1000 
+121: invokespecial   #41  // Method Packet."<init>":(LPacket;II)V
+124: astore_2        
+125: new             #40  // class Packet
+128: dup             
+129: aload_2         
+130: iconst_5        
+131: sipush          1000 
+134: invokespecial   #41  // Method Packet."<init>":(LPacket;II)V
+137: astore_2        
+138: new             #47  // class HandlerTask
+141: dup             
+142: iconst_3        
+143: sipush          2000 
+146: aload_2         
+147: new             #34  // class TaskState
+150: dup             
+151: invokespecial   #35  // Method TaskState."<init>":()V
+154: invokevirtual   #43  // Method TaskState.WaitingWithPacket:()LTaskState;
+157: new             #48  // class HandlerTaskRec
+160: dup             
+161: invokespecial   #49  // Method HandlerTaskRec."<init>":()V
+164: invokespecial   #50  // Method HandlerTask."<init>":(IILPacket;LTaskState;LTaskRec;)V
+167: pop             
+168: new             #40  // class Packet
+171: dup             
+172: aconst_null     
+173: bipush          6    
+175: sipush          1000 
+178: invokespecial   #41  // Method Packet."<init>":(LPacket;II)V
+181: astore_2        
+182: new             #40  // class Packet
+185: dup             
+186: aload_2         
+187: bipush          6    
+189: sipush          1000 
+192: invokespecial   #41  // Method Packet."<init>":(LPacket;II)V
+195: astore_2        
+196: new             #40  // class Packet
+199: dup             
+200: aload_2         
+201: bipush          6    
+203: sipush          1000 
+206: invokespecial   #41  // Method Packet."<init>":(LPacket;II)V
+209: astore_2        
+210: new             #47  // class HandlerTask
+213: dup             
+214: iconst_4        
+215: sipush          3000 
+218: aload_2         
+219: new             #34  // class TaskState
+222: dup             
+223: invokespecial   #35  // Method TaskState."<init>":()V
+226: invokevirtual   #43  // Method TaskState.WaitingWithPacket:()LTaskState;
+229: new             #48  // class HandlerTaskRec
+232: dup             
+233: invokespecial   #49  // Method HandlerTaskRec."<init>":()V
+236: invokespecial   #50  // Method HandlerTask."<init>":(IILPacket;LTaskState;LTaskRec;)V
+239: pop             
+240: aconst_null     
+241: astore_2        
+242: new             #51  // class DeviceTask
+245: dup             
+246: iconst_5        
+247: sipush          4000 
+250: aload_2         
+251: new             #34  // class TaskState
+254: dup             
+255: invokespecial   #35  // Method TaskState."<init>":()V
+258: invokevirtual   #52  // Method TaskState.Waiting:()LTaskState;
+261: new             #53  // class DeviceTaskRec
+264: dup             
+265: invokespecial   #54  // Method DeviceTaskRec."<init>":()V
+268: invokespecial   #55  // Method DeviceTask."<init>":(IILPacket;LTaskState;LTaskRec;)V
+271: pop             
+272: new             #51  // class DeviceTask
+275: dup             
+276: bipush          6    
+278: sipush          5000 
+281: aload_2         
+282: new             #34  // class TaskState
+285: dup             
+286: invokespecial   #35  // Method TaskState."<init>":()V
+289: invokevirtual   #52  // Method TaskState.Waiting:()LTaskState;
+292: new             #53  // class DeviceTaskRec
+295: dup             
+296: invokespecial   #54  // Method DeviceTaskRec."<init>":()V
+299: invokespecial   #55  // Method DeviceTask."<init>":(IILPacket;LTaskState;LTaskRec;)V
+302: pop             
+303: invokestatic    #56  // Method schedule:()V
+306: invokestatic    #57  // Method Task.get_queuePacketCount:()I
+309: istore_3        
+310: invokestatic    #58  // Method Task.get_holdCount:()I
+313: istore          4    
+315: iload_3         
+316: sipush          23246
+319: if_icmpne       330  
+322: iload           4    
+324: sipush          9297 
+327: if_icmpeq       380  
+330: getstatic       #9   // Field java/lang/System.out:Ljava/io/PrintStream;
+333: ldc             #59  // String bad checksums: %d:%d %d:%d\n
+335: iconst_4        
+336: anewarray       #60  // class java/lang/Object
+339: dup             
+340: iconst_0        
+341: iload_3         
+342: invokestatic    #61  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+345: aastore         
+346: dup             
+347: iconst_1        
+348: sipush          23246
+351: invokestatic    #61  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+354: aastore         
+355: dup             
+356: iconst_2        
+357: iload           4    
+359: invokestatic    #61  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+362: aastore         
+363: dup             
+364: iconst_3        
+365: sipush          9297 
+368: invokestatic    #61  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+371: aastore         
+372: invokevirtual   #62  // Method java/io/PrintStream.printf:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+375: pop             
+376: iconst_1        
+377: invokestatic    #63  // Method java/lang/System.exit:(I)V
+380: iinc            1, 1 
+383: goto            2    
+386: return          

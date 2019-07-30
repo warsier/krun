@@ -41,63 +41,28 @@ VMS = {
         'variants': ['default-java'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
-    'JavaLog': {
-        'vm_def': JavaLogVMDef("/home/admin/Documents/openjdk-11/build/linux-x86_64-normal-server-release/jdk/bin/java"),
-        'variants': ['default-java'],
-        'n_iterations': ITERATIONS_ALL_VMS,
-    },
-    'JavaInt': {
-        'vm_def': JavaIntVMDef("/usr/bin/java"),
-        'variants': ['default-java'],
-        'n_iterations': ITERATIONS_ALL_VMS,
-    },
-    'JavaAot': {
-        'vm_def': JavaAotVMDef("/usr/bin/java"),
-        'variants': ['default-java'],
-        'n_iterations': ITERATIONS_ALL_VMS,
-    },
-    'JavaC2Only': {
-        'vm_def': JavaC2OnlyVMDef("/usr/bin/java"),
-        'variants': ['default-java'],
-        'n_iterations': ITERATIONS_ALL_VMS,
-    },
-    'JavaC1Only': {
-        'vm_def': JavaC1OnlyVMDef("/usr/bin/java"),
-        'variants': ['default-java'],
-        'n_iterations': ITERATIONS_ALL_VMS,
-    },
     'Graal': {
         'vm_def': JavaVMDef("/home/admin/Documents/graalvm-ce-19.0.2/bin/java"),
         'variants': ['default-java'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
-    'JavaTest': {
-        'vm_def': JavaTestVMDef("/home/admin/Documents/openjdk-11/build/linux-x86_64-normal-server-release/jdk/bin/java"),
+    'JavaExtraArg': {
+        # 'vm_def': JavaExtraArgDef("/home/admin/Documents/openjdk-11/build/linux-x86_64-normal-server-release/jdk/bin/java"),
+        'vm_def': JavaExtraArgVMDef("/usr/lib/jvm/java-8-openjdk-amd64/bin/java"),
+        'variants': ['default-java'],
+        'n_iterations': ITERATIONS_ALL_VMS,
+    },
+    'JavaVtune': {
+        'vm_def': JavaVtuneVMDef(
+            vm_path="/usr/lib/jvm/java-8-openjdk-amd64/bin/java",
+            extra_vm_args=["-XX:+UnlockDiagnosticVMOptions", "-XX:+LogCompilation", "-XX:+TraceClassLoading", "-XX:+PrintAssembly", "-XX:PrintAssemblyOptions=intel"],
+            customized_cmd="-collect-with runsa -knob enable-stack-collection=true -knob enable-user-tasks=true -knob sampling-interval=0.1 -knob uncore-sampling-interval=1 -knob event-config=INST_RETIRED.ANY:sa=2000003,INST_RETIRED.ANY_P:sa=2000003",
+        ),
         'variants': ['default-java'],
         'n_iterations': ITERATIONS_ALL_VMS,
     },
 }
 
-thresholds= [0, 50000, 100000, 200000, 400000, 800000, 1600000, 3200000, 12800000]
-
-for i in thresholds:
-    VMS.update( {
-        'JavaDelayedJit_'+str(i): {
-            'vm_def': JavaDelayedJitVMDef("/usr/bin/java", threshold=i),
-            'variants': ['default-java'],
-            'n_iterations': ITERATIONS_ALL_VMS,
-        },
-        'JavaC2OnlyDelayedJit_'+str(i): {
-            'vm_def': JavaC2OnlyDelayedJitVMDef("/usr/bin/java", threshold=i),
-            'variants': ['default-java'],
-            'n_iterations': ITERATIONS_ALL_VMS,
-        },
-        'JavaC1OnlyDelayedJit_'+str(i): {
-            'vm_def': JavaC1OnlyDelayedJitVMDef("/usr/bin/java", threshold=i),
-            'variants': ['default-java'],
-            'n_iterations': ITERATIONS_ALL_VMS,
-        },
-    } )
 
 BENCHMARKS = {
 #    'binarytrees': 25,
@@ -113,21 +78,10 @@ SKIP = [
     "*:C:*",
     "*:PyPy:*",
     "*:Java:*",
-    # "*:JavaLog:*",
-    "*:JavaInt:*",
-    "*:JavaAot:*",
-    "*:JavaC2Only:*",
-    "*:JavaC1Only:*",
+    "*:JavaExtraArg:*",
     "*:Graal:*",
-    "*:JavaTest:*",
+    # "*:JavaVtune:*",
 ]
-
-for i in thresholds:
-    SKIP += [
-        "*:JavaDelayedJit_"+str(i)+":*",
-        "*:JavaC2OnlyDelayedJit_"+str(i)+":*",
-        "*:JavaC1OnlyDelayedJit_"+str(i)+":*",
-    ]
 
 N_EXECUTIONS = 1  # Number of fresh processes.
 
