@@ -476,19 +476,12 @@ class JavaVMDef(BaseVMDef):
         return {"raw_vm_events": iter_data}
 
 class JavaExtraArgVMDef(JavaVMDef):
-    def __init__(self, vm_path,
+    def __init__(self, vm_path, customized_submit="",
                  extra_vm_args=[""], env=None, instrument=False):
         JavaVMDef.__init__(self, vm_path, env=env,
                            instrument=instrument)
         self.extra_vm_args += extra_vm_args
-
-class JavaVtuneVMDef(JavaVMDef):
-    def __init__(self, vm_path, customized_cmd,
-                 extra_vm_args=[""], env=None, instrument=False):
-        JavaVMDef.__init__(self, vm_path, env=env,
-                           instrument=instrument)
-        self.extra_vm_args += extra_vm_args
-        self.customized_cmd = customized_cmd
+        self.customized_submit = customized_submit
 
     def run_exec(self, entry_point, iterations,
                  param, heap_lim_k, stack_lim_k, key, key_pexec_idx,
@@ -512,22 +505,31 @@ class JavaVtuneVMDef(JavaVMDef):
         args += [self.iterations_runner, entry_point.target,
                  str(iterations), str(param)]
 
-        amplxe = "/opt/intel/vtune_amplifier_2019.4.0.597835/bin64/amplxe-cl"
-        data_dir = "/home/admin/Documents/WeiYizhou2019/vtunekrun/"
-        analysis_cnt = len(os.listdir(data_dir))
-
-        customized_cmd = self.customized_cmd
-        analysis_cmd = amplxe.split() + customized_cmd.split() + [
-            "-data-limit=5000", "-quiet", "-no-summary",
-            "-r", data_dir+str(analysis_cnt)+".customized", "--"
-        ]
-        args = analysis_cmd + args
+        
+        args = self.customized_submit + args
         print(args)
 
         return self._run_exec(args, heap_lim_k, stack_lim_k, key,
                               key_pexec_idx,
                               bench_env_changes=bench_env_changes,
                               sync_disks=sync_disks)
+
+class JavaVtuneVMDef(JavaExtraArgVMDef):
+    def __init__(self, vm_path, customized_cmd,
+                 extra_vm_args=[""], env=None, instrument=False):
+        JavaVMDef.__init__(self, vm_path, env=env,
+                           instrument=instrument)
+        self.extra_vm_args += extra_vm_args
+
+        amplxe = "/opt/intel/vtune_amplifier_2019.4.0.597835/bin64/amplxe-cl"
+        data_dir = "/home/admin/Documents/WeiYizhou2019/vtunekrun/"
+        analysis_cnt = len(os.listdir(data_dir))
+
+        analysis_cmd = amplxe.split() + customized_cmd.split() + [
+            "-data-limit=5000", "-quiet", "-no-summary",
+            "-r", data_dir+str(analysis_cnt)+".customized", "--"
+        ]
+        self.customized_submit = analysis_cmd
 
 
 def find_internal_jvmci_java_home(base_dir):
